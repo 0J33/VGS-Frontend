@@ -3,6 +3,7 @@ import NavBar from "./components/NavBar";
 import HomePage from "./pages/HomePage";
 import Portofolio from "./pages/Portofolio";
 import GamesPage from "./pages/GamesPage";
+import CmsPage from "./pages/CmsPage";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 export default function App() {
@@ -11,6 +12,7 @@ export default function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/cms" element={<CmsPage />} />
         <Route path="/portofolio" element={<Portofolio />} />
         <Route path="/games" element={<GamesPage />} />
       </Routes>

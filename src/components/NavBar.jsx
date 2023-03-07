@@ -64,12 +64,14 @@ export default function NavBar() {
                         transformOrigin={{vertical:"top", horizontal:"right"}}
                     >
                         <MenuItem onClick={e => setMenuStatus(false)}><MenuLink href="/">Home</MenuLink></MenuItem>
+                        <MenuItem onClick={e => setMenuStatus(false)}><MenuLink href="/cms">CMS</MenuLink></MenuItem>
                         <MenuItem onClick={e => setMenuStatus(false)}><MenuLink href="/portofolio">Portofolio</MenuLink></MenuItem>
                         <MenuItem onClick={e => setMenuStatus(false)}><MenuLink href="/games">Games</MenuLink></MenuItem>
                     </Menu>
                 </SmDiv>
                 <StyledDiv>
                     <StyledLink href="/">Home</StyledLink>
+                    <StyledLink href="/cms">CMS</StyledLink>
                     <StyledLink href="/portofolio">Portofolio</StyledLink>
                     <StyledLink href="/games">Games</StyledLink>
                 </StyledDiv>
