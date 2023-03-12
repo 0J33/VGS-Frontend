@@ -1,7 +1,8 @@
-import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { styled, Box, Typography, Button } from "@mui/material";
 import { Unity, useUnityContext } from "react-unity-webgl";
+import { useNavigate } from "react-router-dom";
 
 const StyledBox = styled(Box)(({theme}) => ({
     display:"none",
@@ -49,6 +50,8 @@ const StyledH2Text = styled(Typography)(({theme}) => ({
 }))
 
 export default function GamePage() {
+    const navigate = useNavigate();
+
     const { unityProvider, loadingProgression, isLoaded } = useUnityContext({
         loaderUrl:"/ghosty2game/Ghosty2.loader.js",
         dataUrl:"/ghosty2game/Ghosty2.data",
@@ -57,6 +60,20 @@ export default function GamePage() {
     });
 
     const [isGameOn, setIsGameOn] = useState(false);
+
+    function getCookie() {
+        var cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            if(cookies.at(i).includes("sessionId")) {
+                return;
+            }
+        }
+        navigate("/login");
+    }
+
+    useEffect(() => {
+        getCookie();
+    }, []);
 
     return (
         <MainWrapper>  

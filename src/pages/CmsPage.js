@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { styled, Box } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const MainWrapper = styled(Box) ({
     width:"100%",
@@ -13,6 +14,7 @@ const MainWrapper = styled(Box) ({
 const gdd_url = "http://127.0.0.1:8000/api/gdd";
 
 export default function CmsPage() {
+    const navigate = useNavigate();
     const [data, setData] = useState([]);
 
     async function getGDD() {
@@ -20,7 +22,18 @@ export default function CmsPage() {
         .then(res => setData(res.data)) 
     }
 
+    function getCookie() {
+        var cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            if(cookies.at(i).includes("sessionId")) {
+                return;
+            }
+        }
+        navigate("/login");
+    }
+
     useEffect(() => {
+        getCookie();
         getGDD();
     }, []);
 

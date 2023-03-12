@@ -1,5 +1,6 @@
-import React from "react";
+import { useEffect } from "react";
 import { Box, styled, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const StyledBox = styled(Box)(({theme}) => ({
     width:"100%",
@@ -19,6 +20,21 @@ const StyledH2Text = styled(Typography)(({theme}) => ({
 }));
 
 export default function HomePage() {
+    const navigate = useNavigate();
+
+    function getCookie() {
+        var cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            if(cookies.at(i).includes("sessionId")) {
+                return;
+            }
+        }
+        navigate("/login");
+    }
+
+    useEffect(() => {
+        getCookie();
+    }, []);
     return(
         <StyledBox>
             <img className="body-logo" src="https://i.ibb.co/QrkLL3P/VGS-Logo.png" />

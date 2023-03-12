@@ -1,0 +1,127 @@
+.body-wrapper {
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: center;
+}
+
+.white-card {
+    margin:20px;
+    width:800px;
+    height:400px;
+    background-color: white;
+    border-radius: 20px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 5px;
+}
+
+.left-card {
+    width:350px;
+    height: 370px;
+    background-color: #cd1a4f;
+    border-radius:20px;
+}
+
+.left-card-heading {
+    font-family: 'sen';
+    font-weight: 800;
+    color:white;
+    font-size:45px;
+    text-align: center;
+}
+
+.left-card-text {
+    text-align: center;
+    font-family: 'sen';
+    color: white;
+    font-weight:700;
+}
+
+.top-text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap:5px;
+}
+
+.text-logo {
+    width:200px;
+    height:80px;
+}
+
+.right-card-wrapper {
+    text-align: left;
+    width: 400px;
+    height:320px;
+}
+
+.right-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap:10px;
+}
+
+.right-card-text {
+    text-align: start;
+    color:#cd1a4f;
+    font-family:'sen';
+    font-weight:800;
+}
+
+.input-label {
+    font-family: 'sen';
+    font-weight:700;
+}
+
+input {
+    border-radius:5px;
+    padding: 12px 16px;
+    height:40px;
+    width:340px;
+    box-sizing: border-box;
+}
+
+.btn{
+font-family: Roboto, sans-serif;
+font-weight: 0;
+font-size: 14px;
+color: #fff;
+background-color: #cd1a4f;
+padding: 10px 30px;
+border: none;
+box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+border-radius: 8px;
+transition : 1000ms;
+transform: translateY(0);
+display: flex;
+flex-direction: row;
+align-items: center;
+cursor: pointer;
+text-transform: uppercase;
+}
+
+.btn:hover{
+    cursor: pointer;
+}
+
+.contacts-wrapper {
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    align-items: center;
+    justify-content: center;
+    gap:20px;
+}
+
+.contact-logo {
+    width:40px;
+    height:40px;
+}
+
