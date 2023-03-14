@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Box, styled, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import "../css/home-page.css";
 
 const StyledBox = styled(Box)(({theme}) => ({
     width:"100%",
@@ -9,7 +10,8 @@ const StyledBox = styled(Box)(({theme}) => ({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor:"rgb(25, 25, 26)"
+    backgroundColor:"rgb(25, 25, 26)",
+    marginTop:"20px",
 }));
 
 const StyledH2Text = styled(Typography)(({theme}) => ({
@@ -36,9 +38,20 @@ export default function HomePage() {
         getCookie();
     }, []);
     return(
-        <StyledBox>
-            <img className="body-logo" src="https://i.ibb.co/QrkLL3P/VGS-Logo.png" />
-            <StyledH2Text variant="h2">Welcome to VGS</StyledH2Text>
-        </StyledBox>
+        <div>
+            <a name="About">
+                <div className="section-one" id="#About">
+                    <StyledBox>
+                        <img className="body-logo" src="https://i.ibb.co/QrkLL3P/VGS-Logo.png" />
+                        <StyledH2Text variant="h2">Welcome to VGS</StyledH2Text>
+                    </StyledBox>
+                </div>
+            </a>
+            <a name="Mentors">
+                <div className="section-two" id="#Mentors">
+
+                </div>
+            </a>
+       </div>
     )
 }

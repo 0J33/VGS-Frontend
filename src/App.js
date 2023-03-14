@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "./components/NavBar";
+import Navbar2 from "./components/Navbar2";
 import HomePage from "./pages/HomePage";
 import Portofolio from "./pages/Portofolio";
 import GamesPage from "./pages/GamesPage";
@@ -11,16 +11,16 @@ import { CookiesProvider } from "react-cookie";
 export default function App() {
   return (
     <CookiesProvider>
-    <Router>
-      <NavBar />
-      <Routes> 
-        <Route path="/" element={<HomePage />} />
-        <Route path="/cms" element={<CmsPage />} />
-        <Route path="/portofolio" element={<Portofolio />} />
-        <Route path="/games" element={<GamesPage />} />
-        <Route path="/login" element={<LoginPage />} />
-      </Routes>
-    </Router>
+      <Router>
+        <Navbar2 />
+        <Routes> 
+          <Route path="/" element={<HomePage />} />
+          <Route path="/cms" element={<CmsPage />} />
+          <Route path="/portofolio" element={<Portofolio />} />
+          <Route path="/games" element={<GamesPage />} />
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
+      </Router>
     </CookiesProvider>
   );
 }

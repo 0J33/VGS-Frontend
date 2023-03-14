@@ -13,15 +13,45 @@ export default function LoginPage() {
     const [gucId, setGucId] = useState("");
     const [password, setPassword] = useState("");
 
+    const [error, setError] = useState(false);
+    const [errMsg, setErrMsg] = useState("");
+
     async function loginUser() {
-        var body = {'guc_id': gucId, 'password':password};
+        var body = {'member_id': gucId, 'password': password};
         await axios.post(loginUrl, body)
-        .then(response => setCookies('sessionId', response.data.sessionId, {path: '/'}))
-        navigate("/");
+        .then((response) => {
+            if (response.status === 200) {
+                setCookies('sessionId', response.data.sessionId, {path: '/'});
+                navigate("/");
+            } else {
+                setError(true);
+                setErrMsg(response.data.errMsg);
+            }
+        })
+        .catch((err) => {
+            setError(true);
+            setErrMsg(err.response.data.errMsg);
+        });
+    }
+
+    function closeErrorBox() {
+        setError(false);
     }
 
     return (
         <div className="body-wrapper">
+            {
+                error && (
+                    <div className="err-box">
+                        <h1 className="err-msg">
+                            {errMsg}
+                        </h1>
+                        <div className="close-icon" onClick={closeErrorBox}>
+                            <h3 className="close-icon-text">X</h3>
+                        </div>
+                    </div>
+                )
+            }
             <div className="white-card">
                 <div className="left-card">
                   <div className="left-card-body">
@@ -34,7 +64,7 @@ export default function LoginPage() {
                     <div className="contacts-wrapper">
                         <a href="/"><svg className="contact-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="500px" height="500px">    <path d="M25,3C12.85,3,3,12.85,3,25c0,11.03,8.125,20.137,18.712,21.728V30.831h-5.443v-5.783h5.443v-3.848 c0-6.371,3.104-9.168,8.399-9.168c2.536,0,3.877,0.188,4.512,0.274v5.048h-3.612c-2.248,0-3.033,2.131-3.033,4.533v3.161h6.588 l-0.894,5.783h-5.694v15.944C38.716,45.318,47,36.137,47,25C47,12.85,37.15,3,25,3z"/></svg></a>
                         <a href="/"><svg className="contact-logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="500px" height="500px">    <path d="M 16 3 C 8.83 3 3 8.83 3 16 L 3 34 C 3 41.17 8.83 47 16 47 L 34 47 C 41.17 47 47 41.17 47 34 L 47 16 C 47 8.83 41.17 3 34 3 L 16 3 z M 37 11 C 38.1 11 39 11.9 39 13 C 39 14.1 38.1 15 37 15 C 35.9 15 35 14.1 35 13 C 35 11.9 35.9 11 37 11 z M 25 14 C 31.07 14 36 18.93 36 25 C 36 31.07 31.07 36 25 36 C 18.93 36 14 31.07 14 25 C 14 18.93 18.93 14 25 14 z M 25 16 C 20.04 16 16 20.04 16 25 C 16 29.96 20.04 34 25 34 C 29.96 34 34 29.96 34 25 C 34 20.04 29.96 16 25 16 z"/></svg></a>
-                        <a href="/"><svg className="contact-logo" xmlns="http://www.w3.org/2000/svg" width="514" height="362" viewBox="0 0 514 362"><path id="Mail" class="cls-1" d="M29,4c3.279-.311,9.544-1.273,12-3H437c17.608,0,36.737-.932,49,4-0.333.333-199,200-212,213-4.6,4.593-9.93,13.372-22,10-8.113-2.267-13.608-11.608-19-17C219.335,197.335,28.667,4.333,29,4ZM159,182L5,27c-5.268,22.7-4,56.326-4,85V255c0,18.89-4.018,67.657,4,78C5,333.667,159,182,159,182ZM509,27c0.76,4.886,4,4.9,4,14V260c0,17.245,3.393,69.459-6,75-37.33-37.663-152-155-152-155S508.333,27,509,27ZM180,203c6.121,2.239,9.74,8.74,14,13,17.894,17.894,44.695,55.326,83,39,13.118-5.591,33.465-29.466,44-40,4.006-4.006,7.207-9.887,13-12l90,90c14.833,14.833,29.167,30.167,44,45l18,18-1,1c-6.289,4.863-19.015,4-30,4H61c-11.508,0-25.4,1.118-32-4l-1-1,18-18c14.833-14.833,29.167-30.167,44-45Z"/></svg></a>
+                        <a href="/"><svg className="contact-logo" xmlns="http://www.w3.org/2000/svg" width="514" height="362" viewBox="0 0 514 362"><path id="Mail" d="M29,4c3.279-.311,9.544-1.273,12-3H437c17.608,0,36.737-.932,49,4-0.333.333-199,200-212,213-4.6,4.593-9.93,13.372-22,10-8.113-2.267-13.608-11.608-19-17C219.335,197.335,28.667,4.333,29,4ZM159,182L5,27c-5.268,22.7-4,56.326-4,85V255c0,18.89-4.018,67.657,4,78C5,333.667,159,182,159,182ZM509,27c0.76,4.886,4,4.9,4,14V260c0,17.245,3.393,69.459-6,75-37.33-37.663-152-155-152-155S508.333,27,509,27ZM180,203c6.121,2.239,9.74,8.74,14,13,17.894,17.894,44.695,55.326,83,39,13.118-5.591,33.465-29.466,44-40,4.006-4.006,7.207-9.887,13-12l90,90c14.833,14.833,29.167,30.167,44,45l18,18-1,1c-6.289,4.863-19.015,4-30,4H61c-11.508,0-25.4,1.118-32-4l-1-1,18-18c14.833-14.833,29.167-30.167,44-45Z"/></svg></a>
                     </div>
                   </div>
                 </div>
@@ -45,7 +75,7 @@ export default function LoginPage() {
                         <input placeholder="XX-XXXXX" type="text" onChange={(event) => {setGucId(event.target.value)}} />
                         <label className="input-label">Password</label>
                         <input placeholder="********" type="password" onChange={(event) => {setPassword(event.target.value)}} />
-                        <div style={{height:'10px;'}}></div>
+                        <div style={{height:'10px'}}></div>
                         <button className="btn" onClick={loginUser}>Login</button>
                     </div>
                 </div>

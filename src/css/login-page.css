@@ -6,8 +6,31 @@
     justify-content: center;
 }
 
+.err-box {
+    margin-top:30px;
+    width: 500px;
+    height:50px;
+    display:flex;
+    flex-direction: row;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    border: 1px solid black;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.close-icon:hover {
+    cursor:pointer;
+}
+
+.err-msg {
+    font-family:'sen';
+    font-weight:900;
+    color: red;
+}
+
 .white-card {
-    margin:20px;
+    margin:100px 100px;
     width:800px;
     height:400px;
     background-color: white;
