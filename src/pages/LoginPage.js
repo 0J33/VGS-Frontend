@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
+import LoadingSpinner from "../components/LoadingSpinner";
 import axios from "axios";
 import "../css/login-page.css";
 
@@ -10,6 +11,8 @@ export default function LoginPage() {
     const navigate = useNavigate();
     const [cookies, setCookies] = useCookies();
 
+    const [showSpinner, setShowSpinner] = useState(false);
+
     const [gucId, setGucId] = useState("");
     const [password, setPassword] = useState("");
 
@@ -18,6 +21,7 @@ export default function LoginPage() {
 
     async function loginUser() {
         var body = {'member_id': gucId, 'password': password};
+        setShowSpinner(true);
         await axios.post(loginUrl, body)
         .then((response) => {
             if (response.status === 200) {
@@ -25,12 +29,14 @@ export default function LoginPage() {
                 navigate("/");
             } else {
                 setError(true);
+                setShowSpinner(false);
                 setErrMsg(response.data.errMsg);
             }
         })
         .catch((err) => {
             setError(true);
-            setErrMsg(err.response.data.errMsg);
+            setShowSpinner(false);
+            setErrMsg("An error occurred !");
         });
     }
 
@@ -52,7 +58,7 @@ export default function LoginPage() {
                     </div>
                 )
             }
-            <div className="white-card">
+            <div className={error ? "white-card-error" : "white-card"}>
                 <div className="left-card">
                   <div className="left-card-body">
                     <div className="top-text">
@@ -76,7 +82,11 @@ export default function LoginPage() {
                         <label className="input-label">Password</label>
                         <input placeholder="********" type="password" onChange={(event) => {setPassword(event.target.value)}} />
                         <div style={{height:'10px'}}></div>
-                        <button className="btn" onClick={loginUser}>Login</button>
+                        {
+                            showSpinner ? (<LoadingSpinner />) : (
+                                <button className="btn" onClick={loginUser}>Login</button>
+                            )
+                        }
                     </div>
                 </div>
             </div>

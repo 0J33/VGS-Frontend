@@ -7,7 +7,7 @@
 }
 
 .err-box {
-    margin-top:30px;
+    margin-top:100px;
     width: 500px;
     height:50px;
     display:flex;
@@ -30,8 +30,8 @@
 }
 
 .white-card {
-    margin:100px 100px;
-    width:800px;
+    margin: 150px 100px;
+    width:850px;
     height:400px;
     background-color: white;
     border-radius: 20px;
@@ -39,12 +39,25 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    gap: 5px;
+    gap: 40px;
+}
+
+.white-card-error {
+    margin: 60px 100px;
+    width:850px;
+    height:400px;
+    background-color: white;
+    border-radius: 20px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 40px;   
 }
 
 .left-card {
-    width:350px;
-    height: 370px;
+    width:360px;
+    height: 375px;
     background-color: #cd1a4f;
     border-radius:20px;
 }
