@@ -11,7 +11,7 @@ const MainWrapper = styled(Box) ({
     justifyContent:"flex-start"
 });
 
-const gdd_url = "http://127.0.0.1:8000/api/gdd";
+const gdd_url = "https://vgs-production.up.railway.app/api/gdd";
 
 export default function CmsPage() {
     const navigate = useNavigate();

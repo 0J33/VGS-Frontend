@@ -6,7 +6,7 @@ import axios from "axios";
 import "../css/login-page.css";
 
 export default function LoginPage() {
-    const loginUrl = "http://127.0.0.1:8000/api/profiles/login";
+    const loginUrl = "https://vgs-production.up.railway.app/api/profiles/login";
 
     const navigate = useNavigate();
     const [cookies, setCookies] = useCookies();

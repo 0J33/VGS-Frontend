@@ -11,7 +11,7 @@ const StyledBox = styled(Box)(({theme}) => ({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor:"rgb(25, 25, 26)",
-    marginTop:"20px",
+    marginTop:"80px",
 }));
 
 const StyledH2Text = styled(Typography)(({theme}) => ({
