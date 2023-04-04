@@ -7,6 +7,7 @@ import CmsPage from "./pages/CmsPage";
 import LoginPage from "./pages/LoginPage";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import { CookiesProvider } from "react-cookie";
+import AdminPage from "./pages/AdminPage";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="/portofolio" element={<Portofolio />} />
           <Route path="/games" element={<GamesPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/admin" element={<AdminPage />} />
         </Routes>
       </Router>
     </CookiesProvider>
