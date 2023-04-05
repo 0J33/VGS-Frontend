@@ -25,10 +25,18 @@ AWS.config.update({
 const adminApiEndpoint = "https://vgs-production.up.railway.app/api/profiles/admin";
 
 export default function AdminPage() {
+    const [showProgress, setShowProgress] = useState(false);
     const [progress, setProgress] = useState(0);
     const [selectedFile, setSelectedFile] = useState(null);
+    const [selectedFileName, setSelectedFileName] = useState("");
     
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
+
+    const [resourceName, setResourceName] = useState("");
+    const [committee, setCommittee] = useState("GDD"); // GDD set as the default value
+    const [selectedFileType, setSelectedFileType] = useState("IMAGE");
 
     const navigate = useNavigate();
 
@@ -61,17 +69,39 @@ export default function AdminPage() {
         region: REGION
     });
 
+    function handleCommitteeSelect(e) {
+        setCommittee(e.target.value);
+    }
+
     function handleFileInput(e) {
         setSelectedFile(e.target.files[0]);
+        setSelectedFileName(e.target.files[0].name);
+    }
+
+    function handleFileTypeChange(e) {
+        setSelectedFileType(e.target.value);
     }
 
     function handleUpload(file) {
+        console.log(committee);
+        if (file == null) {
+            setError(true);
+            setErrorMessage("Please Choose a file to be uploaded");
+            return;
+        }
+        if (resourceName.trim() === "") {
+            setError(true);
+            setErrorMessage("Please Provide a name for the resource");
+            return;
+        }
         const params = {
             Bucket: S3_BUCKET,
             Body: file,
             Key: file.name
         }
         
+        setShowProgress(true);
+
         myBucket.putObject(params)
             .on('httpUploadProgress', (evt) => {
                 setProgress(Math.round((evt.loaded/evt.total)*100));
@@ -93,6 +123,11 @@ export default function AdminPage() {
     return (
         <div className="body">
             {
+                error && (
+                    <h3 className="error">{errorMessage}</h3>
+                )
+            }
+            {
                 loading ? (
                     <div className="loading-body"> 
                         <LoadingSpinner />
@@ -101,12 +136,40 @@ export default function AdminPage() {
                 ) : (
                     <div className="form-wrapper">
                         <div className="form-body">
-                            <h3 className="text">Admin Page : progress {progress}%</h3>
-                           <div className="file-input">
-                                <label className="label">
-                                    <input type="file" required/>
-                                    <span>Select a file</span>
+                            {
+                                showProgress && (
+                                    <h3 className="text">upload progress : {progress}%</h3>
+                                )
+                            }
+                            <label className="text-label">Committee Name</label>      
+                            <div className="select-wrapper">
+                                <label>
+                                    <select onChange={handleCommitteeSelect}>
+                                        <option value="GDD" >GDD</option>
+                                        <option value="GAD" >GAD</option>
+                                    </select>
                                 </label>
+                            </div>
+                            <label className="text-label">Resource Type</label>      
+                            <div className="select-wrapper">
+                                <label>
+                                    <select onChange={handleFileTypeChange}>
+                                        <option value="IMAGE">IMAGE</option>
+                                        <option value="VIDEO">VIDEO</option>
+                                        <option value="OTHER">OTHER</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <label className="text-label">Resource Name</label>
+                            <input type="text" onChange={(event) => setResourceName(event.target.value)} placeholder="Enter a name for your file" />
+                            <div className="file-input-wrapper">
+                                <div className="file-input">
+                                    <label className="label">
+                                        <input type="file" onChange={handleFileInput} />
+                                        <span>Select a file</span>
+                                    </label>
+                                </div>
+                                <p className="text">{selectedFileName}</p>
                             </div>
                             <button className="btn" onClick={() => handleUpload(selectedFile)}>upload</button>
                         </div>
