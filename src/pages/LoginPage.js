@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import LoadingSpinner from "../components/LoadingSpinner";
@@ -18,6 +18,16 @@ export default function LoginPage() {
 
     const [error, setError] = useState(false);
     const [errMsg, setErrMsg] = useState("");
+
+    function getCookie() {
+        var cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            if(cookies.at(i).includes("sessionId")) {
+                return;
+            }
+        }
+        navigate("/login");
+    }
 
     async function loginUser() {
         var body = {'member_id': gucId, 'password': password};
@@ -43,6 +53,10 @@ export default function LoginPage() {
     function closeErrorBox() {
         setError(false);
     }
+
+    useEffect(() => {
+        getCookie();
+    }, []);
 
     return (
         <div className="body-wrapper">

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../css/navbar.css";
 
-export default function Navbar2() {
+export default function Navbar2({ showCms }) {
     const [activePage, setActivePage] = useState(0);
 
     return (
@@ -13,6 +13,15 @@ export default function Navbar2() {
                         <h3 className={activePage === 0 ? 'nav-item-active-text' : "nav-item-text"}>About</h3>
                     </div>
                 </a>
+                {
+                    showCms && (
+                        <a className="nav-item-anchor" href="#cms" onClick={() => setActivePage(3)}>
+                        <div className={activePage === 3 ? 'nav-item-active' : "nav-item"}>
+                            <h3 className={activePage === 3 ? 'nav-item-active-text' : "nav-item-text"}>CMS</h3>
+                        </div>
+                        </a>
+                    )
+                }
                 <a className="nav-item-anchor" href="#Mentors" onClick={() => setActivePage(1)}>
                     <div className={activePage === 1 ? 'nav-item-active' : "nav-item"}>
                         <h3 className={activePage === 1 ? 'nav-item-active-text' : "nav-item-text"}>Mentors</h3>

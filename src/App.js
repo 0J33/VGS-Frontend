@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import Navbar2 from "./components/Navbar2";
 import HomePage from "./pages/HomePage";
 import Portofolio from "./pages/Portofolio";
@@ -9,11 +9,27 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import { CookiesProvider } from "react-cookie";
 import AdminPage from "./pages/AdminPage";
 
-export default function App() {
+export default function App({ showCms }) {
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  function getCookie() {
+    var cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+        if(cookies.at(i).includes("sessionId")) {
+            setLoggedIn(true);
+            return;
+        }
+    }
+}
+
+  useEffect(() => {
+      getCookie();
+  }, []);
+
   return (
     <CookiesProvider>
       <Router>
-        <Navbar2 />
+        <Navbar2 showCms={loggedIn} />
         <Routes> 
           <Route path="/" element={<HomePage />} />
           <Route path="/cms" element={<CmsPage />} />

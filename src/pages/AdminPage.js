@@ -1,6 +1,10 @@
 import "../css/admin-page.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import AWS from "aws-sdk";
+import LoadingSpinner from "../components/LoadingSpinner";
+import axios from "axios";
+import App from "../App";
 
 const S3_BUCKET = "vgs-website-resources/static";
 const REGION = "us-east-1";
@@ -18,10 +22,39 @@ AWS.config.update({
     }
 });
 
+const adminApiEndpoint = "https://vgs-production.up.railway.app/api/profiles/admin";
 
 export default function AdminPage() {
     const [progress, setProgress] = useState(0);
     const [selectedFile, setSelectedFile] = useState(null);
+    
+    const [loading, setLoading] = useState(true);
+
+    const navigate = useNavigate();
+
+    function checkIsAdmin() {
+        var cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            if(cookies.at(i).includes("sessionId")) {
+               const sessionId = cookies.at(i).split("=")[1];
+               axios.post(adminApiEndpoint, {"session_id": sessionId})
+                .then((response) => {
+                    if (response.status == 200) {
+                        if (response.data.success == "False" || response.data.is_admin == "False") {
+                            navigate("/");
+                        }
+                    } else {
+                        navigate("/");
+                    }
+                })
+                .catch((err) => {
+                    navigate("/");
+                });
+                setLoading(false);
+               return;
+            }
+        }
+    }
 
     const myBucket = new AWS.S3({
         params: {Bucket: S3_BUCKET},
@@ -43,6 +76,9 @@ export default function AdminPage() {
             .on('httpUploadProgress', (evt) => {
                 setProgress(Math.round((evt.loaded/evt.total)*100));
             })
+            .on('complete', (evt) => {
+                // send request to backend to add the resource link along with other info
+            })
             .send((err) => {
                 if (err) {
                     console.log(err);
@@ -50,12 +86,33 @@ export default function AdminPage() {
             });
     }
 
+    useEffect(() => {
+        checkIsAdmin();
+    }, []);
     
     return (
         <div className="body">
-            <h3 className="text">Admin Page : progress {progress}%</h3>
-            <input type="file" onChange={handleFileInput} />
-            <button onClick={() => handleUpload(selectedFile)}>upload</button>
+            {
+                loading ? (
+                    <div className="loading-body"> 
+                        <LoadingSpinner />
+                        <h3>Please Wait while we verify your identity</h3>
+                    </div>
+                ) : (
+                    <div className="form-wrapper">
+                        <div className="form-body">
+                            <h3 className="text">Admin Page : progress {progress}%</h3>
+                           <div className="file-input">
+                                <label className="label">
+                                    <input type="file" required/>
+                                    <span>Select a file</span>
+                                </label>
+                            </div>
+                            <button className="btn" onClick={() => handleUpload(selectedFile)}>upload</button>
+                        </div>
+                    </div>
+                )
+            }
         </div>
     )
 }
