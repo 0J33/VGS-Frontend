@@ -40,7 +40,7 @@ h3 {
 
 .form-wrapper {
     width: 800px;
-    height: 550px;
+    height: 580px;
     background-color: #ffffff;
     border-radius: 20px;
     display: flex;
@@ -55,6 +55,14 @@ h3 {
     align-items: flex-start;
     justify-content: flex-start;
     gap: 20px;
+}
+
+.upload-button-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
 .btn{

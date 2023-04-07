@@ -23,6 +23,7 @@ export default function LoginPage() {
         var cookies = document.cookie.split(';');
         for (let i = 0; i < cookies.length; i++) {
             if(cookies.at(i).includes("sessionId")) {
+                navigate("/");
                 return;
             }
         }
@@ -36,7 +37,7 @@ export default function LoginPage() {
         .then((response) => {
             if (response.status === 200) {
                 setCookies('sessionId', response.data.sessionId, {path: '/'});
-                navigate("/");
+                window.location.reload();
             } else {
                 setError(true);
                 setShowSpinner(false);

@@ -23,10 +23,12 @@ AWS.config.update({
 });
 
 const adminApiEndpoint = "https://vgs-production.up.railway.app/api/profiles/admin";
+const addResourceApiEndpoint = "https://vgs-production.up.railway.app/api/resources";
 
 export default function AdminPage() {
     const [showProgress, setShowProgress] = useState(false);
     const [progress, setProgress] = useState(0);
+
     const [selectedFile, setSelectedFile] = useState(null);
     const [selectedFileName, setSelectedFileName] = useState("");
     
@@ -82,8 +84,23 @@ export default function AdminPage() {
         setSelectedFileType(e.target.value);
     }
 
+    function formatResourceName(fileName) {
+        const fileNameArray = fileName.split(" ");
+        if (fileNameArray.length == 0) {
+            return fileName;
+        }
+        var formattedFileName = "";
+        for (let i = 0; i < fileNameArray.length; i++) {
+            if (i == fileNameArray.length-1) {
+                formattedFileName += fileNameArray.at(i);
+                break;
+            }
+            formattedFileName += fileNameArray.at(i)+"+";
+        }
+        return formattedFileName;
+    }
+
     function handleUpload(file) {
-        console.log(committee);
         if (file == null) {
             setError(true);
             setErrorMessage("Please Choose a file to be uploaded");
@@ -94,12 +111,21 @@ export default function AdminPage() {
             setErrorMessage("Please Provide a name for the resource");
             return;
         }
+        const formattedFileName = formatResourceName(selectedFileName);
+        const fullS3ResourceLink = "https://vgs-website-resources.s3.amazonaws.com/static/" + formattedFileName;
+        const data = {
+            "committee": committee,
+            "resource_type": selectedFileType,
+            "resource_name": resourceName,
+            "resource_link": fullS3ResourceLink
+        }
         const params = {
             Bucket: S3_BUCKET,
             Body: file,
             Key: file.name
         }
         
+        setProgress(0);
         setShowProgress(true);
 
         myBucket.putObject(params)
@@ -108,6 +134,7 @@ export default function AdminPage() {
             })
             .on('complete', (evt) => {
                 // send request to backend to add the resource link along with other info
+                axios.post(addResourceApiEndpoint, data);
             })
             .send((err) => {
                 if (err) {
@@ -136,11 +163,6 @@ export default function AdminPage() {
                 ) : (
                     <div className="form-wrapper">
                         <div className="form-body">
-                            {
-                                showProgress && (
-                                    <h3 className="text">upload progress : {progress}%</h3>
-                                )
-                            }
                             <label className="text-label">Committee Name</label>      
                             <div className="select-wrapper">
                                 <label>
@@ -171,7 +193,14 @@ export default function AdminPage() {
                                 </div>
                                 <p className="text">{selectedFileName}</p>
                             </div>
-                            <button className="btn" onClick={() => handleUpload(selectedFile)}>upload</button>
+                            <div className="upload-button-wrapper">
+                                <button className="btn" onClick={() => handleUpload(selectedFile)}>upload</button>
+                                {
+                                    showProgress && (
+                                        <h3 className="text">upload progress : {progress}%</h3>
+                                    )
+                                }
+                            </div>
                         </div>
                     </div>
                 )
