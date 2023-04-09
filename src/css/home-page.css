@@ -1,5 +1,69 @@
-.section-two {
+.body {
     width: 100%;
+    height: 100%;
+    display:flex;
+    padding: 0px;
+}
+
+.about-section-one-wrapper {
+    background-color: black;
+    width: 100%;
+    height: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+.about-section-two-wrapper {
+    background-color: white;
+    width: 100%;
+    height: 800px;
+}
+
+.text-wrapper {
+    margin-left: 50px;
+}
+
+.heading-text-wrapper {
+    width: 350px;
+}
+
+.heading-text {
+    font-family: 'sen';
+    font-weight: 900;
+    color: #33B4C1;
+}
+
+.paragraph-text-wrapper {
+    width: 432px;
+}
+
+.paragraph-text {
+    font-family: 'sen';
+    font-weight: 300;
+    color: white;
+}
+
+.vgs-logo {
+    width: 300px;
     height: 300px;
-    background-color: red;
+}
+
+.logos-section {
+    background-image: url('/public/Logomark_Black.svg');
+    width: 500px;
+    height: 700px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.triangle {
+    width: 100%;
+    height: 120px;
+    background-color: white;
+	clip-path: polygon(50% 0, 100% 100%, 0 100%);
 }

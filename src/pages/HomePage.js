@@ -1,25 +1,7 @@
 import { useEffect } from "react";
-import { Box, styled, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import "../css/home-page.css";
 
-const StyledBox = styled(Box)(({theme}) => ({
-    width:"100%",
-    height: "30rem",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor:"rgb(25, 25, 26)",
-    marginTop:"80px",
-}));
-
-const StyledH2Text = styled(Typography)(({theme}) => ({
-    fontFamily: "Courier New",
-    fontWeight: "900",
-    color: "white",
-    margin: "5%"
-}));
 
 export default function HomePage() {
     const navigate = useNavigate();
@@ -39,20 +21,45 @@ export default function HomePage() {
     }, []);
     
     return(
-        <div>
-            <a name="About">
-                <div className="section-one" id="#About">
-                    <StyledBox>
-                        <img className="body-logo" src="https://i.ibb.co/QrkLL3P/VGS-Logo.png" />
-                        <StyledH2Text variant="h2">Welcome to VGS</StyledH2Text>
-                    </StyledBox>
-                </div>
-            </a>
-            <a name="Mentors">
-                <div className="section-two" id="#Mentors">
+        <>
+            <div id="about">
+                <a name="about">
+                    <div className="about-section-one-wrapper">
+                    <div className="text-wrapper">
+                        <div className="heading-text-wrapper">
+                            <h1 className="heading-text">
+                                THE PREMIER GAME DEVELOPMENT CLUB AT THE GUC
+                            </h1>
+                        </div>
+                        <div className="paragraph-text-wrapper">
+                            <p className="paragraph-text">
+                                Want to start yout game development journey ?
+                                Our community of passionate students will
+                                provide you with the tools and support you need
+                                to bring your game ideas to life.
+                            </p>
+                            <p className="paragraph-text">
+                                With workshops, projects, and events
+                                throughout the year, VGS is the perfect place to
+                                hone your skills and make lasting connections 
+                                in the gaming industry.
+                            </p>
+                            <p className="paragraph-text">
+                                Don't miss out on this exciting opportunity to level
+                                up your game development skills!
+                            </p>
+                        </div>
+                    </div>
+                    <div className="logos-section">
+                        <img className="vgs-logo" src="/Vertical_ColorWhite.svg" />
+                    </div>
+                    </div>
+                </a>
+            </div>
+            <div className="triangle"></div>
+            <div className="about-section-two-wrapper">
 
-                </div>
-            </a>
-       </div>
+            </div>
+        </>
     )
 }

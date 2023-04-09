@@ -9,6 +9,7 @@
     position:fixed;
     top: 0px;
     overflow: hidden;
+    z-index: 20;
 }
 
 .navbar-login {
@@ -112,4 +113,9 @@
     font-family: 'sen';
     color:#cd1a4f;
     cursor: pointer;
+    background-color: #cd1a4f;
+}
+
+.login-button:hover > p {
+    color:white;
 }
