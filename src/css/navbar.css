@@ -23,6 +23,7 @@
     position:fixed;
     top: 0px;
     overflow: hidden;
+    z-index: 20;
 }
 
 .nav-items {
