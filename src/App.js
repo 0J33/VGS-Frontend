@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import Navbar2 from "./components/Navbar2";
+import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import Portofolio from "./pages/Portofolio";
 import GamesPage from "./pages/GamesPage";
@@ -29,7 +29,7 @@ export default function App({ showCms }) {
   return (
     <CookiesProvider>
       <Router>
-        <Navbar2 showCms={loggedIn} />
+        <Navbar showCms={loggedIn} />
         <Routes> 
           <Route path="/" element={<HomePage />} />
           <Route path="/cms" element={<CmsPage />} />
