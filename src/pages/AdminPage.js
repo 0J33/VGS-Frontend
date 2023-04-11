@@ -42,12 +42,12 @@ export default function AdminPage() {
 
     const navigate = useNavigate();
 
-    function checkIsAdmin() {
+    async function checkIsAdmin() {
         var cookies = document.cookie.split(';');
         for (let i = 0; i < cookies.length; i++) {
             if(cookies.at(i).includes("sessionId")) {
                const sessionId = cookies.at(i).split("=")[1];
-               axios.post(adminApiEndpoint, {"session_id": sessionId})
+               await axios.post(adminApiEndpoint, {"session_id": sessionId})
                 .then((response) => {
                     if (response.status == 200) {
                         if (response.data.success == "False" || response.data.is_admin == "False") {
@@ -158,7 +158,7 @@ export default function AdminPage() {
                 loading === true ? (
                     <div className="loading-body"> 
                         <LoadingSpinner />
-                        <h3>Please Wait while we verify your identity</h3>
+                        <h3 style={{fontFamily:"sen", color: "white"}}>Please Wait while we verify your identity</h3>
                     </div>
                 ) : (
                     <div className="form-wrapper">
