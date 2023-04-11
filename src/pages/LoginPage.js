@@ -92,8 +92,8 @@ export default function LoginPage() {
                 <div className="right-card-wrapper">
                     <div className="right-card">
                         <h1 className="right-card-text">Log In.</h1>
-                        <label className="input-label">GUC ID</label>
-                        <input placeholder="XX-XXXXX" type="text" onChange={(event) => {setGucId(event.target.value)}} />
+                        <label className="input-label">VGS ID</label>
+                        <input placeholder="XXX" type="text" onChange={(event) => {setGucId(event.target.value)}} />
                         <label className="input-label">Password</label>
                         <input placeholder="********" type="password" onChange={(event) => {setPassword(event.target.value)}} />
                         <div style={{height:'10px'}}></div>
