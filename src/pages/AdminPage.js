@@ -155,7 +155,7 @@ export default function AdminPage() {
                 )
             }
             {
-                loading ? (
+                loading === true ? (
                     <div className="loading-body"> 
                         <LoadingSpinner />
                         <h3>Please Wait while we verify your identity</h3>
