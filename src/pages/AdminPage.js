@@ -169,6 +169,7 @@ export default function AdminPage() {
                                     <select onChange={handleCommitteeSelect}>
                                         <option value="GDD" >GDD</option>
                                         <option value="GAD" >GAD</option>
+                                        <option value="GSD" >GSD</option>
                                     </select>
                                 </label>
                             </div>
