@@ -135,7 +135,7 @@ export default function HomePage() {
             <div id="mentors" className="mentors-section">
                 <div className="mentors-wrapper">
                     <div className="mentors-inner-wrapper">
-                        <h1 style={{fontSize:48, color:"white", fontFamily:"sen", fontWeight:900}}>MEET VGS' 2023 MENTORS</h1>
+                        <h1 style={{fontSize:62, color:"white", fontFamily:"sen", fontWeight:900}}>MEET VGS' 2023 MENTORS</h1>
                         <div className="committee-selection-box">
                             <div className={selectedCommittee === 0 ? "selected-committee-button-wrapper": "committee-button-wrapper"}
                                 onClick={() => setSelectedCommittee(0)}
@@ -157,19 +157,19 @@ export default function HomePage() {
                             selectedCommittee === 0 && (
                                 <div className="mentor-images-wrapper">
                                     <div className="single-mentor-image-wrapper">
-                                        <p className="mentor-name">Youssef El Sharkawy</p>
+                                        <h1 className="mentor-name">Youssef El Sharkawy</h1>
                                         <img src="/mentors-images/gdd/YoussefElSharkawy.jpg" className="mentor-image" />
                                     </div>
                                     <div className="single-mentor-image-wrapper">
-                                        <p className="mentor-name">Farah Ahmed</p>
+                                        <h1 className="mentor-name">Farah Ahmed</h1>
                                         <img src="/mentors-images/gdd/FarahAhmed.jpg" className="mentor-image" />
                                     </div>
                                     <div className="single-mentor-image-wrapper">
-                                        <p className="mentor-name">Youssef Korayem</p>
+                                        <h1 className="mentor-name">Youssef Korayem</h1>
                                         <img src="/mentors-images/gdd/YoussefKorayem.jpg" className="mentor-image" />
                                     </div>
                                     <div className="single-mentor-image-wrapper">
-                                        <p className="mentor-name">Ziad Alaa</p>
+                                        <h1 className="mentor-name">Ziad Alaa</h1>
                                         <img src="/mentors-images/gdd/ZiadAlaa.jpg" className="mentor-image" />
                                     </div>
                                 </div>
@@ -179,15 +179,15 @@ export default function HomePage() {
                             selectedCommittee === 1 && (
                                 <div className="mentor-images-wrapper">
                                     <div className="single-mentor-image-wrapper">
-                                        <p className="mentor-name">Mariam Tamer</p>
+                                        <h1 className="mentor-name">Mariam Tamer</h1>
                                         <img src="/mentors-images/gad/MariamTamer.jpg" className="mentor-image" />
                                     </div>
                                     <div className="single-mentor-image-wrapper">
-                                        <p className="mentor-name">Nada Tamer</p>
+                                        <h1 className="mentor-name">Nada Tamer</h1>
                                         <img src="/mentors-images/gad/NadaTamer.jpg" className="mentor-image" />
                                     </div>
                                     <div className="single-mentor-image-wrapper">
-                                        <p className="mentor-name">Yara El Tantawy</p>
+                                        <h1 className="mentor-name">Yara El Tantawy</h1>
                                         <img src="/mentors-images/gad/YaraElTantawy.jpg" className="mentor-image" />
                                     </div>
                                 </div>
@@ -197,15 +197,15 @@ export default function HomePage() {
                             selectedCommittee === 2 && (
                                 <div className="mentor-images-wrapper">
                                     <div className="single-mentor-image-wrapper">
-                                        <p className="mentor-name">Ibrahim Amr</p>
+                                        <h1 className="mentor-name">Ibrahim Amr</h1>
                                         <img src="/mentors-images/gsd/IbrahimAmr.jpg" className="mentor-image" />
                                     </div>
                                     <div className="single-mentor-image-wrapper">
-                                        <p className="mentor-name">Omar Yasser</p>
+                                        <h1 className="mentor-name">Omar Yasser</h1>
                                         <img src="/mentors-images/gsd/OmarYasser.jpg" className="mentor-image" />
                                     </div>
                                     <div className="single-mentor-image-wrapper">
-                                        <p className="mentor-name">Ziad El Gendi</p>
+                                        <h1 className="mentor-name">Ziad El Gendi</h1>
                                         <img src="/mentors-images/gsd/ZiadElGendi.jpg" className="mentor-image" />
                                     </div>
                                 </div>
@@ -213,6 +213,48 @@ export default function HomePage() {
                         }
                     </div>
                 </div>
+            </div>
+            <div id="games" className="game-jam-section">
+                <div className="game-jam-text-wrapper">
+                    <h1 style={{color:"white", fontFamily:"sen", fontWeight:900, fontSize:62}}>GAME JAM</h1>
+                    <div style={{width: 500}}>
+                        <h3 style={{color:"white", fontFamily:"sen", fontWeight:400, fontSize:24}}>
+                            The VGS game jam borrows its original scheme from 
+                            the idea of a game jam, where all club members are
+                            brought together, grouped into teams, and are prompted
+                            to create a fully functional game in under 72 hours.
+                            The elongated time period respects the fact that most ofthem are beginner
+                            game developers.
+                        </h3>
+                    </div>
+                </div>
+                <div className="game-jam-image-wrapper">
+                    <img src="/images/game-jam-img.png" className="game-jam-img" />
+                    <div className="white-box"></div>
+                    <div className="black-box"></div>
+                </div>
+            </div>
+            <div className="games-section">  
+                <div style={{display:"flex", flexDirection:"column", alignItems:"flex-start", justifyContent:"center", gap:"10px", padding:"0px"}}>
+                    <div style={{backgroundColor:"white", height:"80px", display:"flex", justifyContent:"center", alignItems:"center"}}>
+                        <h1 style={{color:"#cd1a4f", fontFamily:"sen", fontSize:62, fontWeight:900, backgroundColor:"white"}}>
+                            PLAY SOME OF 
+                        </h1>
+                    </div>
+                    <div style={{backgroundColor:"white", display:"flex", height: "80px", justifyContent:"center", alignItems:"center"}}>
+                        <h1 style={{color:"#cd1a4f", fontFamily:"sen", fontSize:62, fontWeight:900}}>
+                            OUR STUDENTS' 
+                        </h1>
+                    </div>
+                    <div style={{backgroundColor:"white", display:"flex", height:"80px", justifyContent:"center", alignItems:"center"}}>
+                        <h1 style={{color:"#cd1a4f", fontFamily:"sen", fontSize:62, fontWeight:900}}>
+                            CREATIONS
+                        </h1>
+                    </div>
+                </div>
+                <div className="games-button-wrapper" onClick={() => navigate("/games")}>
+                    <h3 style={{fontFamily:"sen", fontWeight:400, color:"white"}}>PLAY GAMES</h3>
+                </div>             
             </div>
         </>
     )

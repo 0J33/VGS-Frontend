@@ -30,7 +30,8 @@ const MainWrapper = styled(Box)(({theme}) => ({
     alignItems:"center",
     justifyContent:"center",
     textAlign:"center",
-    width:"100%"
+    width:"100%",
+    marginTop:"120px"
 }));
 
 const MobileOnlyText = styled(Typography)(({theme}) =>({

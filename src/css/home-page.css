@@ -205,10 +205,10 @@
 
 .mentors-section {
     width: 100%;
-    height: 700px;
+    height: 780px;
     background-color: black;
     background-image: url('/public/Logomark_Black.svg');
-    background-position: 90% 0%;
+    background-position: 90% 50%;
     background-repeat: no-repeat;
     display: flex;
 }
@@ -227,7 +227,8 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    width: 800px;
+    width: 100%;
+    margin-left: 150px;
 }
 
 .committee-selection-box {
@@ -278,15 +279,15 @@
     flex-direction: row;
     gap: 50px;
     align-items: center;
-    justify-content: center;
-    margin-top: 30px;
+    justify-content: flex-start;
+    margin-top: 20px;
 }
 
 .mentor-image {
     transition: 500ms;
-    width: 180px;
-    height: 240px;
-    opacity: 0.2;
+    width: 250px;
+    height: 300px;
+    opacity: 0.4;
 }
 
 .mentor-image:hover {
@@ -298,11 +299,11 @@
 .single-mentor-image-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+    align-items: center;
+    gap: 20px;
 }
 
-.single-mentor-image-wrapper:hover > p {
+.single-mentor-image-wrapper:hover > h1 {
     transition: 500ms;
     opacity: 1;
 }
@@ -312,4 +313,77 @@
     font-family: 'sen';
     font-weight: 900;
     opacity: 0;
+}
+
+.game-jam-section {
+    width: 100%;
+    height: 550px;
+    background-color: #cd1a4f;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.game-jam-text-wrapper {
+    margin-left: 150px;
+}
+
+.game-jam-image-wrapper {
+    display:flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.game-jam-img {
+    width: 320px;
+    height: 320px;
+    z-index: 10;
+    position: relative;
+    top: 20px;
+    left: 300px;
+}
+
+.black-box {
+    width:320px;
+    height:320px;
+    background-color: black;
+    position: relative;
+    right: 325px;
+    top: 35px;
+    z-index: 5px;
+}
+
+.white-box {
+    width:320px;
+    height:320px;
+    background-color: white;
+    position: relative;
+    right: -5px;
+    top: 45px;
+}
+
+.games-section {
+    width: 100%;
+    height: 550px;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.games-button-wrapper {
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    width: 260px;
+    height: 80px;
+}
+
+.games-button-wrapper:hover {
+    background-color: #cd1a4f;
+    cursor: pointer;
 }
