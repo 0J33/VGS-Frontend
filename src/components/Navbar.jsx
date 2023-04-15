@@ -32,25 +32,25 @@ export default function Navbar({ showCms }) {
                         <h3 className={activePage === 0 ? 'nav-item-active-text' : "nav-item-text"}>About</h3>
                     </div>
                 </a>
-                {
-                    showCms && (
-                        <a className="nav-item-anchor" href="#mentors" onClick={() => setActivePage(3)}>
-                        <div className={activePage === 3 ? 'nav-item-active' : "nav-item"}>
-                            <h3 className={activePage === 3 ? 'nav-item-active-text' : "nav-item-text"}>Mentors</h3>
-                        </div>
-                        </a>
-                    )
-                }
+                <a className="nav-item-anchor" href="#mentors" onClick={() => setActivePage(3)}>
+                    <div className={activePage === 3 ? 'nav-item-active' : "nav-item"}>
+                        <h3 className={activePage === 3 ? 'nav-item-active-text' : "nav-item-text"}>Mentors</h3>
+                    </div>
+                </a>
                 <a className="nav-item-anchor" href="#games" onClick={() => setActivePage(1)}>
                     <div className={activePage === 1 ? 'nav-item-active' : "nav-item"}>
                         <h3 className={activePage === 1 ? 'nav-item-active-text' : "nav-item-text"}>Games</h3>
                     </div>
                 </a>
-                <a className="nav-item-anchor" href="#cms" onClick={() => setActivePage(2)}>
-                    <div className={activePage === 2 ? 'nav-item-active' : "nav-item"}>
-                        <h3 className={activePage === 2 ? 'nav-item-active-text' : "nav-item-text"}>CMS</h3>
-                    </div>
-                </a>
+                {
+                    showCms && (
+                        <a className="nav-item-anchor" href="#cms" onClick={() => setActivePage(2)}>
+                            <div className={activePage === 2 ? 'nav-item-active' : "nav-item"}>
+                                <h3 className={activePage === 2 ? 'nav-item-active-text' : "nav-item-text"}>CMS</h3>
+                            </div>
+                        </a>
+                    )
+                }
             </div>
             {
                 !loggedIn && (

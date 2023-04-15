@@ -35,19 +35,19 @@ export default function LoginPage() {
         setShowSpinner(true);
         await axios.post(loginUrl, body)
         .then((response) => {
-            if (response.status === 200) {
+            if (response.status === 200 ) {
                 setCookies('sessionId', response.data.sessionId, {path: '/'});
                 window.location.reload();
             } else {
                 setError(true);
                 setShowSpinner(false);
-                setErrMsg(response.data.errMsg);
+                setErrMsg("Wrong Credentials");
             }
         })
         .catch((err) => {
             setError(true);
             setShowSpinner(false);
-            setErrMsg("An error occurred !");
+            setErrMsg(err.response.data.errMsg);
         });
     }
 
