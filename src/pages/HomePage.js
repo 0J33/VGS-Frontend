@@ -6,6 +6,8 @@ import "../css/home-page.css";
 export default function HomePage() {
     const navigate = useNavigate();
 
+    const [selectedCommittee, setSelectedCommittee] = useState(0);
+
     function getCookie() {
         var cookies = document.cookie.split(';');
         for (let i = 0; i < cookies.length; i++) {
@@ -127,6 +129,88 @@ export default function HomePage() {
                               create professional game-ready soundtracks for any genre of games.
                             </p>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div id="mentors" className="mentors-section">
+                <div className="mentors-wrapper">
+                    <div className="mentors-inner-wrapper">
+                        <h1 style={{fontSize:48, color:"white", fontFamily:"sen", fontWeight:900}}>MEET VGS' 2023 MENTORS</h1>
+                        <div className="committee-selection-box">
+                            <div className={selectedCommittee === 0 ? "selected-committee-button-wrapper": "committee-button-wrapper"}
+                                onClick={() => setSelectedCommittee(0)}
+                            >
+                                <p style={{color:"black", fontFamily:"sen", fontWeight:900}}>GDD</p>
+                            </div>
+                            <div className={selectedCommittee === 1 ? "selected-committee-button-wrapper": "committee-button-wrapper"}
+                                onClick={() => setSelectedCommittee(1)}
+                            >
+                                <p style={{color:"black", fontFamily:"sen", fontWeight:900}}>GAD</p>
+                            </div>
+                            <div className={selectedCommittee === 2 ? "selected-committee-button-wrapper": "committee-button-wrapper"}
+                                onClick={() => setSelectedCommittee(2)}
+                            >
+                                <p style={{color:"black", fontFamily:"sen", fontWeight:900}}>GSD</p>
+                            </div>
+                        </div>
+                        {
+                            selectedCommittee === 0 && (
+                                <div className="mentor-images-wrapper">
+                                    <div className="single-mentor-image-wrapper">
+                                        <p className="mentor-name">Youssef El Sharkawy</p>
+                                        <img src="/mentors-images/gdd/YoussefElSharkawy.jpg" className="mentor-image" />
+                                    </div>
+                                    <div className="single-mentor-image-wrapper">
+                                        <p className="mentor-name">Farah Ahmed</p>
+                                        <img src="/mentors-images/gdd/FarahAhmed.jpg" className="mentor-image" />
+                                    </div>
+                                    <div className="single-mentor-image-wrapper">
+                                        <p className="mentor-name">Youssef Korayem</p>
+                                        <img src="/mentors-images/gdd/YoussefKorayem.jpg" className="mentor-image" />
+                                    </div>
+                                    <div className="single-mentor-image-wrapper">
+                                        <p className="mentor-name">Ziad Alaa</p>
+                                        <img src="/mentors-images/gdd/ZiadAlaa.jpg" className="mentor-image" />
+                                    </div>
+                                </div>
+                            )
+                        }
+                        {
+                            selectedCommittee === 1 && (
+                                <div className="mentor-images-wrapper">
+                                    <div className="single-mentor-image-wrapper">
+                                        <p className="mentor-name">Mariam Tamer</p>
+                                        <img src="/mentors-images/gad/MariamTamer.jpg" className="mentor-image" />
+                                    </div>
+                                    <div className="single-mentor-image-wrapper">
+                                        <p className="mentor-name">Nada Tamer</p>
+                                        <img src="/mentors-images/gad/NadaTamer.jpg" className="mentor-image" />
+                                    </div>
+                                    <div className="single-mentor-image-wrapper">
+                                        <p className="mentor-name">Yara El Tantawy</p>
+                                        <img src="/mentors-images/gad/YaraElTantawy.jpg" className="mentor-image" />
+                                    </div>
+                                </div>
+                            )
+                        }
+                         {
+                            selectedCommittee === 2 && (
+                                <div className="mentor-images-wrapper">
+                                    <div className="single-mentor-image-wrapper">
+                                        <p className="mentor-name">Ibrahim Amr</p>
+                                        <img src="/mentors-images/gsd/IbrahimAmr.jpg" className="mentor-image" />
+                                    </div>
+                                    <div className="single-mentor-image-wrapper">
+                                        <p className="mentor-name">Omar Yasser</p>
+                                        <img src="/mentors-images/gsd/OmarYasser.jpg" className="mentor-image" />
+                                    </div>
+                                    <div className="single-mentor-image-wrapper">
+                                        <p className="mentor-name">Ziad El Gendi</p>
+                                        <img src="/mentors-images/gsd/ZiadElGendi.jpg" className="mentor-image" />
+                                    </div>
+                                </div>
+                            )
+                        }
                     </div>
                 </div>
             </div>
