@@ -324,7 +324,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .game-jam-text-wrapper {
@@ -334,7 +334,6 @@
 .game-jam-image-wrapper {
     display:flex;
     flex-direction: row;
-    width: 100%;
 }
 
 .game-jam-img {
