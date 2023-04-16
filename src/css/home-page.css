@@ -332,7 +332,6 @@
 .game-jam-image-wrapper {
     display:flex;
     flex-direction: row;
-    width: 100%;
 }
 
 .game-jam-img {
