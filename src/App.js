@@ -9,7 +9,7 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import { CookiesProvider } from "react-cookie";
 import AdminPage from "./pages/AdminPage";
 
-export default function App({ showCms }) {
+export default function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
   function getCookie() {
