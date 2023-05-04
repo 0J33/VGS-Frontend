@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/home-page.css";
 
@@ -7,20 +7,6 @@ export default function HomePage() {
     const navigate = useNavigate();
 
     const [selectedCommittee, setSelectedCommittee] = useState(0);
-
-    function getCookie() {
-        var cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-            if(cookies.at(i).includes("sessionId")) {
-                return;
-            }
-        }
-        navigate("/login");
-    }
-
-    useEffect(() => {
-        getCookie();
-    }, []);
     
     return(
         <>
@@ -254,6 +240,30 @@ export default function HomePage() {
                 </div>
                 <div className="games-button-wrapper" onClick={() => navigate("/games")}>
                     <h3 style={{fontFamily:"sen", fontWeight:400, color:"white"}}>PLAY GAMES</h3>
+                </div>             
+            </div>
+            {/* cms section bs mkasel a8ayar ay 7aga feeha*/}
+            <div style={{width:"100%", height:"8px", backgroundColor:"white"}}></div>
+            <div id="cms" className="games-section">  
+                <div style={{display:"flex", flexDirection:"column", alignItems:"flex-start", justifyContent:"center", gap:"10px", padding:"0px"}}>
+                    <div style={{backgroundColor:"white", height:"80px", display:"flex", justifyContent:"center", alignItems:"center"}}>
+                        <h1 style={{color:"#cd1a4f", fontFamily:"sen", fontSize:62, fontWeight:900, backgroundColor:"white"}}>
+                             JOIN OUR TEAM
+                        </h1>
+                    </div>
+                    <div style={{backgroundColor:"white", display:"flex", height: "80px", justifyContent:"center", alignItems:"center"}}>
+                        <h1 style={{color:"#cd1a4f", fontFamily:"sen", fontSize:62, fontWeight:900}}>
+                            TO GAIN ACCESS TO
+                        </h1>
+                    </div>
+                    <div style={{backgroundColor:"white", display:"flex", height:"80px", justifyContent:"center", alignItems:"center"}}>
+                        <h1 style={{color:"#cd1a4f", fontFamily:"sen", fontSize:62, fontWeight:900}}>
+                            OUR CMS
+                        </h1>
+                    </div>
+                </div>
+                <div className="games-button-wrapper" onClick={() => navigate("/cms")}>
+                    <h3 style={{fontFamily:"sen", fontWeight:400, color:"white"}}>EXPLORE CMS</h3>
                 </div>             
             </div>
         </>

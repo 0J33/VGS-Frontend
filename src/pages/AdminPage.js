@@ -17,8 +17,7 @@ AWS.config.update({
     maxRetries: 1, // on upload fail retry to upload only once (default is 3 times)
     httpOptions: {
         timeout: 10000000, // set timeout to 10000000 milliseconds = 167 minutes
-        connectTimeout: 10000000 // set timeout to 10000000 milliseconds = 167 minutes
-        
+        connectTimeout: 10000000 // set timeout to 10000000 milliseconds = 167 minutes 
     }
 });
 

@@ -1,7 +1,6 @@
 import { React, useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
-import Portofolio from "./pages/Portofolio";
 import GamesPage from "./pages/GamesPage";
 import CmsPage from "./pages/CmsPage";
 import LoginPage from "./pages/LoginPage";
@@ -23,7 +22,7 @@ export default function App() {
 }
 
   useEffect(() => {
-      getCookie();
+    getCookie();
   }, []);
 
   return (
@@ -33,7 +32,6 @@ export default function App() {
         <Routes> 
           <Route path="/" element={<HomePage />} />
           <Route path="/cms" element={<CmsPage />} />
-          <Route path="/portofolio" element={<Portofolio />} />
           <Route path="/games" element={<GamesPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/admin" element={<AdminPage />} />
