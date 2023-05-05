@@ -1,0 +1,62 @@
+.games-page-body {
+    margin-top:10%;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: flex-start;
+    height:100%;
+    width:100%;
+}
+
+.game-name {
+    font-family:'sen';
+    font-weight:900;
+    font-size: 64px;
+    color:white;
+}
+
+.game-section {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+}
+
+.game-section-active {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+}
+
+.play-button {
+    width: 80px;
+    height: 30px;
+    border: 3px solid #cd1a4f;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
+    font-family: 'sen';
+    color:#cd1a4f;
+}
+
+.play-button:hover {
+    width: 80px;
+    height: 30px;
+    border: 3px solid #cd1a4f;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
+    font-family: 'sen';
+    color:#cd1a4f;
+    cursor: pointer;
+    background-color: #cd1a4f;
+}
+
+.play-button:hover > p {
+    color:white;
+}

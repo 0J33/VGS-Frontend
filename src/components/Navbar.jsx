@@ -35,7 +35,7 @@ export default function Navbar({ showCms }) {
             {
                 !showCms && (
                     <div className="login-button" onClick={() => navigate("/login")}>
-                        <p className="login-text">log in</p>
+                        <p>log in</p>
                     </div>
                 ) 
             }
