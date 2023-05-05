@@ -1,56 +1,7 @@
 import { useState } from "react";
-import { styled, Box, Typography, Button } from "@mui/material";
 import { Unity, useUnityContext } from "react-unity-webgl";
-import { useNavigate } from "react-router-dom";
-
-const StyledBox = styled(Box)(({theme}) => ({
-    display:"none",
-    [theme.breakpoints.up("md")]: {
-        display:"flex",
-        flexDirection:"column",
-        alignItems:"center",
-        justifyContent:"center",
-        width:"100%",
-        height:"50%",
-    }
-}));
-
-const StyledButton = styled(Button)(({theme}) => ({
-    variant:"contained",
-    color:"white",
-    backgroundColor:"rgb(25, 25, 26)",
-    [theme.breakpoints.down("lg")]: {
-        display:"none"
-    }
-}));
-
-const MainWrapper = styled(Box)(({theme}) => ({
-    display:"flex",
-    alignItems:"center",
-    justifyContent:"center",
-    textAlign:"center",
-    width:"100%",
-    marginTop:"120px"
-}));
-
-const MobileOnlyText = styled(Typography)(({theme}) =>({
-    fontFamily:"Courier New",
-    color:"white",
-    fontWeight:"900",
-    margin:"10%",
-    [theme.breakpoints.up("md")] : {
-        display:"none"
-    }
-}));
-
-const StyledH2Text = styled(Typography)(({theme}) => ({
-    color:"white",
-    fontFamily:"Courier New",
-    fontWeight:"900"
-}))
 
 export default function GamePage() {
-    const navigate = useNavigate();
 
     const { unityProvider, loadingProgression, isLoaded } = useUnityContext({
         loaderUrl:"/ghosty2game/Ghosty2.loader.js",
@@ -61,26 +12,41 @@ export default function GamePage() {
 
     const [isGameOn, setIsGameOn] = useState(false);
 
+    const [isMobile, setIsMobile] = useState(false);
+
+    function handleResize() {
+        console.log(isMobile);
+        console.log(window.innerWidth);
+        if (window.innerWidth < 1050) {
+            setIsMobile(true);
+            return;
+        }
+        setIsMobile(false);
+    }
+
+
+    window.addEventListener('resize', handleResize);
+    
 
     return (
-        <MainWrapper>  
-            <MobileOnlyText Variant="h1">Cannot Play On Mobile</MobileOnlyText>
+        <div style={{marginTop:"20%"}}>  
+            <h1 style={{color:"white"}}>Cannot Play On Mobile</h1>
             {
                 isGameOn ?  (
-                <StyledBox>
-                    <StyledH2Text variant="h3">Ghosty 2</StyledH2Text>
-                    {!isLoaded && (<StyledH2Text variant="h2">Loading ... {Math.round(loadingProgression*100)}%</StyledH2Text>)}
+                <div>
+                    <h2 style={{color:"white"}}>Ghosty 2</h2>
+                    {!isLoaded && (<h2 style={{color:"white"}}>Loading ... {Math.round(loadingProgression*100)}%</h2>)}
                     <Unity unityProvider={unityProvider} 
                         style={{visibility: isLoaded ? "visible" : "hidden", width:"80%", height:"50%", margin:"3%"}}
                     />
-                </StyledBox>
+                </div>
                 ) : (
-                    <StyledBox style={{margin:"10%"}}>
-                        <StyledH2Text variant="h3">Ghosty 2</StyledH2Text>
-                        <StyledButton onClick={e => setIsGameOn(true)}>Play Game</StyledButton>
-                    </StyledBox>
+                    <div style={{margin:"10%"}}>
+                        <h2 style={{color:"white"}}>Ghosty 2</h2>
+                        <button onClick={e => setIsGameOn(true)}>Play Game</button>
+                    </div>
                 )
             }
-        </MainWrapper>
+        </div>
     )
 }

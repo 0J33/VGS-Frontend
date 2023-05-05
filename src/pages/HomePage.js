@@ -258,7 +258,7 @@ export default function HomePage() {
                     </div>
                     <div style={{backgroundColor:"white", display:"flex", height:"80px", justifyContent:"center", alignItems:"center"}}>
                         <h1 style={{color:"#cd1a4f", fontFamily:"sen", fontSize:62, fontWeight:900}}>
-                            OUR CMS
+                            THE CMS
                         </h1>
                     </div>
                 </div>
