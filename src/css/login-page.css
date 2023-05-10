@@ -67,7 +67,8 @@
     font-weight: 800;
     color:white;
     font-size:45px;
-    text-align: center;
+    text-align: left;
+    margin-left:30px;
 }
 
 .left-card-text {
@@ -153,11 +154,12 @@ text-transform: uppercase;
     width:100%;
     align-items: center;
     justify-content: center;
-    gap:20px;
+    gap:50px;
 }
 
 .contact-logo {
-    width:40px;
-    height:40px;
+    width:30px;
+    height:30px;
+    opacity: 0.5;
 }
 
