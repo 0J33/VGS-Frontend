@@ -30,7 +30,12 @@ export default function Navbar({ showCms }) {
                     <div className={activePage === 2 ? 'nav-item-active' : "nav-item"}>
                         <h3 className={activePage === 2 ? 'nav-item-active-text' : "nav-item-text"}>CMS</h3>
                     </div>
-                </a>        
+                </a>      
+                {/* <a className="nav-item-anchor" href="/#contact" onClick={() => setActivePage(4)}>
+                    <div className={activePage === 4 ? 'nav-item-active' : "nav-item"}>
+                        <h3 className={activePage === 4 ? 'nav-item-active-text' : "nav-item-text"}>Contact</h3>
+                    </div>
+                </a>    */}
             </div>
             {
                 !showCms && (
