@@ -388,3 +388,18 @@
     background-color: #cd1a4f;
     cursor: pointer;
 }
+
+.cms-button-wrapper {
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    width: 260px;
+    height: 80px;
+}
+
+.cms-button-wrapper:hover {
+    background-color: #33B4C1;
+    cursor: pointer;
+}

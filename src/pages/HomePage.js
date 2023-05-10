@@ -220,51 +220,52 @@ export default function HomePage() {
                     <div className="black-box"></div>
                 </div>
             </div>
-            <div className="games-section">  
-                <div style={{display:"flex", flexDirection:"column", alignItems:"flex-start", justifyContent:"center", gap:"10px", padding:"0px"}}>
-                    <div style={{backgroundColor:"white", height:"80px", display:"flex", justifyContent:"center", alignItems:"center"}}>
-                        <h1 style={{color:"#cd1a4f", fontFamily:"sen", fontSize:62, fontWeight:900, backgroundColor:"white"}}>
-                            PLAY SOME OF 
-                        </h1>
+            <div className="footer-section" style={{display:"flex", justifyContent:"center", maxHeight:"500px"}}>
+                <div className="games-section" style={{display:"flex", flexDirection:"column", maxWidth:"500px", paddingRight:"50px"}}>  
+                    <div style={{display:"flex", flexDirection:"column", alignItems:"flex-start", justifyContent:"center", gap:"10px", padding:"0px"}}>
+                        <div style={{backgroundColor:"white", height:"80px", display:"flex", justifyContent:"center", alignItems:"center"}}>
+                            <h1 style={{color:"#cd1a4f", fontFamily:"sen", fontSize:62, fontWeight:900, backgroundColor:"white"}}>
+                                PLAY SOME OF 
+                            </h1>
+                        </div>
+                        <div style={{backgroundColor:"white", display:"flex", height: "80px", justifyContent:"center", alignItems:"center"}}>
+                            <h1 style={{color:"#cd1a4f", fontFamily:"sen", fontSize:62, fontWeight:900}}>
+                                OUR STUDENTS' 
+                            </h1>
+                        </div>
+                        <div style={{backgroundColor:"white", display:"flex", height:"80px", justifyContent:"center", alignItems:"center"}}>
+                            <h1 style={{color:"#cd1a4f", fontFamily:"sen", fontSize:62, fontWeight:900}}>
+                                CREATIONS
+                            </h1>
+                        </div>
                     </div>
-                    <div style={{backgroundColor:"white", display:"flex", height: "80px", justifyContent:"center", alignItems:"center"}}>
-                        <h1 style={{color:"#cd1a4f", fontFamily:"sen", fontSize:62, fontWeight:900}}>
-                            OUR STUDENTS' 
-                        </h1>
-                    </div>
-                    <div style={{backgroundColor:"white", display:"flex", height:"80px", justifyContent:"center", alignItems:"center"}}>
-                        <h1 style={{color:"#cd1a4f", fontFamily:"sen", fontSize:62, fontWeight:900}}>
-                            CREATIONS
-                        </h1>
-                    </div>
+                    <div className="games-button-wrapper" onClick={() => navigate("/games")}>
+                        <h3 style={{fontFamily:"sen", fontWeight:400, color:"white"}}>PLAY GAMES</h3>
+                    </div>             
                 </div>
-                <div className="games-button-wrapper" onClick={() => navigate("/games")}>
-                    <h3 style={{fontFamily:"sen", fontWeight:400, color:"white"}}>PLAY GAMES</h3>
-                </div>             
-            </div>
-            {/* cms section bs mkasel a8ayar ay 7aga feeha*/}
-            <div style={{width:"100%", height:"8px", backgroundColor:"white"}}></div>
-            <div id="cms" className="games-section">  
-                <div style={{display:"flex", flexDirection:"column", alignItems:"flex-start", justifyContent:"center", gap:"10px", padding:"0px"}}>
-                    <div style={{backgroundColor:"white", height:"80px", display:"flex", justifyContent:"center", alignItems:"center"}}>
-                        <h1 style={{color:"#cd1a4f", fontFamily:"sen", fontSize:62, fontWeight:900, backgroundColor:"white"}}>
-                             JOIN OUR TEAM
-                        </h1>
+                {/* cms section bs mkasel a8ayar ay 7aga feeha*/}
+                <div id="cms" className="games-section" style={{display:"flex", flexDirection:"column", maxWidth:"500px", paddingLeft:"50px"}}>  
+                    <div style={{display:"flex", flexDirection:"column", alignItems:"flex-start", justifyContent:"center", gap:"10px", padding:"0px"}}>
+                        <div style={{backgroundColor:"white", height:"80px", display:"flex", justifyContent:"center", alignItems:"center"}}>
+                            <h1 style={{color:"#33B4C1", fontFamily:"sen", fontSize:60, fontWeight:900, backgroundColor:"white"}}>
+                                JOIN OUR CLUB
+                            </h1>
+                        </div>
+                        <div style={{backgroundColor:"white", display:"flex", height: "80px", justifyContent:"center", alignItems:"center"}}>
+                            <h1 style={{color:"#33B4C1", fontFamily:"sen", fontSize:60, fontWeight:900}}>
+                                TO GAIN ACCESS
+                            </h1>
+                        </div>
+                        <div style={{backgroundColor:"white", display:"flex", height:"80px", justifyContent:"center", alignItems:"center"}}>
+                            <h1 style={{color:"#33B4C1", fontFamily:"sen", fontSize:60, fontWeight:900}}>
+                                TO THE CMS
+                            </h1>
+                        </div>
                     </div>
-                    <div style={{backgroundColor:"white", display:"flex", height: "80px", justifyContent:"center", alignItems:"center"}}>
-                        <h1 style={{color:"#cd1a4f", fontFamily:"sen", fontSize:62, fontWeight:900}}>
-                            TO GAIN ACCESS TO
-                        </h1>
-                    </div>
-                    <div style={{backgroundColor:"white", display:"flex", height:"80px", justifyContent:"center", alignItems:"center"}}>
-                        <h1 style={{color:"#cd1a4f", fontFamily:"sen", fontSize:62, fontWeight:900}}>
-                            THE CMS
-                        </h1>
-                    </div>
+                    <div className="cms-button-wrapper" onClick={() => navigate("/cms")}>
+                        <h3 style={{fontFamily:"sen", fontWeight:400, color:"white"}}>EXPLORE CMS</h3>
+                    </div>             
                 </div>
-                <div className="games-button-wrapper" onClick={() => navigate("/cms")}>
-                    <h3 style={{fontFamily:"sen", fontWeight:400, color:"white"}}>EXPLORE CMS</h3>
-                </div>             
             </div>
         </>
     )
