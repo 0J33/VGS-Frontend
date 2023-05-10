@@ -183,7 +183,7 @@ export default function AdminPage() {
                                 </label>
                             </div>
                             <label className="text-label">Resource Name</label>
-                            <input type="text" onChange={(event) => setResourceName(event.target.value)} style={{fontFamily:"sen"}} placeholder="Enter a name for your file" />
+                            <input type="text" onChange={(event) => setResourceName(event.target.value)} className="input-field" style={{fontFamily:"sen"}} placeholder="Enter a name for your file" />
                             <div className="file-input-wrapper">
                                 <div className="file-input">
                                     <label className="label">
