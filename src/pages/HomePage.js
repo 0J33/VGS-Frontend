@@ -48,7 +48,7 @@ export default function HomePage() {
             <div className="history-section-wrapper">
                 <div className="history-heading-text-wrapper">
                     <h1 className="history-heading-text" style={{fontSize: 48}}>OUR HISTORY</h1>
-                    <div style={{width: 540, fontFamily: 'sen', fontWeight: 400, fontSize: 24}}>
+                    <div className="history-div">
                         <p className="history-paragraph-text">
                             A group of enthusiastic students formed Vector game
                             Studio (VGS) in 2018-2019 to pursue their shared
@@ -69,7 +69,7 @@ export default function HomePage() {
             </div>
             <div className="main-color-rectangle"></div>
             <div className="our-committees-box">
-                <h1 className="our-committees-header-text" style={{fontSize: 48}}> OUR COMMITTEES</h1>
+                <h1 className="our-committees-header-text"> OUR COMMITTEES</h1>
             </div>
             <div className="committee-section">
                 <div className="committee-wrapper">
@@ -121,7 +121,7 @@ export default function HomePage() {
             <div id="mentors" className="mentors-section">
                 <div className="mentors-wrapper">
                     <div className="mentors-inner-wrapper">
-                        <h1 style={{fontSize:62, color:"white", fontFamily:"sen", fontWeight:900}}>MEET VGS' 2023 MENTORS</h1>
+                        <h1 style={{fontSize:62, color:"white", fontFamily:"sen", fontWeight:900, marginLeft:"25px"}}>MEET VGS' 2023 MENTORS</h1>
                         <div className="committee-selection-box">
                             <div className={selectedCommittee === 0 ? "selected-committee-button-wrapper": "committee-button-wrapper"}
                                 onClick={() => setSelectedCommittee(0)}
@@ -203,7 +203,7 @@ export default function HomePage() {
             <div id="games" className="game-jam-section">
                 <div className="game-jam-text-wrapper">
                     <h1 style={{color:"white", fontFamily:"sen", fontWeight:900, fontSize:62}}>GAME JAM</h1>
-                    <div style={{width: 500}}>
+                    <div className="game-jam-div">
                         <h3 style={{color:"white", fontFamily:"sen", fontWeight:400, fontSize:24}}>
                             The VGS game jam borrows its original scheme from 
                             the idea of a game jam, where all club members are
@@ -220,21 +220,21 @@ export default function HomePage() {
                     <div className="black-box"></div>
                 </div>
             </div>
-            <div className="footer-section" style={{display:"flex", justifyContent:"center", maxHeight:"500px"}}>
-                <div className="games-section" style={{display:"flex", flexDirection:"column", maxWidth:"600px", paddingRight:"50px"}}>  
+            <div className="footer-section">
+                <div className="games-section">  
                     <div style={{display:"flex", flexDirection:"column", alignItems:"flex-start", justifyContent:"center", gap:"10px", padding:"0px"}}>
                         <div style={{backgroundColor:"white", height:"80px", display:"flex", justifyContent:"center", alignItems:"center"}}>
-                            <h1 style={{color:"#cd1a4f", fontFamily:"sen", fontSize:62, fontWeight:900, backgroundColor:"white", padding:"0px 15px"}}>
+                            <h1 className="footer-text" style={{color:"#cd1a4f"}}>
                                 PLAY SOME OF 
                             </h1>
                         </div>
                         <div style={{backgroundColor:"white", display:"flex", height: "80px", justifyContent:"center", alignItems:"center"}}>
-                            <h1 style={{color:"#cd1a4f", fontFamily:"sen", fontSize:62, fontWeight:900, padding:"0px 15px"}}>
+                            <h1 className="footer-text" style={{color:"#cd1a4f"}}>
                                 OUR STUDENTS' 
                             </h1>
                         </div>
                         <div style={{backgroundColor:"white", display:"flex", height:"80px", justifyContent:"center", alignItems:"center"}}>
-                            <h1 style={{color:"#cd1a4f", fontFamily:"sen", fontSize:62, fontWeight:900, padding:"0px 15px"}}>
+                            <h1 className="footer-text" style={{color:"#cd1a4f"}}>
                                 CREATIONS
                             </h1>
                         </div>
@@ -244,20 +244,20 @@ export default function HomePage() {
                     </div>             
                 </div>
                 {/* cms section bs mkasel a8ayar ay 7aga feeha*/}
-                <div id="cms" className="games-section" style={{display:"flex", flexDirection:"column", maxWidth:"600px", paddingLeft:"50px"}}>  
+                <div id="cms" className="games-section">  
                     <div style={{display:"flex", flexDirection:"column", alignItems:"flex-start", justifyContent:"center", gap:"10px", padding:"0px"}}>
                         <div style={{backgroundColor:"white", height:"80px", display:"flex", justifyContent:"center", alignItems:"center"}}>
-                            <h1 style={{color:"#33B4C1", fontFamily:"sen", fontSize:60, fontWeight:900, backgroundColor:"white", padding:"0px 15px"}}>
+                            <h1 className="footer-text" style={{color:"#33C4B1"}}>
                                 JOIN OUR CLUB
                             </h1>
                         </div>
                         <div style={{backgroundColor:"white", display:"flex", height: "80px", justifyContent:"center", alignItems:"center", padding:"0px 15px"}}>
-                            <h1 style={{color:"#33B4C1", fontFamily:"sen", fontSize:60, fontWeight:900}}>
+                            <h1 className="footer-text" style={{color:"#33C4B1"}}>
                                 TO GAIN ACCESS
                             </h1>
                         </div>
                         <div style={{backgroundColor:"white", display:"flex", height:"80px", justifyContent:"center", alignItems:"center", padding:"0px 15px"}}>
-                            <h1 style={{color:"#33B4C1", fontFamily:"sen", fontSize:60, fontWeight:900}}>
+                            <h1 className="footer-text" style={{color:"#33C4B1"}}>
                                 TO THE CMS
                             </h1>
                         </div>

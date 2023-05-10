@@ -69,8 +69,19 @@
     left: -220px;
 }
 
+.history-div {
+    width: 540px;
+    font-family: 'sen';
+    font-weight: 400;
+    font-size: 24px;
+}
+
 .text-wrapper {
-    margin-left: 50px;
+    margin-left: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .heading-text-wrapper {
@@ -200,7 +211,7 @@
     font-family: 'sen';
     font-weight: 900;
     color: white;
-    font-size: 48;
+    font-size: 48px;
 }
 
 .mentors-section {
@@ -228,7 +239,6 @@
     align-items: flex-start;
     justify-content: center;
     width: 100%;
-    margin-left: 150px;
 }
 
 .committee-selection-box {
@@ -345,6 +355,10 @@
     left: 300px;
 }
 
+.game-jam-div {
+    width: 500px;
+}
+
 .black-box {
     width:320px;
     height:320px;
@@ -364,12 +378,20 @@
     top: 45px;
 }
 
+.footer-text {
+    font-family:"sen";
+    font-size:62px;
+    font-weight:900;
+    background-color: white;
+    padding: 0px 15px ;
+}
+
 .games-section {
     width: 100%;
     height: 550px;
     background-color: black;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
 }
@@ -402,4 +424,489 @@
 .cms-button-wrapper:hover {
     background-color: #33B4C1;
     cursor: pointer;
+}
+.footer-section {
+    display: flex;
+    justify-content: center;
+    height: 500px;
+}
+
+.contacts-wrapper {
+    margin-top: 50px;
+    height: 100px;
+    background-color: rgb(205, 26, 79);
+}
+
+@media only screen and (max-width: 768px) {
+    .body {
+        width: 100%;
+        height: 100%;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0px;
+    }
+    
+    .about-section-wrapper {
+        background-color: black;
+        width: 100%;
+        height: 1000px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+        
+    }
+    
+    .logos-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 350px;
+    }
+
+    .history-section-wrapper {
+        background-color: white;
+        width: 100%;
+        height: 900px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 150px;
+    }
+    
+    .history-heading-text {
+        font-family: 'sen';
+        font-weight: 900;
+        color: #cd1a4f;
+        font-size: 48;
+    }
+    
+    .history-heading-text-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0px;
+    }
+
+    .history-paragraph-text {
+        font-size: 20px;
+    }
+    
+    .history-images-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: -100px;
+        width: 350px;
+    }
+    
+    .history-image-one {
+        width: 250px;
+        height: 350px;
+        position: relative;
+        left: 220px;
+    }
+    
+    .history-image-two {
+        width: 250px;
+        height: 350px;
+        position: relative;
+        top: 80px;
+        left: 120px;
+    }
+    
+    .history-image-three {
+        width: 250px;
+        height: 250px;
+        position: relative;
+        top: 100px;
+        left: -220px;
+    }
+
+    .history-div {
+        width: 350px;
+        font-family: 'sen';
+        font-weight: 400;
+        font-size: 24px;
+        margin-left:-75px;
+    }
+    
+    .text-wrapper {
+        margin-left: 0px;
+    }
+    
+    .heading-text-wrapper {
+        width: 350px;
+    }
+    
+    .heading-text {
+        font-family: 'sen';
+        font-weight: 900;
+        color: #33B4C1;
+    }
+    
+    .paragraph-text-wrapper {
+        width: 350px;
+    }
+    
+    .paragraph-text {
+        font-family: 'sen';
+        font-weight: 400;
+        font-size: 24;
+        color: white;
+    }
+    
+    .vgs-logo {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .logos-section {
+        background-image: url('/public/Logomark_Black.svg');
+        background-position: 100% 50%;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .triangle {
+        width: 100%;
+        height: 80px;
+        background-color: white;
+        clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    }
+    
+    .committee-section {
+        width: 100%;
+        height: 1500px;
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 100px;
+        margin-top: -100px;
+        
+    }
+    
+    .committee-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.2;
+        transition: 500ms;
+    }
+    
+    .committee-wrapper:hover {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 1;
+        scale: 1.2;
+        transition: 500ms;
+    }
+    
+    .committee-box {
+        width: 300px;
+        height: 240px;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 12px;
+    }
+    
+    .header-text {
+        font-family: 'sen';
+        font-weight: 900;
+        margin: 0px;
+        color:#33B4C1;
+    }
+    
+    .description-text {
+        font-family: 'sen';
+        font-weight: 400;
+    }
+    
+    .committee-name {
+        font-weight: 900;
+        font-family: 'sen';
+        color: white;
+        font-size: 48px;
+    }
+    
+    .main-color-rectangle {
+        height: 8px;
+        width: 100%;
+        background: #cd1a4f;
+        display: flex;
+    }
+    
+    .our-committees-box {
+        height: 70px;
+        width: 350px;
+        background-color: #cd1a4f;
+        position: relative;
+        left: 5%;
+        bottom: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .our-committees-header-text {
+        font-family: 'sen';
+        font-weight: 900;
+        color: white;
+        font-size: 30px;
+    }
+    
+    .mentors-section {
+        width: 100%;
+        height: 2200px;
+        background-color: black;
+        background-image: url('/public/Logomark_Black.svg');
+        background-position: 90% 50%;
+        background-repeat: no-repeat;
+        display: flex;
+        margin-bottom: 50px;
+        margin-top: -50px;
+    }
+    
+    .mentors-wrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .mentors-inner-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .committee-selection-box {
+        width: 220px;
+        height: 60px;
+        border: 2px solid white;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .committee-button-wrapper {
+        background-color: white;
+        width: 60px;
+        max-height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.2;
+    }
+    
+    .committee-button-wrapper:hover {
+        cursor: pointer;
+    }
+    
+    .selected-committee-button-wrapper {
+        background-color: white;
+        width: 60px;
+        max-height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .selected-committee-button-wrapper:hover {
+        cursor: pointer;
+    }
+    
+    .mentor-images-wrapper {
+        width: 100%;
+        min-width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        
+    }
+    
+    .mentor-image {
+        transition: 500ms;
+        width: 250px;
+        height: 300px;
+        opacity: 0.4;
+        object-fit: cover;
+    }
+    
+    .mentor-image:hover {
+        scale: 1.2;
+        opacity: 1;
+        transition: 500ms;
+    }
+    
+    .single-mentor-image-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .single-mentor-image-wrapper:hover > h1 {
+        transition: 500ms;
+        opacity: 1;
+    }
+    
+    .mentor-name {
+        color: white;
+        font-family: 'sen';
+        font-weight: 900;
+        opacity: 0;
+    }
+    
+    .game-jam-section {
+        width: 100%;
+        height: 1000px;
+        background-color: #cd1a4f;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 200px;
+    }
+    
+    .game-jam-text-wrapper {
+        margin-left: 0;
+        width: 350px;
+        margin-top: -100px;
+    }
+    
+    .game-jam-image-wrapper {
+        display:flex;
+        flex-direction: row;
+        width: 350px;
+    }
+    
+    .game-jam-img {
+        width: 320px;
+        height: 320px;
+        z-index: 10;
+        position: relative;
+        top: 20px;
+        left: 0px;
+    }
+
+    .game-jam-div {
+        width: 350px;
+    }
+
+    .black-box {
+        width:6020px;
+        height:320px;
+        background-color: black;
+        position: relative;
+        right: 20px;
+        top: 30px;
+        margin-left:-300px;
+    }
+    
+    .white-box {
+        width:6020px;
+        height:315px;
+        background-color: white;
+        position: relative;
+        right: -5px;
+        top: 45px;
+        margin-left:-300px;
+    }
+    
+    .games-section {
+        width: 100%;
+        height: 550px;
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .games-button-wrapper {
+        border: 2px solid white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px;
+        width: 200px;
+        height: 60px;
+    }
+    
+    .games-button-wrapper:hover {
+        background-color: #cd1a4f;
+        cursor: pointer;
+    }
+    
+    .cms-button-wrapper {
+        border: 2px solid white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px;
+        width: 200px;
+        height: 60px;
+    }
+    
+    .cms-button-wrapper:hover {
+        background-color: #33B4C1;
+        cursor: pointer;
+    }
+
+    .footer-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 800px;
+        margin-top: -100px;
+        gap: 50px;
+    }
+
+    .contacts-wrapper {
+        margin-top: 50px;
+        padding-top: 25px;
+        height: 100px;
+        background-color: rgb(205, 26, 79);
+    }
+
+    .footer-text {
+        font-family:"sen";
+        font-size:35px;
+        font-weight:900;
+        background-color: white;
+        padding: 0px 15px ;
+    }
 }
