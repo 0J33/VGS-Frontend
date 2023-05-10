@@ -68,7 +68,7 @@ export default function LoginPage() {
                             {errMsg}
                         </h1>
                         <div className="close-icon" onClick={closeErrorBox}>
-                            <h3 className="close-icon-text">X</h3>
+                            <h3 className="close-icon-text" style={{fontSize:"30px"}}>×</h3>
                         </div>
                     </div>
                 )
