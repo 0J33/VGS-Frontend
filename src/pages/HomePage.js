@@ -221,20 +221,20 @@ export default function HomePage() {
                 </div>
             </div>
             <div className="footer-section" style={{display:"flex", justifyContent:"center", maxHeight:"500px"}}>
-                <div className="games-section" style={{display:"flex", flexDirection:"column", maxWidth:"500px", paddingRight:"50px"}}>  
+                <div className="games-section" style={{display:"flex", flexDirection:"column", maxWidth:"600px", paddingRight:"50px"}}>  
                     <div style={{display:"flex", flexDirection:"column", alignItems:"flex-start", justifyContent:"center", gap:"10px", padding:"0px"}}>
                         <div style={{backgroundColor:"white", height:"80px", display:"flex", justifyContent:"center", alignItems:"center"}}>
-                            <h1 style={{color:"#cd1a4f", fontFamily:"sen", fontSize:62, fontWeight:900, backgroundColor:"white"}}>
+                            <h1 style={{color:"#cd1a4f", fontFamily:"sen", fontSize:62, fontWeight:900, backgroundColor:"white", padding:"0px 15px"}}>
                                 PLAY SOME OF 
                             </h1>
                         </div>
                         <div style={{backgroundColor:"white", display:"flex", height: "80px", justifyContent:"center", alignItems:"center"}}>
-                            <h1 style={{color:"#cd1a4f", fontFamily:"sen", fontSize:62, fontWeight:900}}>
+                            <h1 style={{color:"#cd1a4f", fontFamily:"sen", fontSize:62, fontWeight:900, padding:"0px 15px"}}>
                                 OUR STUDENTS' 
                             </h1>
                         </div>
                         <div style={{backgroundColor:"white", display:"flex", height:"80px", justifyContent:"center", alignItems:"center"}}>
-                            <h1 style={{color:"#cd1a4f", fontFamily:"sen", fontSize:62, fontWeight:900}}>
+                            <h1 style={{color:"#cd1a4f", fontFamily:"sen", fontSize:62, fontWeight:900, padding:"0px 15px"}}>
                                 CREATIONS
                             </h1>
                         </div>
@@ -244,19 +244,19 @@ export default function HomePage() {
                     </div>             
                 </div>
                 {/* cms section bs mkasel a8ayar ay 7aga feeha*/}
-                <div id="cms" className="games-section" style={{display:"flex", flexDirection:"column", maxWidth:"500px", paddingLeft:"50px"}}>  
+                <div id="cms" className="games-section" style={{display:"flex", flexDirection:"column", maxWidth:"600px", paddingLeft:"50px"}}>  
                     <div style={{display:"flex", flexDirection:"column", alignItems:"flex-start", justifyContent:"center", gap:"10px", padding:"0px"}}>
                         <div style={{backgroundColor:"white", height:"80px", display:"flex", justifyContent:"center", alignItems:"center"}}>
-                            <h1 style={{color:"#33B4C1", fontFamily:"sen", fontSize:60, fontWeight:900, backgroundColor:"white"}}>
+                            <h1 style={{color:"#33B4C1", fontFamily:"sen", fontSize:60, fontWeight:900, backgroundColor:"white", padding:"0px 15px"}}>
                                 JOIN OUR CLUB
                             </h1>
                         </div>
-                        <div style={{backgroundColor:"white", display:"flex", height: "80px", justifyContent:"center", alignItems:"center"}}>
+                        <div style={{backgroundColor:"white", display:"flex", height: "80px", justifyContent:"center", alignItems:"center", padding:"0px 15px"}}>
                             <h1 style={{color:"#33B4C1", fontFamily:"sen", fontSize:60, fontWeight:900}}>
                                 TO GAIN ACCESS
                             </h1>
                         </div>
-                        <div style={{backgroundColor:"white", display:"flex", height:"80px", justifyContent:"center", alignItems:"center"}}>
+                        <div style={{backgroundColor:"white", display:"flex", height:"80px", justifyContent:"center", alignItems:"center", padding:"0px 15px"}}>
                             <h1 style={{color:"#33B4C1", fontFamily:"sen", fontSize:60, fontWeight:900}}>
                                 TO THE CMS
                             </h1>
