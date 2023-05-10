@@ -165,7 +165,7 @@ export default function AdminPage() {
                             <label className="text-label">Committee Name</label>      
                             <div className="select-wrapper">
                                 <label>
-                                    <select onChange={handleCommitteeSelect}>
+                                    <select style={{fontFamily:"sen"}} onChange={handleCommitteeSelect}>
                                         <option value="GDD" >GDD</option>
                                         <option value="GAD" >GAD</option>
                                         <option value="GSD" >GSD</option>
@@ -175,7 +175,7 @@ export default function AdminPage() {
                             <label className="text-label">Resource Type</label>      
                             <div className="select-wrapper">
                                 <label>
-                                    <select onChange={handleFileTypeChange}>
+                                    <select style={{fontFamily:"sen"}} onChange={handleFileTypeChange}>
                                         <option value="IMAGE">IMAGE</option>
                                         <option value="VIDEO">VIDEO</option>
                                         <option value="OTHER">OTHER</option>
@@ -183,7 +183,7 @@ export default function AdminPage() {
                                 </label>
                             </div>
                             <label className="text-label">Resource Name</label>
-                            <input type="text" onChange={(event) => setResourceName(event.target.value)} placeholder="Enter a name for your file" />
+                            <input type="text" onChange={(event) => setResourceName(event.target.value)} style={{fontFamily:"sen"}} placeholder="Enter a name for your file" />
                             <div className="file-input-wrapper">
                                 <div className="file-input">
                                     <label className="label">
