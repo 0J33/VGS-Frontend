@@ -99,7 +99,7 @@ export default function LoginPage() {
                         <div style={{height:'10px'}}></div>
                         {
                             showSpinner ? (<LoadingSpinner />) : (
-                                <button className="btn" onClick={loginUser}>Login</button>
+                                <button className="btn" style={{fontFamily:"sen"}} onClick={loginUser}>Login</button>
                             )
                         }
                     </div>

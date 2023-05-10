@@ -194,7 +194,7 @@ export default function AdminPage() {
                                 <p className="text">{selectedFileName}</p>
                             </div>
                             <div className="upload-button-wrapper">
-                                <button className="btn" onClick={() => handleUpload(selectedFile)}>upload</button>
+                                <button className="btn" style={{fontFamily:"sen"}} onClick={() => handleUpload(selectedFile)}>upload</button>
                                 {
                                     showProgress && (
                                         <h3 className="text">upload progress : {progress}%</h3>
