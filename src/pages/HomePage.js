@@ -208,7 +208,7 @@ export default function HomePage() {
                                         </div>
                                     </div>
                                     <div className="mentor-images-wrapper-mobile">
-                                        <div className="single-mentor-image-wrapper-mobile" style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
+                                        <div className="single-mentor-image-wrapper-mobile" style={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
                                             <h1 className="mentor-name">Youssef El Sharkawy</h1>
                                             <img src="/mentors-images/gdd/YoussefElSharkawy.jpg" className="mentor-image" />
                                         </div>
@@ -216,7 +216,7 @@ export default function HomePage() {
                                             <h1 className="mentor-name">Farah Ahmed</h1>
                                             <img src="/mentors-images/gdd/FarahAhmed.jpg" className="mentor-image" />
                                         </div>
-                                        <div className="single-mentor-image-wrapper-mobile">
+                                        <div className="single-mentor-image-wrapper-mobile" style={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
                                             <h1 className="mentor-name">Youssef Korayem</h1>
                                             <img src="/mentors-images/gdd/YoussefKorayem.jpg" className="mentor-image" />
                                         </div>
@@ -254,7 +254,7 @@ export default function HomePage() {
                                             <h1 className="mentor-name">Nada Tamer</h1>
                                             <img src="/mentors-images/gad/NadaTamer.jpg" className="mentor-image" />
                                         </div>
-                                        <div className="single-mentor-image-wrapper-mobile">
+                                        <div className="single-mentor-image-wrapper-mobile" style={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
                                             <h1 className="mentor-name">Yara El Tantawy</h1>
                                             <img src="/mentors-images/gad/YaraElTantawy.jpg" className="mentor-image" />
                                         </div>

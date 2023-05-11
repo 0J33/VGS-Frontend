@@ -698,7 +698,7 @@
         background-position: 90% 50%;
         background-repeat: no-repeat;
         display: flex;
-        margin-bottom: 50px;
+        margin-bottom: -50px;
         margin-top: -50px;
     }
     
