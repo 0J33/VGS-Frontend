@@ -21,7 +21,7 @@ export default function HomePage() {
                         </div>
                         <div className="paragraph-text-wrapper">
                             <p className="paragraph-text" style={{fontSize:18}}>
-                                Want to start yout game development journey ?
+                                Want to start yout game development journey?
                                 Our community of passionate students will
                                 provide you with the tools and support you need
                                 to bring your game ideas to life.
@@ -47,7 +47,7 @@ export default function HomePage() {
             <div className="triangle"></div>
             <div className="history-section-wrapper">
                 <div className="history-heading-text-wrapper">
-                    <h1 className="history-heading-text" style={{fontSize: 48}}>OUR HISTORY</h1>
+                    <h1 className="history-heading-text">OUR HISTORY</h1>
                     <div className="history-div">
                         <p className="history-paragraph-text">
                             A group of enthusiastic students formed Vector game

@@ -176,7 +176,8 @@ text-transform: uppercase;
     }
     
     .err-box {
-        margin-top:120px;
+        margin-top: 25px;
+        margin-bottom: -50px;
         width: 350px;
         height:50px;
         display:flex;
@@ -202,7 +203,7 @@ text-transform: uppercase;
     .white-card {
         margin: 150px 100px;
         width:350px;
-        height:650px;
+        height:670px;
         background-color: white;
         border-radius: 20px;
         display:flex;
@@ -210,6 +211,7 @@ text-transform: uppercase;
         align-items: center;
         justify-content: space-around;
         gap: 40px;
+        margin-top: 75px;
     }
     
     .white-card-error {
@@ -289,6 +291,7 @@ text-transform: uppercase;
     .input-label {
         font-family: 'sen';
         font-weight:700;
+        font-size: 20px;
     }
     
     input {
@@ -297,12 +300,13 @@ text-transform: uppercase;
         height:40px;
         width:340px;
         box-sizing: border-box;
+        font-size: 20px;
     }
     
     .btn{
     font-family: Roboto, sans-serif;
     font-weight: 0;
-    font-size: 14px;
+    font-size: 20px;
     color: #fff;
     background-color: #cd1a4f;
     padding: 10px 30px;

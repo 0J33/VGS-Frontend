@@ -80,8 +80,7 @@
     margin-left: 0px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .heading-text-wrapper {
@@ -251,6 +250,7 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
+    margin-left: 50px;
 }
 
 .committee-button-wrapper {
@@ -291,7 +291,7 @@
     align-items: center;
     justify-content: flex-start;
     margin-top: 20px;
-    
+    margin-left: 50px;
 }
 
 .mentor-image {
@@ -451,12 +451,11 @@
     .about-section-wrapper {
         background-color: black;
         width: 100%;
-        height: 1000px;
+        height: 1100px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 100px;
         
     }
     
@@ -483,7 +482,7 @@
         font-family: 'sen';
         font-weight: 900;
         color: #cd1a4f;
-        font-size: 48;
+        font-size: 48px;
     }
     
     .history-heading-text-wrapper {
@@ -504,6 +503,7 @@
         justify-content: center;
         margin-left: -100px;
         width: 350px;
+        margin-top: 30px;
     }
     
     .history-image-one {
@@ -539,6 +539,7 @@
     
     .text-wrapper {
         margin-left: 0px;
+        margin-top: 100px;
     }
     
     .heading-text-wrapper {
@@ -565,6 +566,7 @@
     .vgs-logo {
         width: 300px;
         height: 300px;
+        margin-top: -75px;
     }
     
     .logos-section {
@@ -577,7 +579,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-top:50px;
+        margin-top:30px;
     }
     
     .triangle {
@@ -585,6 +587,7 @@
         height: 80px;
         background-color: white;
         clip-path: polygon(50% 0, 100% 100%, 0 100%);
+        margin-top: -75px;
     }
     
     .committee-section {
@@ -714,6 +717,7 @@
         align-items: center;
         justify-content: center;
         gap: 10px;
+        margin-left: 0px;
     }
     
     .committee-button-wrapper {
@@ -754,6 +758,7 @@
         align-items: center;
         justify-content: center;
         margin-top: 20px;
+        margin-left: 0px;
         
     }
     
@@ -871,7 +876,7 @@
         background-color: #cd1a4f;
         cursor: pointer;
     }
-    
+
     .cms-button-wrapper {
         border: 2px solid white;
         display: flex;
