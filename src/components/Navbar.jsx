@@ -20,7 +20,7 @@ export default function Navbar({ showCms }) {
 
       if (screenWidth < 768) {
         // Execute mobile-specific logic
-        if (scrollPos < mentorsPos) {
+        if (scrollPos < mentorsPos - 50) {
             setActivePage(0);
           } else if (scrollPos < gamesPos - 100) {
             setActivePage(3);
@@ -31,7 +31,7 @@ export default function Navbar({ showCms }) {
           }
       } else {
         // Execute desktop-specific logic
-        if (scrollPos < mentorsPos) {
+        if (scrollPos < mentorsPos - 50) {
           setActivePage(0);
         } else if (scrollPos < gamesPos - 100) {
           setActivePage(3);
