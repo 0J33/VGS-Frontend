@@ -92,7 +92,7 @@ export default function HomePage() {
                     <div className="committee-box">
                         <h1 className="header-text" style={{fontSize: 28, color:"#cd1a4f"}}>Game Development Design</h1>
                         <div>
-                            <p className="description-text">
+                            <p className="description-text" style={{fontSize:"14px"}}>
                               A beginner-friendly course to teach students game
                               development using mainstream industry tools, such as
                               Unity and Microsoft Visual Studio. It teaches people
@@ -104,6 +104,53 @@ export default function HomePage() {
                     </div>
                 </div>
                 <div className="committee-wrapper">
+                    <h1 className="committee-name" style={{fontSize: 48}}>GSD</h1>
+                    <div className="committee-box">
+                        <h1 className="header-text" style={{fontSize: 28, color:"black"}}>Game Soundtrack Design</h1>
+                        <div>
+                            <p className="description-text">
+                              A beginner-friendly course that teaches students the
+                              basics of game soundtrack creation using FL Studio.
+                              Students are taught a set of skills that will help them
+                              create professional game-ready soundtracks for any genre of games.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="committee-section-mobile">
+                <div className="committee-wrapper-mobile">
+                    <h1 className="committee-name" style={{fontSize: 48}}>GAD</h1>
+                    <div className="committee-box">
+                        <h1 className="header-text">Game Art Design</h1>
+                        <div>
+                            <p className="description-text">
+                              A beginner-friendly course that teaches students how to
+                              create game-ready assets using Adobe Photoshop and
+                              Illustrator. These assets can be used in multiple scenarios
+                              such as  creating characters, environments, and game objects
+                              for game-world building and storytelling.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div className="committee-wrapper-mobile">
+                    <h1 className="committee-name" style={{fontSize: 48}}>GDD</h1>
+                    <div className="committee-box">
+                        <h1 className="header-text" style={{fontSize: 28, color:"#cd1a4f"}}>Game Development Design</h1>
+                        <div>
+                            <p className="description-text" style={{fontSize:"14px"}}>
+                              A beginner-friendly course to teach students game
+                              development using mainstream industry tools, such as
+                              Unity and Microsoft Visual Studio. It teaches people
+                              to write scripts, edit them, and compile them using
+                              Unity editor to create fully functional and publish-ready
+                              games.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div className="committee-wrapper-mobile">
                     <h1 className="committee-name" style={{fontSize: 48}}>GSD</h1>
                     <div className="committee-box">
                         <h1 className="header-text" style={{fontSize: 28, color:"black"}}>Game Soundtrack Design</h1>
@@ -141,58 +188,110 @@ export default function HomePage() {
                         </div>
                         {
                             selectedCommittee === 0 && (
-                                <div className="mentor-images-wrapper">
-                                    <div className="single-mentor-image-wrapper">
-                                        <h1 className="mentor-name">Youssef El Sharkawy</h1>
-                                        <img src="/mentors-images/gdd/YoussefElSharkawy.jpg" className="mentor-image" />
+                                <div>
+                                    <div className="mentor-images-wrapper">
+                                        <div className="single-mentor-image-wrapper">
+                                            <h1 className="mentor-name">Youssef El Sharkawy</h1>
+                                            <img src="/mentors-images/gdd/YoussefElSharkawy.jpg" className="mentor-image" />
+                                        </div>
+                                        <div className="single-mentor-image-wrapper">
+                                            <h1 className="mentor-name">Farah Ahmed</h1>
+                                            <img src="/mentors-images/gdd/FarahAhmed.jpg" className="mentor-image" />
+                                        </div>
+                                        <div className="single-mentor-image-wrapper">
+                                            <h1 className="mentor-name">Youssef Korayem</h1>
+                                            <img src="/mentors-images/gdd/YoussefKorayem.jpg" className="mentor-image" />
+                                        </div>
+                                        <div className="single-mentor-image-wrapper">
+                                            <h1 className="mentor-name">Ziad Alaa</h1>
+                                            <img src="/mentors-images/gdd/ZiadAlaa.jpg" className="mentor-image" />
+                                        </div>
                                     </div>
-                                    <div className="single-mentor-image-wrapper">
-                                        <h1 className="mentor-name">Farah Ahmed</h1>
-                                        <img src="/mentors-images/gdd/FarahAhmed.jpg" className="mentor-image" />
-                                    </div>
-                                    <div className="single-mentor-image-wrapper">
-                                        <h1 className="mentor-name">Youssef Korayem</h1>
-                                        <img src="/mentors-images/gdd/YoussefKorayem.jpg" className="mentor-image" />
-                                    </div>
-                                    <div className="single-mentor-image-wrapper">
-                                        <h1 className="mentor-name">Ziad Alaa</h1>
-                                        <img src="/mentors-images/gdd/ZiadAlaa.jpg" className="mentor-image" />
+                                    <div className="mentor-images-wrapper-mobile">
+                                        <div className="single-mentor-image-wrapper-mobile" style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
+                                            <h1 className="mentor-name">Youssef El Sharkawy</h1>
+                                            <img src="/mentors-images/gdd/YoussefElSharkawy.jpg" className="mentor-image" />
+                                        </div>
+                                        <div className="single-mentor-image-wrapper-mobile">
+                                            <h1 className="mentor-name">Farah Ahmed</h1>
+                                            <img src="/mentors-images/gdd/FarahAhmed.jpg" className="mentor-image" />
+                                        </div>
+                                        <div className="single-mentor-image-wrapper-mobile">
+                                            <h1 className="mentor-name">Youssef Korayem</h1>
+                                            <img src="/mentors-images/gdd/YoussefKorayem.jpg" className="mentor-image" />
+                                        </div>
+                                        <div className="single-mentor-image-wrapper-mobile">
+                                            <h1 className="mentor-name">Ziad Alaa</h1>
+                                            <img src="/mentors-images/gdd/ZiadAlaa.jpg" className="mentor-image" />
+                                        </div>
                                     </div>
                                 </div>
                             )
                         }
                         {
                             selectedCommittee === 1 && (
-                                <div className="mentor-images-wrapper">
-                                    <div className="single-mentor-image-wrapper">
-                                        <h1 className="mentor-name">Mariam Tamer</h1>
-                                        <img src="/mentors-images/gad/MariamTamer.jpg" className="mentor-image" />
+                                <div>
+                                    <div className="mentor-images-wrapper">
+                                        <div className="single-mentor-image-wrapper">
+                                            <h1 className="mentor-name">Mariam Tamer</h1>
+                                            <img src="/mentors-images/gad/MariamTamer.jpg" className="mentor-image" />
+                                        </div>
+                                        <div className="single-mentor-image-wrapper">
+                                            <h1 className="mentor-name">Nada Tamer</h1>
+                                            <img src="/mentors-images/gad/NadaTamer.jpg" className="mentor-image" />
+                                        </div>
+                                        <div className="single-mentor-image-wrapper">
+                                            <h1 className="mentor-name">Yara El Tantawy</h1>
+                                            <img src="/mentors-images/gad/YaraElTantawy.jpg" className="mentor-image" />
+                                        </div>
                                     </div>
-                                    <div className="single-mentor-image-wrapper">
-                                        <h1 className="mentor-name">Nada Tamer</h1>
-                                        <img src="/mentors-images/gad/NadaTamer.jpg" className="mentor-image" />
-                                    </div>
-                                    <div className="single-mentor-image-wrapper">
-                                        <h1 className="mentor-name">Yara El Tantawy</h1>
-                                        <img src="/mentors-images/gad/YaraElTantawy.jpg" className="mentor-image" />
+                                    <div className="mentor-images-wrapper-mobile">
+                                        <div className="single-mentor-image-wrapper-mobile">
+                                            <h1 className="mentor-name">Mariam Tamer</h1>
+                                            <img src="/mentors-images/gad/MariamTamer.jpg" className="mentor-image" />
+                                        </div>
+                                        <div className="single-mentor-image-wrapper-mobile">
+                                            <h1 className="mentor-name">Nada Tamer</h1>
+                                            <img src="/mentors-images/gad/NadaTamer.jpg" className="mentor-image" />
+                                        </div>
+                                        <div className="single-mentor-image-wrapper-mobile">
+                                            <h1 className="mentor-name">Yara El Tantawy</h1>
+                                            <img src="/mentors-images/gad/YaraElTantawy.jpg" className="mentor-image" />
+                                        </div>
                                     </div>
                                 </div>
                             )
                         }
                          {
                             selectedCommittee === 2 && (
-                                <div className="mentor-images-wrapper">
-                                    <div className="single-mentor-image-wrapper">
-                                        <h1 className="mentor-name">Ibrahim Amr</h1>
-                                        <img src="/mentors-images/gsd/IbrahimAmr.jpg" className="mentor-image" />
+                                <div>
+                                    <div className="mentor-images-wrapper">
+                                        <div className="single-mentor-image-wrapper">
+                                            <h1 className="mentor-name">Ibrahim Amr</h1>
+                                            <img src="/mentors-images/gsd/IbrahimAmr.jpg" className="mentor-image" />
+                                        </div>
+                                        <div className="single-mentor-image-wrapper">
+                                            <h1 className="mentor-name">Omar Yasser</h1>
+                                            <img src="/mentors-images/gsd/OmarYasser.jpg" className="mentor-image" />
+                                        </div>
+                                        <div className="single-mentor-image-wrapper">
+                                            <h1 className="mentor-name">Ziad El Gendi</h1>
+                                            <img src="/mentors-images/gsd/ZiadElGendi.jpg" className="mentor-image" />
+                                        </div>
                                     </div>
-                                    <div className="single-mentor-image-wrapper">
-                                        <h1 className="mentor-name">Omar Yasser</h1>
-                                        <img src="/mentors-images/gsd/OmarYasser.jpg" className="mentor-image" />
-                                    </div>
-                                    <div className="single-mentor-image-wrapper">
-                                        <h1 className="mentor-name">Ziad El Gendi</h1>
-                                        <img src="/mentors-images/gsd/ZiadElGendi.jpg" className="mentor-image" />
+                                    <div className="mentor-images-wrapper-mobile">
+                                        <div className="single-mentor-image-wrapper-mobile">
+                                            <h1 className="mentor-name">Ibrahim Amr</h1>
+                                            <img src="/mentors-images/gsd/IbrahimAmr.jpg" className="mentor-image" />
+                                        </div>
+                                        <div className="single-mentor-image-wrapper-mobile">
+                                            <h1 className="mentor-name">Omar Yasser</h1>
+                                            <img src="/mentors-images/gsd/OmarYasser.jpg" className="mentor-image" />
+                                        </div>
+                                        <div className="single-mentor-image-wrapper-mobile">
+                                            <h1 className="mentor-name">Ziad El Gendi</h1>
+                                            <img src="/mentors-images/gsd/ZiadElGendi.jpg" className="mentor-image" />
+                                        </div>
                                     </div>
                                 </div>
                             )
