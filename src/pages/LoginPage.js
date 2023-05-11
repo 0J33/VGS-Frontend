@@ -59,6 +59,20 @@ export default function LoginPage() {
         getCookie();
     }, []);
 
+    useEffect(() => {
+        function handleKeyDown(event) {
+          if (event.keyCode === 13) {
+            // Enter key
+            loginUser();
+          }
+        }
+    
+        document.addEventListener("keydown", handleKeyDown);
+        return () => {
+          document.removeEventListener("keydown", handleKeyDown);
+        };
+      });    
+
     return (
         <div className="body-wrapper">
             {
@@ -99,7 +113,7 @@ export default function LoginPage() {
                         <div style={{height:'10px'}}></div>
                         {
                             showSpinner ? (<LoadingSpinner />) : (
-                                <button className="btn" style={{fontFamily:"sen"}} onClick={loginUser}>Login</button>
+                                <button className="btn" style={{fontFamily:"sen", fontSize:"20px"}} onClick={loginUser}>Login</button>
                             )
                         }
                     </div>

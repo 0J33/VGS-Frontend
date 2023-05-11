@@ -126,9 +126,9 @@ input {
 }
 
 .btn{
-font-family: Roboto, sans-serif;
+font-family: 'sen';
 font-weight: 0;
-font-size: 14px;
+font-size: 20px;
 color: #fff;
 background-color: #cd1a4f;
 padding: 10px 30px;
@@ -156,7 +156,7 @@ text-transform: uppercase;
     justify-content: center;
     gap:50px;
     background-color: transparent;
-    margin-top: -50px;
+    margin-top: -30px;
 }
 
 .contact-logo {
@@ -304,7 +304,7 @@ text-transform: uppercase;
     }
     
     .btn{
-    font-family: Roboto, sans-serif;
+    font-family: 'sen';
     font-weight: 0;
     font-size: 20px;
     color: #fff;
