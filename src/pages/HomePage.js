@@ -345,7 +345,7 @@ export default function HomePage() {
                 {/* cms section bs mkasel a8ayar ay 7aga feeha*/}
                 <div id="cms" className="games-section">  
                     <div style={{display:"flex", flexDirection:"column", alignItems:"flex-start", justifyContent:"center", gap:"10px", padding:"0px"}}>
-                        <div style={{backgroundColor:"white", height:"80px", display:"flex", justifyContent:"center", alignItems:"center"}}>
+                        <div style={{backgroundColor:"white", height:"80px", display:"flex", justifyContent:"center", alignItems:"center", padding:"0px 15px"}}>
                             <h1 className="footer-text" style={{color:"#33C4B1"}}>
                                 JOIN OUR CLUB
                             </h1>
