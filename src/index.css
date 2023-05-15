@@ -36,3 +36,32 @@ code {
 html {
   scroll-behavior: smooth;
 }
+
+/* Scrollbar styles for WebKit browsers (Safari, Chrome, etc.) */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+  
+::-webkit-scrollbar-track {
+  background: transparent; /* Color of the scrollbar track */
+}
+  
+::-webkit-scrollbar-thumb {
+  background-color: #fff; /* Color of the scrollbar thumb */
+}
+
+/* Scrollbar styles for Firefox */
+/* Note: Firefox does not support customizing the scrollbar appearance */
+
+/* Scrollbar styles for IE and Edge */
+::-ms-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+  
+::-ms-scrollbar-track {
+  background: transparent; /* Color of the scrollbar track */
+}
+  
+::-ms-scrollbar-thumb {
+  background-color: #fff; /* Color of the scrollbar thumb */
+}
