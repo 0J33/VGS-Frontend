@@ -1,4 +1,4 @@
-# [vgsguc.com](https://8ead707a.vgs-react-frontend.pages.dev/)
+# [vgsguc.com](https://vgs-react-frontend.pages.dev/)
 
 # Getting Started with Create React App
 
