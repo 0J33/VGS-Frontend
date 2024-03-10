@@ -499,6 +499,7 @@
         align-items: center;
         justify-content: center;
         margin-top: 0px;
+        margin-left: unset;
     }
 
     .history-paragraph-text {
@@ -542,7 +543,6 @@
         font-family: 'sen';
         font-weight: 400;
         font-size: 24px;
-        margin-left:-75px;
     }
     
     .text-wrapper {
