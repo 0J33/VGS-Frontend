@@ -234,15 +234,15 @@ export default function HomePage() {
                                     <div className="mentor-images-wrapper">
                                         <div className="single-mentor-image-wrapper">
                                             <h1 className="mentor-name">Mariam Tamer</h1>
-                                            <img src="/mentors-images/gad/MariamTamer.jpg" className="mentor-image-mobile" />
+                                            <img src="/mentors-images/gad/MariamTamer.jpg" className="mentor-image" />
                                         </div>
                                         <div className="single-mentor-image-wrapper">
                                             <h1 className="mentor-name">Nada Tamer</h1>
-                                            <img src="/mentors-images/gad/NadaTamer.jpg" className="mentor-image-mobile" />
+                                            <img src="/mentors-images/gad/NadaTamer.jpg" className="mentor-image" />
                                         </div>
                                         <div className="single-mentor-image-wrapper">
                                             <h1 className="mentor-name">Yara El Tantawy</h1>
-                                            <img src="/mentors-images/gad/YaraElTantawy.jpg" className="mentor-image-mobile" />
+                                            <img src="/mentors-images/gad/YaraElTantawy.jpg" className="mentor-image" />
                                         </div>
                                     </div>
                                     <div className="mentor-images-wrapper-mobile">
@@ -347,17 +347,17 @@ export default function HomePage() {
                     <div style={{display:"flex", flexDirection:"column", alignItems:"flex-start", justifyContent:"center", gap:"10px", padding:"0px"}}>
                         <div style={{backgroundColor:"white", height:"80px", display:"flex", justifyContent:"center", alignItems:"center", padding:"0px 15px"}}>
                             <h1 className="footer-text" style={{color:"#33C4B1"}}>
-                                JOIN OUR CLUB
+                                CHECK OUT
                             </h1>
                         </div>
                         <div style={{backgroundColor:"white", display:"flex", height: "80px", justifyContent:"center", alignItems:"center", padding:"0px 15px"}}>
                             <h1 className="footer-text" style={{color:"#33C4B1"}}>
-                                TO GAIN ACCESS
+                                THE CONTENT
                             </h1>
                         </div>
                         <div style={{backgroundColor:"white", display:"flex", height:"80px", justifyContent:"center", alignItems:"center", padding:"0px 15px"}}>
                             <h1 className="footer-text" style={{color:"#33C4B1"}}>
-                                TO THE CMS
+                                ON OUR CMS
                             </h1>
                         </div>
                     </div>
