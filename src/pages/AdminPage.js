@@ -162,13 +162,15 @@ export default function AdminPage() {
                 setShowProgress(false);
                 setProgress(0);
                 uploadDataToBackend(db_data);
+
+                console.log("file uploaded to s3");
+                window.location.reload();
+
             }).on("httpUploadProgress", function (progress) {
                 setProgress(Math.round((progress.loaded / progress.total) * 100));
             });
         
-            console.log("file uploaded to s3");
 
-            window.location.reload();
 
         });        
 
