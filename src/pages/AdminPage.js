@@ -204,7 +204,7 @@ export default function AdminPage() {
                                     </select>
                                 </label>
                             </div>
-                            <label className="text-label">Resource Name</label>
+                            <label className="text-label">File Title</label>
                             <input type="text" style={{fontFamily:"sen", width: "-webkit-fill-available", minWidth: "300px"}} onChange={(event) => setResourceName(event.target.value)} placeholder="Enter a name for your file" />
                             <div className="file-input-wrapper">
                                 <div className="file-input">
