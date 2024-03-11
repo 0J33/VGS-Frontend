@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 import ResourceCard from "../components/ResourceCard";
 import LoadingSpinner from "../components/LoadingSpinner";
 
-const gdd_url = process.env.REACT_APP_GDD_URL;
-const gad_url = process.env.REACT_APP_GAD_URL;
-const gsd_url = process.env.REACT_APP_GSD_URL;
+const gdd_url = process.env.REACT_APP_BACKEND + "/gdd";
+const gad_url = process.env.REACT_APP_BACKEND + "/gad";
+const gsd_url = process.env.REACT_APP_BACKEND + "/gsd";
 
 export default function CmsPage() {
     
