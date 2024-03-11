@@ -5,12 +5,12 @@ import { useNavigate } from "react-router-dom";
 import ResourceCard from "../components/ResourceCard";
 import LoadingSpinner from "../components/LoadingSpinner";
 
-const gdd_url = "https://vgs-production.up.railway.app/api/gdd";
-const gad_url = "https://vgs-production.up.railway.app/api/gad";
-const gsd_url = "https://vgs-production.up.railway.app/api/gsd";
+const gdd_url = process.env.REACT_APP_GDD_URL;
+const gad_url = process.env.REACT_APP_GAD_URL;
+const gsd_url = process.env.REACT_APP_GSD_URL;
 
 export default function CmsPage() {
-    const navigate = useNavigate();
+    
     const [data, setData] = useState([]);
 
     const [isLoading, setIsLoading] = useState(false);
