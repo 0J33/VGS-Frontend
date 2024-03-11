@@ -12,22 +12,16 @@ try {
     console.log('dotenv not found');
 }
 
-const ACCESS_KEY = process.env.REACT_APP_ACCESS_KEY;
-const SECRET_ACCESS_KEY = process.env.REACT_APP_SECRET_ACCESS_KEY;
-const REGION = process.env.REACT_APP_REGION;
-const S3_BUCKET = process.env.REACT_APP_S3_BUCKET;
-
-AWS.config.update({
-    accessKeyId: ACCESS_KEY,
-    secretAccessKey: SECRET_ACCESS_KEY,
-    maxRetries: 1, // on upload fail retry to upload only once (default is 3 times)
-    httpOptions: {
-        timeout: 10000000, // set timeout to 10000000 milliseconds = 167 minutes
-        connectTimeout: 10000000 // set timeout to 10000000 milliseconds = 167 minutes 
-    }
+const AWS_RES = process.env.REACT_APP_AWS_RES;
+const AWS_ACCESS_KEY_ID = process.env.REACT_APP_AWS_ACCESS_KEY_ID;
+const AWS_SECRET_ACCESS_KEY = process.env.REACT_APP_AWS_SECRET_ACCESS_KEY;
+const AWS_REGION = process.env.REACT_APP_AWS_REGION;
+const AWS_BUCKET_NAME = process.env.REACT_APP_AWS_BUCKET_NAME;
+const s3 = new AWS.S3({
+  accessKeyId: AWS_ACCESS_KEY_ID,
+  secretAccessKey: AWS_SECRET_ACCESS_KEY,
+  region: AWS_REGION,
 });
-
-const addResourceApiEndpoint = process.env.REACT_APP_ADD_RESOURCE_API_ENDPOINT;
 
 export default function AdminPage() {
     const [showProgress, setShowProgress] = useState(false);
@@ -59,11 +53,6 @@ export default function AdminPage() {
         }
     }
 
-    const myBucket = new AWS.S3({
-        params: {Bucket: S3_BUCKET},
-        region: REGION
-    });
-
     function handleCommitteeSelect(e) {
         setCommittee(e.target.value);
     }
@@ -71,6 +60,7 @@ export default function AdminPage() {
     function handleFileInput(e) {
         setSelectedFile(e.target.files[0]);
         setSelectedFileName(e.target.files[0].name);
+        setSelectedFileSize(e.target.files[0].size);
     }
 
     function handleFileTypeChange(e) {
@@ -93,6 +83,27 @@ export default function AdminPage() {
         return formattedFileName;
     }
 
+    function uploadDataToBackend(db_data) {
+        fetch(`${BACKEND}/uploadResource`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(db_data)
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.status === 200) {
+                console.log("Data Uploaded to Database Successfully");
+                alert("File Uploaded Successfully");
+                navigate("/admin");
+            } else {
+                setError(true);
+                setErrorMessage("Error Uploading Data to Database");
+            }
+        })
+    }
+
     function handleUpload(file) {
         if (file == null) {
             setError(true);
@@ -104,36 +115,64 @@ export default function AdminPage() {
             setErrorMessage("Please Provide a name for the resource");
             return;
         }
-        const formattedFileName = formatResourceName(selectedFileName);
-        const fullS3ResourceLink = REACT_APP_AWS_RES + formattedFileName;
-        const data = {
-            "committee": committee,
-            "resource_type": selectedFileType,
-            "resource_name": resourceName,
-            "resource_link": fullS3ResourceLink
+
+        const id_bool = true;
+        var randomId = 0;
+        while (id_bool) {
+            randomId = Math.floor(Math.random() * 1000000000);
+            fetch(`${BACKEND}/checkIfFileExists`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    "id": randomId
+                })
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.status === 200) {
+                    id_bool = false;
+                } else {
+                    id_bool = true;
+                }
+            })
         }
-        const params = {
-            Bucket: S3_BUCKET,
-            Body: file,
-            Key: file.name
+
+        const formattedFileName = formatResourceName(selectedFileName);
+        const fullS3ResourceLink = AWS_RES + formattedFileName;
+        const db_data = {
+            "committee": committee,
+            "name": resourceName,
+            "type": selectedFileType,
+            "id": randomId,
+            "aws_url": fullS3ResourceLink
         }
         
         setProgress(0);
         setShowProgress(true);
 
-        myBucket.putObject(params)
-            .on('httpUploadProgress', (evt) => {
-                setProgress(Math.round((evt.loaded/evt.total)*100));
-            })
-            .on('complete', (evt) => {
-                // send request to backend to add the resource link along with other info
-                axios.post(addResourceApiEndpoint, data);
-            })
-            .send((err) => {
-                if (err) {
-                    console.log(err);
-                }
-            });
+        const params = {
+            Bucket: AWS_BUCKET_NAME,
+            Key: id.toString(),
+            Body: file,
+            ACL: "public-read",
+        };
+        s3.upload(params, function (err, data) {
+            if (err) {
+                console.log(err);
+                setError(true);
+                setErrorMessage("Error Uploading File to S3");
+                return;
+            }
+            console.log(`File uploaded successfully. ${data.Location}`);
+            setShowProgress(false);
+            setProgress(0);
+            uploadDataToBackend(db_data);
+        }).on("httpUploadProgress", function (progress) {
+            setProgress(Math.round((progress.loaded / progress.total) * 100));
+        });
+
     }
 
     useEffect(() => {
