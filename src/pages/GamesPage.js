@@ -13,21 +13,7 @@ export default function GamePage() {
 
     const [isGameOn, setIsGameOn] = useState(false);
 
-    const [isMobile, setIsMobile] = useState(false);
-
-    function handleResize() {
-        console.log(isMobile);
-        console.log(window.innerWidth);
-        if (window.innerWidth < 1050) {
-            setIsMobile(true);
-            return;
-        }
-        setIsMobile(false);
-    }
-
-
-    window.addEventListener('resize', handleResize);
-    
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
     return (
         <div className="games-page-body">  
