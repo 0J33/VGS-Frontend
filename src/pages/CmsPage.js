@@ -7,9 +7,9 @@ import LoadingSpinner from "../components/LoadingSpinner";
 
 try {
     require('dotenv').config();
-  } catch (e) {
+} catch (e) {
     console.log('dotenv not found');
-  }
+}
 
 const gdd_url = process.env.REACT_APP_BACKEND + "/gdd";
 const gad_url = process.env.REACT_APP_BACKEND + "/gad";

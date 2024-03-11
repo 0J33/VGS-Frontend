@@ -7,9 +7,9 @@ import "../css/login-page.css";
 import * as App from "../App";
 
 try {
-  require('dotenv').config();
+    require('dotenv').config();
 } catch (e) {
-  console.log('dotenv not found');
+    console.log('dotenv not found');
 }
 
 const BACKEND = process.env.REACT_APP_BACKEND;

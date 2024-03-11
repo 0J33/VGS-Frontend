@@ -6,10 +6,16 @@ import LoadingSpinner from "../components/LoadingSpinner";
 import axios from "axios";
 import App from "../App";
 
-const S3_BUCKET = "vgs-website-resources/static";
-const REGION = "us-east-1";
-const ACCESS_KEY = "AKIA6C44BFWJBQXDULXD";
-const SECRET_ACCESS_KEY = "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";
+try {
+    require('dotenv').config();
+} catch (e) {
+    console.log('dotenv not found');
+}
+
+const ACCESS_KEY = process.env.REACT_APP_ACCESS_KEY;
+const SECRET_ACCESS_KEY = process.env.REACT_APP_SECRET_ACCESS_KEY;
+const REGION = process.env.REACT_APP_REGION;
+const S3_BUCKET = process.env.REACT_APP_S3_BUCKET;
 
 AWS.config.update({
     accessKeyId: ACCESS_KEY,
@@ -21,8 +27,7 @@ AWS.config.update({
     }
 });
 
-const adminApiEndpoint = "https://vgs-production.up.railway.app/api/profiles/admin";
-const addResourceApiEndpoint = "https://vgs-production.up.railway.app/api/resources";
+const addResourceApiEndpoint = process.env.REACT_APP_ADD_RESOURCE_API_ENDPOINT;
 
 export default function AdminPage() {
     const [showProgress, setShowProgress] = useState(false);
@@ -100,7 +105,7 @@ export default function AdminPage() {
             return;
         }
         const formattedFileName = formatResourceName(selectedFileName);
-        const fullS3ResourceLink = "https://vgs-website-resources.s3.amazonaws.com/static/" + formattedFileName;
+        const fullS3ResourceLink = REACT_APP_AWS_RES + formattedFileName;
         const data = {
             "committee": committee,
             "resource_type": selectedFileType,
