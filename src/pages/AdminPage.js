@@ -90,8 +90,7 @@ export default function AdminPage() {
         .then((data) => {
             if (data.status === 200) {
                 console.log("Data Uploaded to Database Successfully");
-                alert("File Uploaded Successfully");
-                navigate("/admin");
+                window.location.reload();
             } else {
                 setError(true);
                 setErrorMessage("Error Uploading Data to Database");
@@ -164,7 +163,6 @@ export default function AdminPage() {
                 uploadDataToBackend(db_data);
 
                 console.log("file uploaded to s3");
-                window.location.reload();
 
             }).on("httpUploadProgress", function (progress) {
                 setProgress(Math.round((progress.loaded / progress.total) * 100));
