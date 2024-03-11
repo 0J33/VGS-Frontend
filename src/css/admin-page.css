@@ -39,14 +39,15 @@ h3 {
 }
 
 .form-wrapper {
-    width: 800px;
-    height: 580px;
+    width: min-content;
+    height: min-content;
     background-color: #ffffff;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 50px;
 }
 
 .form-body {
@@ -66,22 +67,16 @@ h3 {
 }
 
 .btn{
-    font-family: Roboto, sans-serif;
-    font-weight: 0;
-    font-size: 14px;
-    color: #fff;
-    background-color: #cd1a4f;
-    padding: 10px 30px;
-    border: none;
-    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
-    border-radius: 8px;
-    transition : 1000ms;
-    transform: translateY(0);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    cursor: pointer;
-    text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 10px 15px;
+  background: #cd1a4f;
+  display: inline-block;
+  color: white;
+  font-family: 'sen';
+  font-size: 14px;
+  font-weight: 500;
+  min-width: 100px;
 }
     
 .btn:hover{
@@ -103,87 +98,91 @@ h3 {
 label.label input[type="file"] {
     position: absolute;
     top: -1000px;
-  }
-  .label {
-    cursor: pointer;
-    border-radius: 10px;
-    padding: 10px 15px;
-    background: #cd1a4f;
-    display: inline-block;
-    color: white;
-    font-family: 'sen';
-    font-weight: 500;
-  }
-  .label:hover {
-    cursor: pointer;
-  }
-  .label:active {
-    background: #9fa1a0;
-  }
-  .label:invalid+span {
-    color: white;
-    font-weight: 700;
-    font-family: 'sen';
-  }
-  .label:valid+span {
-    color: #ffffff;
-    font-weight: 700;
-    font-family: 'sen';
-  }
+}
 
-  .select-wrapper {
-    position: relative;
-    float: left;
-    min-width: 200px;
-  }
+.label {
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 10px 15px;
+  background: #cd1a4f;
+  display: inline-block;
+  color: white;
+  font-family: 'sen';
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  width: 110px;
+}
+.label:hover {
+  cursor: pointer;
+}
+.label:active {
+  background: #9fa1a0;
+}
+.label:invalid+span {
+  color: white;
+  font-weight: 700;
+  font-family: 'sen';
+}
+.label:valid+span {
+  color: #ffffff;
+  font-weight: 700;
+  font-family: 'sen';
+}
+
+.select-wrapper {
+  position: relative;
+  float: left;
+  min-width: 200px;
+}
+
+/* IE11 hide native button (thanks Matt!) */
+select::-ms-expand {
+display: none;
+}
+
+.select-wrapper:after {
+  content: '<>';
+  font: 17px "Consolas", monospace;
+  color: #333;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  right: 11px;
+  /*Adjust for position however you want*/
   
-  /* IE11 hide native button (thanks Matt!) */
-  select::-ms-expand {
-  display: none;
-  }
+  top: 18px;
+  padding: 0 0 2px;
+  border-bottom: 1px solid #999;
+  /*left line */
   
-  .select-wrapper:after {
-    content: '<>';
-    font: 17px "Consolas", monospace;
-    color: #333;
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
-    right: 11px;
-    /*Adjust for position however you want*/
-    
-    top: 18px;
-    padding: 0 0 2px;
-    border-bottom: 1px solid #999;
-    /*left line */
-    
-    position: absolute;
-    pointer-events: none;
-  }
+  position: absolute;
+  pointer-events: none;
+}
+
+.select-wrapper select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Add some styling */
   
-  .select-wrapper select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    /* Add some styling */
-    
-    display: block;
-    width: 100%;
-    max-width: 320px;
-    height: 50px;
-    float: right;
-    margin: 5px 0px;
-    padding: 0px 24px;
-    font-size: 16px;
-    line-height: 1.75;
-    color: #333;
-    background-color: #ffffff;
-    background-image: none;
-    border: 1px solid #cccccc;
-    -ms-word-break: normal;
-    word-break: normal;
-  }
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: 50px;
+  float: right;
+  margin: 5px 0px;
+  padding: 0px 24px;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #333;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  -ms-word-break: normal;
+  word-break: normal;
+}
   
 @media only screen and (max-width: 768px){
   .form-wrapper{

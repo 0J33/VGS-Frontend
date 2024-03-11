@@ -85,7 +85,7 @@ export default function CmsPage() {
                             return (
 
                                 <div>
-                                    <ResourceCard key={idx} resource_name={keys.name} resource_type={keys.type} resource_link={keys.aws_url} />
+                                    <ResourceCard key={idx} resource_name={keys.name} resource_type={keys.name} resource_link={keys.aws_url} />
                                 </div>
                             );
                         })

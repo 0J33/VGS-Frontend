@@ -12,6 +12,8 @@ try {
     console.log('dotenv not found');
 }
 
+const BACKEND = process.env.REACT_APP_BACKEND;
+
 const AWS_RES = process.env.REACT_APP_AWS_RES;
 const AWS_ACCESS_KEY_ID = process.env.REACT_APP_AWS_ACCESS_KEY_ID;
 const AWS_SECRET_ACCESS_KEY = process.env.REACT_APP_AWS_SECRET_ACCESS_KEY;
@@ -34,9 +36,7 @@ export default function AdminPage() {
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
 
-    const [resourceName, setResourceName] = useState("");
     const [committee, setCommittee] = useState("GDD"); // GDD set as the default value
-    const [selectedFileType, setSelectedFileType] = useState("IMAGE");
 
     const navigate = useNavigate();
 
@@ -60,11 +60,6 @@ export default function AdminPage() {
     function handleFileInput(e) {
         setSelectedFile(e.target.files[0]);
         setSelectedFileName(e.target.files[0].name);
-        setSelectedFileSize(e.target.files[0].size);
-    }
-
-    function handleFileTypeChange(e) {
-        setSelectedFileType(e.target.value);
     }
 
     function formatResourceName(fileName) {
@@ -84,7 +79,7 @@ export default function AdminPage() {
     }
 
     function uploadDataToBackend(db_data) {
-        fetch(`${BACKEND}/uploadResource`, {
+        fetch(`${BACKEND}/addFile`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -110,68 +105,72 @@ export default function AdminPage() {
             setErrorMessage("Please Choose a file to be uploaded");
             return;
         }
-        if (resourceName.trim() === "") {
+        if (selectedFileName.trim() === "") {
             setError(true);
             setErrorMessage("Please Provide a name for the resource");
             return;
         }
 
-        const id_bool = true;
-        var randomId = 0;
-        while (id_bool) {
-            randomId = Math.floor(Math.random() * 1000000000);
-            fetch(`${BACKEND}/checkIfFileExists`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    "id": randomId
-                })
-            })
-            .then((response) => response.json())
-            .then((data) => {
-                if (data.status === 200) {
-                    id_bool = false;
-                } else {
-                    id_bool = true;
-                }
-            })
-        }
+        console.log("generating random id");
 
-        const formattedFileName = formatResourceName(selectedFileName);
-        const fullS3ResourceLink = AWS_RES + formattedFileName;
-        const db_data = {
-            "committee": committee,
-            "name": resourceName,
-            "type": selectedFileType,
-            "id": randomId,
-            "aws_url": fullS3ResourceLink
-        }
-        
-        setProgress(0);
-        setShowProgress(true);
-
-        const params = {
-            Bucket: AWS_BUCKET_NAME,
-            Key: id.toString(),
-            Body: file,
-            ACL: "public-read",
-        };
-        s3.upload(params, function (err, data) {
-            if (err) {
-                console.log(err);
-                setError(true);
-                setErrorMessage("Error Uploading File to S3");
-                return;
+        var randomId  = "";
+        fetch(`${BACKEND}/generateFileId`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
             }
-            console.log(`File uploaded successfully. ${data.Location}`);
-            setShowProgress(false);
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            randomId = data.toString();
+        
+            console.log("random id generated");
+        
+            const formattedFileName = formatResourceName(selectedFileName);
+            const fullS3ResourceLink = AWS_RES + randomId + "/" + formattedFileName;
+            const db_data = {
+                "committee": committee,
+                "name": selectedFileName,
+                "id": randomId,
+                "aws_url": fullS3ResourceLink
+            };
+        
             setProgress(0);
-            uploadDataToBackend(db_data);
-        }).on("httpUploadProgress", function (progress) {
-            setProgress(Math.round((progress.loaded / progress.total) * 100));
-        });
+            setShowProgress(true);
+        
+            const params = {
+                Bucket: AWS_BUCKET_NAME,
+                Key: randomId + "/" + formattedFileName,
+                Body: file,
+                ACL: "public-read",
+            };
+        
+            console.log("uploading file to s3");
+
+            console.log(params);
+        
+            s3.upload(params, function (err, data) {
+                if (err) {
+                    console.log(err);
+                    setError(true);
+                    setErrorMessage("Error Uploading File to S3");
+                    return;
+                }
+        
+                console.log(`File uploaded successfully. ${data.Location}`);
+                setShowProgress(false);
+                setProgress(0);
+                uploadDataToBackend(db_data);
+            }).on("httpUploadProgress", function (progress) {
+                setProgress(Math.round((progress.loaded / progress.total) * 100));
+            });
+        
+            console.log("file uploaded to s3");
+
+            window.location.reload();
+
+        });        
 
     }
 
@@ -205,32 +204,20 @@ export default function AdminPage() {
                                     </select>
                                 </label>
                             </div>
-                            <label className="text-label">Resource Type</label>      
-                            <div className="select-wrapper">
-                                <label>
-                                    <select style={{fontFamily:"sen"}} onChange={handleFileTypeChange}>
-                                        <option value="IMAGE">IMAGE</option>
-                                        <option value="VIDEO">VIDEO</option>
-                                        <option value="OTHER">OTHER</option>
-                                    </select>
-                                </label>
-                            </div>
-                            <label className="text-label">Resource Name</label>
-                            <input type="text" onChange={(event) => setResourceName(event.target.value)} className="input-field" style={{fontFamily:"sen"}} placeholder="Enter a name for your file" />
                             <div className="file-input-wrapper">
                                 <div className="file-input">
                                     <label className="label">
                                         <input type="file" onChange={handleFileInput} />
-                                        <span>Select a file</span>
+                                        <span>SELECT A FILE</span>
                                     </label>
                                 </div>
                                 <p className="text">{selectedFileName}</p>
                             </div>
                             <div className="upload-button-wrapper">
-                                <button className="btn" style={{fontFamily:"sen"}} onClick={() => handleUpload(selectedFile)}>upload</button>
+                                <button className="btn" style={{fontFamily:"sen"}} onClick={() => handleUpload(selectedFile)}>UPLOAD</button>
                                 {
                                     showProgress && (
-                                        <h3 className="text">upload progress : {progress}%</h3>
+                                        <p className="text">upload progress : {progress}%</p>
                                     )
                                 }
                             </div>
