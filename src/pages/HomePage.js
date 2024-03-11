@@ -210,19 +210,19 @@ export default function HomePage() {
                                     <div className="mentor-images-wrapper-mobile">
                                         <div className="single-mentor-image-wrapper-mobile" style={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
                                             <h1 className="mentor-name">Youssef El Sharkawy</h1>
-                                            <img src="/mentors-images/gdd/YoussefElSharkawy.jpg" className="mentor-image" />
+                                            <img src="/mentors-images/gdd/YoussefElSharkawy.jpg" className="mentor-image-mobile" />
                                         </div>
                                         <div className="single-mentor-image-wrapper-mobile">
                                             <h1 className="mentor-name">Farah Ahmed</h1>
-                                            <img src="/mentors-images/gdd/FarahAhmed.jpg" className="mentor-image" />
+                                            <img src="/mentors-images/gdd/FarahAhmed.jpg" className="mentor-image-mobile" />
                                         </div>
                                         <div className="single-mentor-image-wrapper-mobile" style={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
                                             <h1 className="mentor-name">Youssef Korayem</h1>
-                                            <img src="/mentors-images/gdd/YoussefKorayem.jpg" className="mentor-image" />
+                                            <img src="/mentors-images/gdd/YoussefKorayem.jpg" className="mentor-image-mobile" />
                                         </div>
                                         <div className="single-mentor-image-wrapper-mobile">
                                             <h1 className="mentor-name">Ziad Alaa</h1>
-                                            <img src="/mentors-images/gdd/ZiadAlaa.jpg" className="mentor-image" />
+                                            <img src="/mentors-images/gdd/ZiadAlaa.jpg" className="mentor-image-mobile" />
                                         </div>
                                     </div>
                                 </div>
@@ -234,29 +234,29 @@ export default function HomePage() {
                                     <div className="mentor-images-wrapper">
                                         <div className="single-mentor-image-wrapper">
                                             <h1 className="mentor-name">Mariam Tamer</h1>
-                                            <img src="/mentors-images/gad/MariamTamer.jpg" className="mentor-image" />
+                                            <img src="/mentors-images/gad/MariamTamer.jpg" className="mentor-image-mobile" />
                                         </div>
                                         <div className="single-mentor-image-wrapper">
                                             <h1 className="mentor-name">Nada Tamer</h1>
-                                            <img src="/mentors-images/gad/NadaTamer.jpg" className="mentor-image" />
+                                            <img src="/mentors-images/gad/NadaTamer.jpg" className="mentor-image-mobile" />
                                         </div>
                                         <div className="single-mentor-image-wrapper">
                                             <h1 className="mentor-name">Yara El Tantawy</h1>
-                                            <img src="/mentors-images/gad/YaraElTantawy.jpg" className="mentor-image" />
+                                            <img src="/mentors-images/gad/YaraElTantawy.jpg" className="mentor-image-mobile" />
                                         </div>
                                     </div>
                                     <div className="mentor-images-wrapper-mobile">
                                         <div className="single-mentor-image-wrapper-mobile">
                                             <h1 className="mentor-name">Mariam Tamer</h1>
-                                            <img src="/mentors-images/gad/MariamTamer.jpg" className="mentor-image" />
+                                            <img src="/mentors-images/gad/MariamTamer.jpg" className="mentor-image-mobile" />
                                         </div>
                                         <div className="single-mentor-image-wrapper-mobile">
                                             <h1 className="mentor-name">Nada Tamer</h1>
-                                            <img src="/mentors-images/gad/NadaTamer.jpg" className="mentor-image" />
+                                            <img src="/mentors-images/gad/NadaTamer.jpg" className="mentor-image-mobile" />
                                         </div>
                                         <div className="single-mentor-image-wrapper-mobile" style={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
                                             <h1 className="mentor-name">Yara El Tantawy</h1>
-                                            <img src="/mentors-images/gad/YaraElTantawy.jpg" className="mentor-image" />
+                                            <img src="/mentors-images/gad/YaraElTantawy.jpg" className="mentor-image-mobile" />
                                         </div>
                                     </div>
                                 </div>
