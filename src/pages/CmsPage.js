@@ -34,18 +34,7 @@ export default function CmsPage() {
             .then(res => {setData(res.data); setIsLoading(false)}); 
     }
 
-    function getCookie() {
-        var cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-            if(cookies.at(i).includes("sessionId")) {
-                return;
-            }
-        }
-        navigate("/login");
-    }
-
     useEffect(() => {
-        getCookie();
         getGDD();
     }, []);
 
