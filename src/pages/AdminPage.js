@@ -31,6 +31,7 @@ export default function AdminPage() {
 
     const [selectedFile, setSelectedFile] = useState(null);
     const [selectedFileName, setSelectedFileName] = useState("");
+    const [resourceName, setResourceName] = useState("");
     
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
@@ -64,12 +65,12 @@ export default function AdminPage() {
 
     function formatResourceName(fileName) {
         const fileNameArray = fileName.split(" ");
-        if (fileNameArray.length == 0) {
+        if (fileNameArray.length === 0) {
             return fileName;
         }
         var formattedFileName = "";
         for (let i = 0; i < fileNameArray.length; i++) {
-            if (i == fileNameArray.length-1) {
+            if (i === fileNameArray.length-1) {
                 formattedFileName += fileNameArray.at(i);
                 break;
             }
@@ -104,7 +105,7 @@ export default function AdminPage() {
             setErrorMessage("Please Choose a file to be uploaded");
             return;
         }
-        if (selectedFileName.trim() === "") {
+        if (resourceName.trim() === "") {
             setError(true);
             setErrorMessage("Please Provide a name for the resource");
             return;
@@ -130,6 +131,7 @@ export default function AdminPage() {
             const fullS3ResourceLink = AWS_RES + randomId + "/" + formattedFileName;
             const db_data = {
                 "committee": committee,
+                "title": resourceName,
                 "name": selectedFileName,
                 "id": randomId,
                 "aws_url": fullS3ResourceLink
@@ -167,8 +169,6 @@ export default function AdminPage() {
             }).on("httpUploadProgress", function (progress) {
                 setProgress(Math.round((progress.loaded / progress.total) * 100));
             });
-        
-
 
         });        
 
@@ -204,14 +204,16 @@ export default function AdminPage() {
                                     </select>
                                 </label>
                             </div>
+                            <label className="text-label">Resource Name</label>
+                            <input type="text" style={{fontFamily:"sen", width: "-webkit-fill-available", minWidth: "300px"}} onChange={(event) => setResourceName(event.target.value)} placeholder="Enter a name for your file" />
                             <div className="file-input-wrapper">
                                 <div className="file-input">
                                     <label className="label">
                                         <input type="file" onChange={handleFileInput} />
                                         <span>SELECT A FILE</span>
                                     </label>
+                                    <p className="text">{selectedFileName}</p>
                                 </div>
-                                <p className="text">{selectedFileName}</p>
                             </div>
                             <div className="upload-button-wrapper">
                                 <button className="btn" style={{fontFamily:"sen"}} onClick={() => handleUpload(selectedFile)}>UPLOAD</button>
