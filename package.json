@@ -8,9 +8,13 @@
     "@testing-library/user-event": "^13.5.0",
     "aws-sdk": "^2.1349.0",
     "axios": "^1.3.4",
+    "crypto-browserify": "^3.12.0",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
     "react": "^18.2.0",
     "react-cookie": "^4.1.1",
     "react-dom": "^18.2.0",
+    "react-env": "^0.0.0",
     "react-router-dom": "^6.4.4",
     "react-scripts": "^5.0.1",
     "react-unity-webgl": "^9.3.0",
@@ -41,6 +45,6 @@
     ]
   },
   "devDependencies": {
-    "mui-image-slider": "^1.0.7"
+    "dotenv-webpack": "^8.0.1"
   }
 }

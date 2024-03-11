@@ -42,26 +42,15 @@ export default function AdminPage() {
     const navigate = useNavigate();
 
     async function checkIsAdmin() {
-        var cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-            if(cookies.at(i).includes("sessionId")) {
-               const sessionId = cookies.at(i).split("=")[1];
-               await axios.post(adminApiEndpoint, {"session_id": sessionId})
-                .then((response) => {
-                    if (response.status == 200) {
-                        if (response.data.success == "False" || response.data.is_admin == "False") {
-                            navigate("/");
-                        }
-                    } else {
-                        navigate("/");
-                    }
-                })
-                .catch((err) => {
-                    navigate("/");
-                });
-                setLoading(false);
-               return;
-            }
+        const username = sessionStorage.getItem("username");
+        console.log(username);
+        if (username === null || username === "") {
+            console.log("user not logged in");
+            navigate("/login");
+            return;
+        } else {
+            console.log("user logged in");
+            setLoading(false);
         }
     }
 

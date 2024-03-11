@@ -4,59 +4,80 @@ import { useNavigate } from "react-router-dom";
 import LoadingSpinner from "../components/LoadingSpinner";
 import axios from "axios";
 import "../css/login-page.css";
+import * as App from "../App";
 
-export default function LoginPage() {
-    const loginUrl = "https://vgs-production.up.railway.app/api/profiles/login";
+const BACKEND = process.env.REACT_APP_BACKEND;
+
+export default function LoginPage({ username, setUsername, password, setPassword, loggedIn, setLoggedIn }) {
 
     const navigate = useNavigate();
-    const [cookies, setCookies] = useCookies();
 
     const [showSpinner, setShowSpinner] = useState(false);
-
-    const [gucId, setGucId] = useState("");
-    const [password, setPassword] = useState("");
 
     const [error, setError] = useState(false);
     const [errMsg, setErrMsg] = useState("");
 
-    function getCookie() {
-        var cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-            if(cookies.at(i).includes("sessionId")) {
-                navigate("/");
-                return;
-            }
+    function loginUser() {
+        // Check if username and password are not empty
+        if (!username || !password) {
+          setError(true);
+          setErrMsg("No username or password.");
+          return;
         }
-        navigate("/login");
-    }
-
-    async function loginUser() {
-        var body = {'member_id': gucId, 'password': password};
+      
+        // Show loading spinner while making the request
         setShowSpinner(true);
-        await axios.post(loginUrl, body)
-        .then((response) => {
-            if (response.status === 200 ) {
-                setCookies('sessionId', response.data.sessionId, {path: '/'});
-                window.location.reload();
-            } else {
-                setError(true);
-                setShowSpinner(false);
-                setErrMsg("Wrong Credentials");
-            }
+      
+        // Make a POST request to the login endpoint
+        fetch(`${BACKEND}/login`, {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            username: username,
+            password: password
+          })
+        })
+        .then((res) => {
+          // Check if the request was successful
+          if (res.ok) {
+            // Save the username in session storage
+            sessionStorage.setItem("username", username);
+            // Update the state to indicate the user is logged in
+            setLoggedIn(true);
+            // Redirect or perform other actions on successful login
+            navigate('/admin'); // You might want to navigate to a different page
+          } else {
+            // Handle unsuccessful login (display an error message, etc.)
+            setError(true);
+            setErrMsg("Incorrect login credentials.");
+          }
         })
         .catch((err) => {
-            setError(true);
-            setShowSpinner(false);
-            setErrMsg(err.response.data.errMsg);
+          console.error(err);
+          // Handle any unexpected errors
+          setError(true);
+          setErrMsg("Error.");
+        })
+        .finally(() => {
+          // Hide the loading spinner
+          setShowSpinner(false);
         });
-    }
+      }      
 
     function closeErrorBox() {
         setError(false);
     }
 
     useEffect(() => {
-        getCookie();
+        const username = sessionStorage.getItem("username");
+        if (username === null || username === "") {
+            setLoggedIn(false);
+        } else {
+            setLoggedIn(true);
+            navigate("/");
+        }
     }, []);
 
     useEffect(() => {
@@ -107,7 +128,7 @@ export default function LoginPage() {
                     <div className="right-card">
                         <h1 className="right-card-text">Log In.</h1>
                         <label className="input-label">VGS ID</label>
-                        <input placeholder="XXX" type="text" style={{fontFamily:"sen"}} onChange={(event) => {setGucId(event.target.value)}} />
+                        <input placeholder="XXX" type="text" style={{fontFamily:"sen"}} onChange={(event) => {setUsername(event.target.value)}} />
                         <label className="input-label">Password</label>
                         <input placeholder="********" type="password" style={{fontFamily:"sen"}} onChange={(event) => {setPassword(event.target.value)}} />
                         <div style={{height:'10px'}}></div>
