@@ -5,6 +5,12 @@ import { useNavigate } from "react-router-dom";
 import ResourceCard from "../components/ResourceCard";
 import LoadingSpinner from "../components/LoadingSpinner";
 
+try {
+    require('dotenv').config();
+  } catch (e) {
+    console.log('dotenv not found');
+  }
+
 const gdd_url = process.env.REACT_APP_BACKEND + "/gdd";
 const gad_url = process.env.REACT_APP_BACKEND + "/gad";
 const gsd_url = process.env.REACT_APP_BACKEND + "/gsd";

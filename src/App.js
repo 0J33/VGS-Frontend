@@ -8,8 +8,6 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import { CookiesProvider } from "react-cookie";
 import AdminPage from "./pages/AdminPage";
 
-const BACKEND = process.env.REACT_APP_BACKEND;
-
 export default function App() {
 
   const [username , setUsername] = useState("");
