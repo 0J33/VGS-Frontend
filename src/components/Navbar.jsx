@@ -27,8 +27,6 @@ export default function Navbar() {
     const gamesPos = document.getElementById("games").offsetTop;
     const cmsPos = document.getElementById("cms").offsetTop;
 
-    console.log(hash);
-
     switch (hash) {
       case "/#about":
         window.scrollTo(0, aboutPos);
