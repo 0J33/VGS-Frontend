@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import GamesPage from "./pages/GamesPage";
 import CmsPage from "./pages/CmsPage";
+import BlogPage from "./pages/BlogPage";
 import LoginPage from "./pages/LoginPage";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import { CookiesProvider } from "react-cookie";
@@ -31,6 +32,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/cms" element={<CmsPage />} />
           <Route path="/games" element={<GamesPage />} />
+          <Route path="/blog" element={<BlogPage />} />
           <Route path="/login" element={<LoginPage 
             username={username}
             setUsername={setUsername}

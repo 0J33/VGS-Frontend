@@ -12,6 +12,41 @@ export default function Navbar() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
+  var hash = window.location.href;
+  hash = hash.split("/").pop();
+  hash = "/" + hash;
+
+  function setActivePageFunction (page, url) {
+    setActivePage(page);
+    navigate(url);
+  }
+
+  useEffect(() => {
+    const aboutPos = document.getElementById("about").offsetTop;
+    const mentorsPos = document.getElementById("mentors").offsetTop;
+    const gamesPos = document.getElementById("games").offsetTop;
+    const cmsPos = document.getElementById("cms").offsetTop;
+
+    console.log(hash);
+
+    switch (hash) {
+      case "/#about":
+        window.scrollTo(0, aboutPos);
+        break;
+      case "/#mentors":
+        window.scrollTo(0, mentorsPos);
+        break;
+      case "/#games":
+        window.scrollTo(0, gamesPos);
+        break;
+      case "/#cms":
+        window.scrollTo(0, cmsPos);
+        break;
+      default:
+        break;
+    }
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       const aboutPos = document.getElementById("about").offsetTop;
@@ -62,6 +97,9 @@ export default function Navbar() {
       case "/cms":
         setActivePage(2);
         break;
+      case "/blog":
+        setActivePage(4);
+        break;
       default:
         break;
     }
@@ -91,11 +129,11 @@ export default function Navbar() {
                         <h3 className={activePage === 2 ? 'nav-item-active-text' : "nav-item-text"}>CMS</h3>
                     </div>
                 </a>      
-                {/* <a className="nav-item-anchor" href="/#contact" onClick={() => setActivePage(4)}>
+                <a className="nav-item-anchor" onClick={() => setActivePageFunction(4, "/blog")}>
                     <div className={activePage === 4 ? 'nav-item-active' : "nav-item"}>
-                        <h3 className={activePage === 4 ? 'nav-item-active-text' : "nav-item-text"}>Contact</h3>
+                        <h3 className={activePage === 4 ? 'nav-item-active-text' : "nav-item-text"}>Blog</h3>
                     </div>
-                </a>    */}
+                </a> 
       </div>
       <div>
         <p style={{ fontSize: "0px" }}>.</p>
