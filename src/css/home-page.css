@@ -303,29 +303,29 @@
 }
 
 .mentor-image {
-    transition: 500ms;
     width: 250px;
     height: 300px;
-    opacity: 0.4;
     object-fit: cover;
 }
 
-.mentor-image:hover {
-    scale: 1.2;
-    opacity: 1;
-    transition: 500ms;
-}
-
 .single-mentor-image-wrapper {
+    transition: 500ms;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    opacity: 0.2;
 }
 
-.single-mentor-image-wrapper:hover > h1 {
+.single-mentor-image-wrapper:hover {
     transition: 500ms;
     opacity: 1;
+    scale: 1.2;
+}
+
+.single-mentor-image-wrapper:hover .mentor-name {
+    opacity: 1;
+    scale: 1;
 }
 
 .mentor-name {
