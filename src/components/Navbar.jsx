@@ -100,7 +100,8 @@ export default function Navbar() {
       <div>
         <p style={{ fontSize: "0px" }}>.</p>
       </div>
-      {!loggedIn && (
+      {/* {!loggedIn && ( */}
+      {false && (
         <div className="login-button" onClick={() => navigate("/login")}>
           <p>log in</p>
         </div>

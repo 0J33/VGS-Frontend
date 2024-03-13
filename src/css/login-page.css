@@ -30,7 +30,7 @@
 }
 
 .white-card {
-    margin: 150px 100px;
+    margin: 125px 0px;
     width:850px;
     height:400px;
     background-color: white;
@@ -201,7 +201,7 @@ text-transform: uppercase;
     }
     
     .white-card {
-        margin: 150px 100px;
+        margin: 125px 0px;
         width:350px;
         height:670px;
         background-color: white;
