@@ -40,7 +40,8 @@ h3 {
 }
 
 .form-wrapper {
-    width: min-content;
+    min-width: 300px;
+    width: max-content;
     height: min-content;
     background-color: #ffffff;
     border-radius: 20px;
@@ -197,7 +198,7 @@ display: none;
 .wip-text {
   color: black;
   font-family: 'sen';
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
 }
 
