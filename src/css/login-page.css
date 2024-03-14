@@ -165,13 +165,6 @@ text-transform: uppercase;
     opacity: 0.5;
 }
 
-.wip-text {
-    color: white;
-    font-family: 'sen';
-    font-size: 24px;
-    font-weight: 500;
-}
-
 @media only screen and (max-width: 768px){
     .body-wrapper {
         width:100%;

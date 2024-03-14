@@ -32,6 +32,12 @@ export default function AdminPage() {
     const [user_type, setUserType] = useState("");
     const [user_committee, setUserCommittee] = useState("");
 
+    const [userFormName, setUserFormName] = useState("");
+    const [userFormType, setUserFormType] = useState("");
+    const [userFormCommittee, setUserFormCommittee] = useState("");
+    const [userFormUsername, setUserFormUsername] = useState("");
+    const [userFormPassword, setUserFormPassword] = useState("");
+
     const [showProgress, setShowProgress] = useState(false);
     const [progress, setProgress] = useState(0);
 
@@ -43,7 +49,7 @@ export default function AdminPage() {
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
 
-    const [committee, setCommittee] = useState("GDD"); // GDD set as the default value
+    const [committee, setCommittee] = useState("");
 
     const navigate = useNavigate();
 
@@ -181,12 +187,54 @@ export default function AdminPage() {
 
                 console.log("file uploaded to s3");
 
+                alert("File Uploaded Successfully");
+                window.location.reload();
+
             }).on("httpUploadProgress", function (progress) {
                 setProgress(Math.round((progress.loaded / progress.total) * 100));
             });
 
         });        
 
+    }
+
+    function handleAddUser() {
+
+        if (userFormName.trim() === "" || userFormUsername.trim() === "" || userFormPassword.trim() === "") {
+            setError(true);
+            setErrorMessage("Please fill all the fields");
+            return;
+        }
+
+        const user_data = {
+            "username": userFormUsername,
+            "password": userFormPassword,
+            "name": userFormName,
+            "type": userFormType,
+            "committee": userFormCommittee
+        };
+
+        console.log(user_data);
+
+        fetch(`${BACKEND}/addUser`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(user_data)
+        })
+        .then((response) => {
+            response.json()
+            if (response.status === 200) {
+                console.log("User Added to Database Successfully");
+                alert("User Added Successfully");
+                window.location.reload();
+            } else {
+                setError(true);
+                setErrorMessage("Error Adding User to Database");
+            }
+        })
+            
     }
 
     useEffect(() => {
@@ -206,62 +254,140 @@ export default function AdminPage() {
                         <LoadingSpinner />
                         <h3 style={{fontFamily:"sen", color: "white"}}>Please Wait while we verify your identity</h3>
                     </div>
-                ) : 
+                ) : (
+
+                <div className="admin-page">
                 
-                    (user_type === "admin" || user_type === "mentor") ?
-                    (
-                        <div className="form-wrapper">
-                            <div className="form-body">
-                                <label className="text-label">Committee Name</label>      
-                                <div className="select-wrapper">
-                                    <label>
-                                        <select style={{fontFamily:"sen"}} onChange={handleCommitteeSelect}>
-                                            {
-                                                user_type === "admin" ? (
-                                                    <>
-                                                    <option value="GDD" >GDD</option>
-                                                    <option value="GAD" >GAD</option>
-                                                    <option value="GSD" >GSD</option>
-                                                    </>
-                                                ) : (
-                                                    <option value={user_committee} >{user_committee}</option>
+                    <div>
+                    {(user_type === "admin" || user_type === "mentor") ? (
+                            <>
+                            <div className="form-wrapper">
+                                <p className="form-title">Upload a Resource<br />to the CMS</p>
+                                <div className="form-body">
+                                    <label className="text-label">Committee Name</label>      
+                                    <div className="select-wrapper">
+                                        <label>
+                                            <select style={{fontFamily:"sen", width: "300px"}} onChange={handleCommitteeSelect}>
+                                                {
+                                                    user_type === "admin" ? (
+                                                        <>
+                                                        <option value="none" disabled selected>Select a Committee</option>
+                                                        <option value="GDD" >GDD</option>
+                                                        <option value="GAD" >GAD</option>
+                                                        <option value="GSD" >GSD</option>
+                                                        </>
+                                                    ) : (
+                                                        <option value={user_committee} >{user_committee}</option>
+                                                    )
+                                                }
+                                            </select>
+                                        </label>
+                                    </div>
+                                    <label className="text-label">File Title</label>
+                                    <input type="text" style={{fontFamily:"sen", width: "-webkit-fill-available", minWidth: "300px"}} onChange={(event) => setResourceName(event.target.value)} placeholder="Enter a name for your file" />
+                                    <div className="file-input-wrapper">
+                                        <div className="file-input">
+                                            <label className="label">
+                                                <input type="file" onChange={handleFileInput} />
+                                                <span>SELECT A FILE</span>
+                                            </label>
+                                            <p className="text">{selectedFileName}</p>
+                                        </div>
+                                    </div>
+                                    <div className="upload-button-wrapper">
+                                        <button className="btn" style={{fontFamily:"sen"}} onClick={() => handleUpload(selectedFile)}>UPLOAD</button>
+                                        {
+                                            showProgress && (
+                                                <p className="text">upload progress : {progress}%</p>
                                                 )
                                             }
+                                    </div>
+                                </div>
+                            </div>
+                            </>
+                    ) : null}
+                    </div>
+                
+                    <div>
+
+                    {(user_type === "admin") ? (
+                        <div className="form-wrapper">
+                        <p className="form-title">Add a User</p>
+                            <div className="form-body">
+                                <label className="text-label">Name</label>
+                                <input type="text" style={{fontFamily:"sen", width: "-webkit-fill-available", minWidth: "300px"}} onChange={(event) => setUserFormName(event.target.value)} placeholder="Name" />
+                                <label className="text-label">Type</label>  
+                                <div className="select-wrapper">
+                                    <label>
+                                        <select style={{fontFamily:"sen", width: "300px"}} onChange={(event) => {setUserFormType(event.target.value); console.log(event.target.value)}}>
+                                            <option value="none" disabled selected>Select a Type</option>
+                                            <option value="mentor" >Mentor</option>
+                                            <option value="social media" >Social Media</option>
                                         </select>
                                     </label>
                                 </div>
-                                <label className="text-label">File Title</label>
-                                <input type="text" style={{fontFamily:"sen", width: "-webkit-fill-available", minWidth: "300px"}} onChange={(event) => setResourceName(event.target.value)} placeholder="Enter a name for your file" />
-                                <div className="file-input-wrapper">
-                                    <div className="file-input">
-                                        <label className="label">
-                                            <input type="file" onChange={handleFileInput} />
-                                            <span>SELECT A FILE</span>
-                                        </label>
-                                        <p className="text">{selectedFileName}</p>
-                                    </div>
+                                <label className="text-label">Committee</label>
+                                <div className="select-wrapper">
+                                    <label>
+                                        <select style={{fontFamily:"sen", width: "300px"}} onChange={(event) => setUserFormCommittee(event.target.value)}>
+                                            <option value="none" disabled selected>Select a Committee</option>
+                                            <option value="gdd" >GDD</option>
+                                            <option value="gsd" >GAD</option>
+                                            <option value="gad" >GSD</option>
+                                            <option value="none" >None (social media)</option>
+                                        </select>
+                                    </label>
                                 </div>
+                                <label className="text-label">Username</label>
+                                <input type="text" style={{fontFamily:"sen", width: "-webkit-fill-available", minWidth: "300px"}} onChange={(event) => setUserFormUsername(event.target.value)} placeholder="username" />
+                                <label className="text-label">Password</label>
+                                <input type="text" style={{fontFamily:"sen", width: "-webkit-fill-available", minWidth: "300px"}} onChange={(event) => setUserFormPassword(event.target.value)} placeholder="********" />
                                 <div className="upload-button-wrapper">
-                                    <button className="btn" style={{fontFamily:"sen"}} onClick={() => handleUpload(selectedFile)}>UPLOAD</button>
-                                    {
-                                        showProgress && (
-                                            <p className="text">upload progress : {progress}%</p>
-                                        )
-                                    }
+                                    <button className="btn" style={{fontFamily:"sen"}} onClick={() => handleAddUser()}>ADD USER</button>
                                 </div>
                             </div>
-                        </div>
-                    ) : user_type === "social media" &&
-                    (
-                        <div>
-                            <p className="wip-text">Work in progress... 🛠️🏗️🚧</p>
-                        </div>
-                    )
-                    
-                    // user form
 
-                    // game form
+                            {/* update/delete users */}
+                        </div>
+                    ) : null}
 
+                    </div>
+
+                    <div>
+                        
+                        {(user_type === "admin") ? (
+                        
+                        <div className="form-wrapper">
+                            <p className="form-title">Add a Game</p>
+                            <div className="form-body">
+                                {/* add/update/delete games */}
+                                <p className="wip-text">Work in progress... 🛠️🏗️🚧</p>
+                                {/* game file / mentor or game jam / year */}
+                            </div>
+                        </div>
+
+                        ) : null}
+
+                    </div>
+
+                    <div>
+
+                    {(user_type === "social media" || user_type === "admin" ) ? (
+                        <div className="form-wrapper">
+                            <p className="form-title">Add a Post<br />to the Blog</p>
+                            <div className="form-body">
+                                {/* add/update/delete posts */}
+                                <p className="wip-text">Work in progress... 🛠️🏗️🚧</p>
+                                {/* title / description / images / videos */}
+                            </div>
+                        </div>
+                    ) : null}
+
+                    </div>
+
+                </div>
+
+                )
             }
         </div>
     )
