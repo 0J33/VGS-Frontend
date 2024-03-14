@@ -32,7 +32,6 @@ export default function AdminPage() {
     const [user_type, setUserType] = useState("");
     const [user_committee, setUserCommittee] = useState("");
 
-    const [userFormName, setUserFormName] = useState("");
     const [userFormType, setUserFormType] = useState("");
     const [userFormCommittee, setUserFormCommittee] = useState("");
     const [userFormUsername, setUserFormUsername] = useState("");
@@ -209,7 +208,6 @@ export default function AdminPage() {
         const user_data = {
             "username": userFormUsername,
             "password": userFormPassword,
-            "name": userFormName,
             "type": userFormType,
             "committee": userFormCommittee
         };
@@ -314,8 +312,6 @@ export default function AdminPage() {
                         <div className="form-wrapper">
                         <p className="form-title">Add a User</p>
                             <div className="form-body">
-                                <label className="text-label">Name</label>
-                                <input type="text" style={{fontFamily:"sen", width: "-webkit-fill-available", minWidth: "300px"}} onChange={(event) => setUserFormName(event.target.value)} placeholder="Name" />
                                 <label className="text-label">Type</label>  
                                 <div className="select-wrapper">
                                     <label>

@@ -29,8 +29,6 @@ export default function ChangePasswordPage() {
 
     function changePassword() {
 
-        alert("here 1");
-
         // Check if passwords are not empty
         if (!password || !password2) {
             setError(true);
@@ -50,8 +48,6 @@ export default function ChangePasswordPage() {
             return;
         }
 
-        alert("here 2");
-
         // Show loading spinner while making the request
         setShowSpinner(true);
             
@@ -68,8 +64,6 @@ export default function ChangePasswordPage() {
         })
         .then((res) => {
             // Check if the request was successful
-            alert("here 3");
-            alert(res.status);
             if (res.ok) {
             // Redirect or perform other actions on successful login
             navigate('/admin'); // You might want to navigate to a different page

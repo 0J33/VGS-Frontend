@@ -57,7 +57,6 @@ export default function LoginPage({ username, setUsername, password, setPassword
         })
         .then((data) => {
           sessionStorage.setItem("username", username);
-          sessionStorage.setItem("name", data.name);
           sessionStorage.setItem("type", data.type);
           sessionStorage.setItem("committee", data.committee);
           // Update the state to indicate the user is logged in
