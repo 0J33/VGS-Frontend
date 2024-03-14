@@ -137,8 +137,8 @@ export default function LoginPage({ username, setUsername, password, setPassword
                 <div className="right-card-wrapper">
                     <div className="right-card">
                         <h1 className="right-card-text">Log In.</h1>
-                        <label className="input-label">VGS ID</label>
-                        <input placeholder="XXX" type="text" style={{fontFamily:"sen"}} onChange={(event) => {setUsername(event.target.value)}} />
+                        <label className="input-label">Username</label>
+                        <input placeholder="username" type="text" style={{fontFamily:"sen"}} onChange={(event) => {setUsername(event.target.value)}} />
                         <label className="input-label">Password</label>
                         <input placeholder="********" type="password" style={{fontFamily:"sen"}} onChange={(event) => {setPassword(event.target.value)}} />
                         <div style={{height:'10px'}}></div>
