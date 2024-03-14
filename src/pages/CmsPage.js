@@ -50,7 +50,7 @@ export default function CmsPage() {
             {
                 isLoading ? (
                     <div className="body">
-                        <LoadingSpinner />
+                        <LoadingSpinner type="1" />
                     </div>
                 ) : (
                 <div className="body" style={{justifyContent:"normal"}}>

@@ -251,7 +251,7 @@ export default function AdminPage() {
             {
                 loading === true ? (
                     <div className="loading-body"> 
-                        <LoadingSpinner />
+                        <LoadingSpinner type="1" />
                         <h3 style={{fontFamily:"sen", color: "white"}}>Please Wait while we verify your identity</h3>
                     </div>
                 ) : (
@@ -341,7 +341,7 @@ export default function AdminPage() {
                                 <label className="text-label">Username</label>
                                 <input type="text" style={{fontFamily:"sen", width: "-webkit-fill-available", minWidth: "300px"}} onChange={(event) => setUserFormUsername(event.target.value)} placeholder="username" />
                                 <label className="text-label">Password</label>
-                                <input type="text" style={{fontFamily:"sen", width: "-webkit-fill-available", minWidth: "300px"}} onChange={(event) => setUserFormPassword(event.target.value)} placeholder="********" />
+                                <input type="password" style={{fontFamily:"sen", width: "-webkit-fill-available", minWidth: "300px"}} onChange={(event) => setUserFormPassword(event.target.value)} placeholder="********" />
                                 <div className="upload-button-wrapper">
                                     <button className="btn" style={{fontFamily:"sen"}} onClick={() => handleAddUser()}>ADD USER</button>
                                 </div>

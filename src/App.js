@@ -5,6 +5,7 @@ import GamesPage from "./pages/GamesPage";
 import CmsPage from "./pages/CmsPage";
 import BlogPage from "./pages/BlogPage";
 import LoginPage from "./pages/LoginPage";
+import ChangePasswordPage from "./pages/ChangePasswordPage";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import { CookiesProvider } from "react-cookie";
 import AdminPage from "./pages/AdminPage";
@@ -41,6 +42,7 @@ export default function App() {
             loggedIn={loggedIn}
             setLoggedIn={setLoggedIn}
           />} />
+          <Route path="/changepassword" element={<ChangePasswordPage />} />
           <Route path="/admin" element={<AdminPage />} />
         </Routes>
       </Router>
