@@ -48,17 +48,22 @@ export default function LoginPage({ username, setUsername, password, setPassword
         .then((res) => {
           // Check if the request was successful
           if (res.ok) {
-            // Save the username in session storage
-            sessionStorage.setItem("username", username);
-            // Update the state to indicate the user is logged in
-            setLoggedIn(true);
-            // Redirect or perform other actions on successful login
-            navigate('/admin'); // You might want to navigate to a different page
+            return res.json();
           } else {
             // Handle unsuccessful login (display an error message, etc.)
             setError(true);
             setErrMsg("Incorrect login credentials.");
           }
+        })
+        .then((data) => {
+          sessionStorage.setItem("username", username);
+          sessionStorage.setItem("name", data.name);
+          sessionStorage.setItem("type", data.type);
+          sessionStorage.setItem("committee", data.committee);
+          // Update the state to indicate the user is logged in
+          setLoggedIn(true);
+          // Redirect or perform other actions on successful login
+          navigate('/admin'); // You might want to navigate to a different page
         })
         .catch((err) => {
           console.error(err);

@@ -22,26 +22,31 @@ export default function Navbar() {
   }
 
   useEffect(() => {
-    const aboutPos = document.getElementById("about").offsetTop;
-    const mentorsPos = document.getElementById("mentors").offsetTop;
-    const gamesPos = document.getElementById("games").offsetTop;
-    const cmsPos = document.getElementById("cms").offsetTop;
+    try {
+      const aboutPos = document.getElementById("about").offsetTop;
+      const mentorsPos = document.getElementById("mentors").offsetTop;
+      const gamesPos = document.getElementById("games").offsetTop;
+      const cmsPos = document.getElementById("cms").offsetTop;
 
-    switch (hash) {
-      case "/#about":
-        window.scrollTo(0, aboutPos);
-        break;
-      case "/#mentors":
-        window.scrollTo(0, mentorsPos);
-        break;
-      case "/#games":
-        window.scrollTo(0, gamesPos);
-        break;
-      case "/#cms":
-        window.scrollTo(0, cmsPos);
-        break;
-      default:
-        break;
+      switch (hash) {
+        case "/#about":
+          window.scrollTo(0, aboutPos);
+          break;
+        case "/#mentors":
+          window.scrollTo(0, mentorsPos);
+          break;
+        case "/#games":
+          window.scrollTo(0, gamesPos);
+          break;
+        case "/#cms":
+          window.scrollTo(0, cmsPos);
+          break;
+        default:
+          window.scrollTo(0, 0);
+          break;
+      }
+    } catch (e) {
+      window.scrollTo(0, 0);
     }
   }, []);
 
@@ -99,6 +104,7 @@ export default function Navbar() {
         setActivePage(4);
         break;
       default:
+        setActivePage(0);
         break;
     }
   }, [pathname]);

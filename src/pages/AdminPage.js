@@ -26,6 +26,12 @@ const s3 = new AWS.S3({
 });
 
 export default function AdminPage() {
+
+    const [user_username, setUserUsername] = useState("");
+    const [user_name, setUserName] = useState("");
+    const [user_type, setUserType] = useState("");
+    const [user_committee, setUserCommittee] = useState("");
+
     const [showProgress, setShowProgress] = useState(false);
     const [progress, setProgress] = useState(0);
 
@@ -51,6 +57,15 @@ export default function AdminPage() {
         } else {
             console.log("user logged in");
             setLoading(false);
+
+            setUserUsername(sessionStorage.getItem("username"));
+            setUserName(sessionStorage.getItem("name"));
+            setUserType(sessionStorage.getItem("type"));
+            setUserCommittee(sessionStorage.getItem("committee").toUpperCase());
+            console.log(user_username);
+            console.log(user_name);
+            console.log(user_type);
+            console.log(user_committee);
         }
     }
 
@@ -191,41 +206,62 @@ export default function AdminPage() {
                         <LoadingSpinner />
                         <h3 style={{fontFamily:"sen", color: "white"}}>Please Wait while we verify your identity</h3>
                     </div>
-                ) : (
-                    <div className="form-wrapper">
-                        <div className="form-body">
-                            <label className="text-label">Committee Name</label>      
-                            <div className="select-wrapper">
-                                <label>
-                                    <select style={{fontFamily:"sen"}} onChange={handleCommitteeSelect}>
-                                        <option value="GDD" >GDD</option>
-                                        <option value="GAD" >GAD</option>
-                                        <option value="GSD" >GSD</option>
-                                    </select>
-                                </label>
-                            </div>
-                            <label className="text-label">File Title</label>
-                            <input type="text" style={{fontFamily:"sen", width: "-webkit-fill-available", minWidth: "300px"}} onChange={(event) => setResourceName(event.target.value)} placeholder="Enter a name for your file" />
-                            <div className="file-input-wrapper">
-                                <div className="file-input">
-                                    <label className="label">
-                                        <input type="file" onChange={handleFileInput} />
-                                        <span>SELECT A FILE</span>
+                ) : 
+                
+                    (user_type === "admin" || user_type === "mentor") ?
+                    (
+                        <div className="form-wrapper">
+                            <div className="form-body">
+                                <label className="text-label">Committee Name</label>      
+                                <div className="select-wrapper">
+                                    <label>
+                                        <select style={{fontFamily:"sen"}} onChange={handleCommitteeSelect}>
+                                            {
+                                                user_type === "admin" ? (
+                                                    <>
+                                                    <option value="GDD" >GDD</option>
+                                                    <option value="GAD" >GAD</option>
+                                                    <option value="GSD" >GSD</option>
+                                                    </>
+                                                ) : (
+                                                    <option value={user_committee} >{user_committee}</option>
+                                                )
+                                            }
+                                        </select>
                                     </label>
-                                    <p className="text">{selectedFileName}</p>
+                                </div>
+                                <label className="text-label">File Title</label>
+                                <input type="text" style={{fontFamily:"sen", width: "-webkit-fill-available", minWidth: "300px"}} onChange={(event) => setResourceName(event.target.value)} placeholder="Enter a name for your file" />
+                                <div className="file-input-wrapper">
+                                    <div className="file-input">
+                                        <label className="label">
+                                            <input type="file" onChange={handleFileInput} />
+                                            <span>SELECT A FILE</span>
+                                        </label>
+                                        <p className="text">{selectedFileName}</p>
+                                    </div>
+                                </div>
+                                <div className="upload-button-wrapper">
+                                    <button className="btn" style={{fontFamily:"sen"}} onClick={() => handleUpload(selectedFile)}>UPLOAD</button>
+                                    {
+                                        showProgress && (
+                                            <p className="text">upload progress : {progress}%</p>
+                                        )
+                                    }
                                 </div>
                             </div>
-                            <div className="upload-button-wrapper">
-                                <button className="btn" style={{fontFamily:"sen"}} onClick={() => handleUpload(selectedFile)}>UPLOAD</button>
-                                {
-                                    showProgress && (
-                                        <p className="text">upload progress : {progress}%</p>
-                                    )
-                                }
-                            </div>
                         </div>
-                    </div>
-                )
+                    ) : user_type === "social media" &&
+                    (
+                        <div>
+                            <p className="wip-text">Work in progress... 🛠️🏗️🚧</p>
+                        </div>
+                    )
+                    
+                    // user form
+
+                    // game form
+
             }
         </div>
     )
