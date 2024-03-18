@@ -188,7 +188,7 @@ export default function HomePage() {
                         </div>
                         {
                             selectedCommittee === 0 && (
-                                <div>
+                                <>
                                     <div className="mentor-images-wrapper">
                                         <div className="single-mentor-image-wrapper">
                                             <h1 className="mentor-name">Youssef El Sharkawy</h1>
@@ -225,12 +225,12 @@ export default function HomePage() {
                                             <img src="/mentors-images/gdd/ZiadAlaa.jpg" className="mentor-image-mobile" />
                                         </div>
                                     </div>
-                                </div>
+                                </>
                             )
                         }
                         {
                             selectedCommittee === 1 && (
-                                <div>
+                                <>
                                     <div className="mentor-images-wrapper">
                                         <div className="single-mentor-image-wrapper">
                                             <h1 className="mentor-name">Mariam Tamer</h1>
@@ -259,12 +259,12 @@ export default function HomePage() {
                                             <img src="/mentors-images/gad/YaraElTantawy.jpg" className="mentor-image-mobile" />
                                         </div>
                                     </div>
-                                </div>
+                                </>
                             )
                         }
                          {
                             selectedCommittee === 2 && (
-                                <div>
+                                <>
                                     <div className="mentor-images-wrapper">
                                         <div className="single-mentor-image-wrapper">
                                             <h1 className="mentor-name">Ibrahim Amr</h1>
@@ -293,7 +293,7 @@ export default function HomePage() {
                                             <img src="/mentors-images/gsd/ZiadElGendi.jpg" className="mentor-image" />
                                         </div>
                                     </div>
-                                </div>
+                                </>
                             )
                         }
                     </div>

@@ -199,7 +199,7 @@ export default function AdminPage() {
 
     function handleAddUser() {
 
-        if (userFormName.trim() === "" || userFormUsername.trim() === "" || userFormPassword.trim() === "") {
+        if (userFormUsername.trim() === "" || userFormPassword.trim() === "") {
             setError(true);
             setErrorMessage("Please fill all the fields");
             return;
