@@ -49,6 +49,7 @@ export default function AdminPage() {
     const [errorMessage, setErrorMessage] = useState("");
 
     const [committee, setCommittee] = useState("");
+    const [session, setSession] = useState("");
 
     const navigate = useNavigate();
 
@@ -76,6 +77,10 @@ export default function AdminPage() {
 
     function handleCommitteeSelect(e) {
         setCommittee(e.target.value);
+    }
+
+    function handleSessionSelect(e) {
+        setSession(e.target.value);
     }
 
     function handleFileInput(e) {
@@ -151,6 +156,7 @@ export default function AdminPage() {
             const fullS3ResourceLink = AWS_RES + randomId + "/" + formattedFileName;
             const db_data = {
                 "committee": committee,
+                "session": session,
                 "title": resourceName,
                 "name": selectedFileName,
                 "id": randomId,
@@ -279,6 +285,24 @@ export default function AdminPage() {
                                                         <option value={user_committee} >{user_committee}</option>
                                                     )
                                                 }
+                                            </select>
+                                        </label>
+                                    </div>
+                                    <label className="text-label">Session</label>      
+                                    <div className="select-wrapper">
+                                        <label>
+                                            <select style={{fontFamily:"sen", width: "300px"}} onChange={handleSessionSelect}>
+                                                <option value="none" disabled selected>Select a Session</option>
+                                                <option value="1" >1</option>
+                                                <option value="2" >2</option>
+                                                <option value="3" >3</option>
+                                                <option value="4" >4</option>
+                                                <option value="5" >5</option>
+                                                <option value="6" >6</option>
+                                                <option value="7" >7</option>
+                                                <option value="8" >8</option>
+                                                <option value="9" >9</option>
+                                                <option value="10" >10</option>
                                             </select>
                                         </label>
                                     </div>
