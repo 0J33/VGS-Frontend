@@ -256,6 +256,7 @@ export default function AdminPage() {
 
                 <div className="admin-page">
                 
+                    {/* CMS Form */}
                     <div>
                     {(user_type === "admin" || user_type === "mentor") ? (
                             <>
@@ -306,6 +307,7 @@ export default function AdminPage() {
                     ) : null}
                     </div>
                 
+                    {/* User Form */}
                     <div>
 
                     {(user_type === "admin") ? (
@@ -349,6 +351,7 @@ export default function AdminPage() {
 
                     </div>
 
+                    {/* Games Form */}
                     <div>
                         
                         {(user_type === "admin") ? (
@@ -366,6 +369,7 @@ export default function AdminPage() {
 
                     </div>
 
+                    {/* Blog Form */}
                     <div>
 
                     {(user_type === "social media" || user_type === "admin" ) ? (
