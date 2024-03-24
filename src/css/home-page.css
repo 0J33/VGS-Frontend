@@ -674,15 +674,16 @@
     
     .our-committees-box {
         height: 70px;
-        width: 100%;
+        width: fit-content;
         background-color: #cd1a4f;
         display: flex;
         align-items: center;
         justify-content: center;
-        position:inherit;
+        position: relative;
         margin-left: 0px;
-        margin-top:-20px;
+        margin-top: 10px;
         margin-bottom: 50px;
+        padding: 0px 10px;
     }
     
     .our-committees-header-text {
