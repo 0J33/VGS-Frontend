@@ -851,23 +851,20 @@
     }
 
     .black-box {
-        width:6020px;
+        width:320px;
         height:320px;
         background-color: black;
-        position: relative;
-        right: 20px;
-        top: 30px;
-        margin-left:-300px;
+        margin-top: 10px;
+        margin-left: 10px;
+        z-index: 5px;
     }
     
     .white-box {
-        width:6020px;
-        height:315px;
+        width:320px;
+        height:320px;
         background-color: white;
-        position: relative;
-        right: -5px;
-        top: 45px;
-        margin-left:-300px;
+        margin-top: 20px;
+        margin-left: 20px;
     }
     
     .games-section {
