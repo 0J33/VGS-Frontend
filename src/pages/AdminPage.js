@@ -51,6 +51,10 @@ export default function AdminPage() {
     const [committee, setCommittee] = useState("");
     const [session, setSession] = useState("");
 
+    const [users, setUsers] = useState([]);
+    const [resouces, setResources] = useState([]);
+    const [posts, setPosts] = useState([]);
+
     const navigate = useNavigate();
 
     async function checkIsAdmin() {
@@ -203,6 +207,11 @@ export default function AdminPage() {
 
     }
 
+    function deleteFile(file) {
+        // TODO: finish this function
+        return false;
+    }
+
     function handleAddUser() {
 
         if (userFormUsername.trim() === "" || userFormPassword.trim() === "") {
@@ -244,6 +253,46 @@ export default function AdminPage() {
     useEffect(() => {
         checkIsAdmin();
     }, []);
+
+    useEffect(() => {
+        if (user_type === "admin") {
+            fetch(`${BACKEND}/getUsers`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                }
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                setUsers(data);
+            })
+
+            fetch(`${BACKEND}/getFiles`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                }
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                setResources(data);
+            })
+
+            fetch(`${BACKEND}/getPosts`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                }
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                setPosts(data);
+            })
+        }
+    }, [user_type]);
     
     return (
         <div className="body">
@@ -262,11 +311,102 @@ export default function AdminPage() {
 
                 <div className="admin-page">
                 
+                    {/* User Form */}
+                    <div>
+
+                    {(user_type === "admin") ? (
+                        <div className="form-wrapper">
+
+                        <p className="form-title">Add a User</p>
+                        <div className="form-body">
+                            <label className="text-label">Type</label>  
+                            <div className="select-wrapper">
+                                <label>
+                                    <select style={{fontFamily:"sen", width: "300px"}} onChange={(event) => {setUserFormType(event.target.value); console.log(event.target.value)}}>
+                                        <option value="none" disabled selected>Select a Type</option>
+                                        <option value="mentor" >Mentor</option>
+                                        <option value="social media" >Social Media</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <label className="text-label">Committee</label>
+                            <div className="select-wrapper">
+                                <label>
+                                    <select style={{fontFamily:"sen", width: "300px"}} onChange={(event) => setUserFormCommittee(event.target.value)}>
+                                        <option value="none" disabled selected>Select a Committee</option>
+                                        <option value="gdd" >GDD</option>
+                                        <option value="gsd" >GAD</option>
+                                        <option value="gad" >GSD</option>
+                                        <option value="none" >None (social media)</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <label className="text-label">Username</label>
+                            <input type="text" style={{fontFamily:"sen", width: "-webkit-fill-available", minWidth: "300px"}} onChange={(event) => setUserFormUsername(event.target.value)} placeholder="username" />
+                            <label className="text-label">Password</label>
+                            <input type="password" style={{fontFamily:"sen", width: "-webkit-fill-available", minWidth: "300px"}} onChange={(event) => setUserFormPassword(event.target.value)} placeholder="********" />
+                            <div className="upload-button-wrapper">
+                                <button className="btn" style={{fontFamily:"sen"}} onClick={() => handleAddUser()}>ADD USER</button>
+                            </div>
+                        </div>
+                            
+                        <br />
+                        <div className="divider">
+                        _____________________________________________
+                        </div>
+                        <br />
+                       
+                        <p className="form-title">Remove a User</p>
+                        <div className="form-body">
+                            {
+                            <table>
+                                <tbody>
+                                    {
+                                        users.map((user) => {
+                                            return (
+                                                <tr key={user.username}>
+                                                    <td>{user.username}</td>
+                                                    <td>
+                                                        <button className="btn" onClick={() => {
+                                                            fetch(`${BACKEND}/deleteUser`, {
+                                                                method: "DELETE",
+                                                                headers: {
+                                                                    "Content-Type": "application/json",
+                                                                },
+                                                                body: JSON.stringify({"username": user.username})
+                                                            })
+                                                            .then((response) => response.json())
+                                                            .then((data) => {
+                                                                if (data.status === 200) {
+                                                                    console.log("User Deleted Successfully");
+                                                                    window.location.reload();
+                                                                } else {
+                                                                    setError(true);
+                                                                    setErrorMessage("Error Deleting User");
+                                                                }
+                                                            })
+                                                        }}>X</button>
+                                                    </td>
+                                                </tr>
+                                            )
+                                        })
+                                    }
+                                </tbody>
+                            </table>
+                            }
+                        </div>
+
+                        </div>
+                    ) : null}
+
+                    </div>
+
                     {/* CMS Form */}
                     <div>
                     {(user_type === "admin" || user_type === "mentor") ? (
                             <>
                             <div className="form-wrapper">
+
                                 <p className="form-title">Upload a Resource<br />to the CMS</p>
                                 <div className="form-body">
                                     <label className="text-label">Committee Name</label>      
@@ -326,50 +466,71 @@ export default function AdminPage() {
                                             }
                                     </div>
                                 </div>
+
+                                {/* get file names and add x button next to each deleting using _id */}
+                                <br />
+                                <div className="divider">
+                                _____________________________________________
+                                </div>
+                                <br />
+
+                                <p className="form-title">Remove a Resource</p>
+                                <div className="form-body">
+                                    {
+                                    <table>
+                                        <tbody>
+                                            {
+                                                resouces.map((resource) => {
+                                                    return (
+                                                        <tr key={resource._id}>
+                                                            <td>{resource.title}</td>
+                                                            <td>
+                                                                <button className="btn" onClick={() => {
+                                                                    if (deleteFile(resource.id)) {
+                                                                        fetch(`${BACKEND}/deleteFile`, {
+                                                                            method: "DELETE",
+                                                                            headers: {
+                                                                                "Content-Type": "application/json",
+                                                                            },
+                                                                            body: JSON.stringify({"_id": resource._id})
+                                                                        })
+                                                                        .then((response) => response.json())
+                                                                        .then((data) => {
+                                                                            if (data.status === 200) {
+                                                                                console.log("Resource Deleted Successfully");
+                                                                                window.location.reload();
+                                                                            } else {
+                                                                                setError(true);
+                                                                                setErrorMessage("Error Deleting Resource");
+                                                                            }
+                                                                        })
+                                                                    }
+                                                                }}>X</button>
+                                                            </td>
+                                                        </tr>
+                                                    )
+                                                })
+                                            }
+                                        </tbody>
+                                    </table>
+                                    }
+                                </div>
+
                             </div>
                             </>
                     ) : null}
                     </div>
-                
-                    {/* User Form */}
+
+                    {/* Blog Form */}
                     <div>
 
-                    {(user_type === "admin") ? (
+                    {(user_type === "social media" || user_type === "admin" ) ? (
                         <div className="form-wrapper">
-                        <p className="form-title">Add a User</p>
+                            <p className="form-title">Add a Post<br />to the Blog</p>
                             <div className="form-body">
-                                <label className="text-label">Type</label>  
-                                <div className="select-wrapper">
-                                    <label>
-                                        <select style={{fontFamily:"sen", width: "300px"}} onChange={(event) => {setUserFormType(event.target.value); console.log(event.target.value)}}>
-                                            <option value="none" disabled selected>Select a Type</option>
-                                            <option value="mentor" >Mentor</option>
-                                            <option value="social media" >Social Media</option>
-                                        </select>
-                                    </label>
-                                </div>
-                                <label className="text-label">Committee</label>
-                                <div className="select-wrapper">
-                                    <label>
-                                        <select style={{fontFamily:"sen", width: "300px"}} onChange={(event) => setUserFormCommittee(event.target.value)}>
-                                            <option value="none" disabled selected>Select a Committee</option>
-                                            <option value="gdd" >GDD</option>
-                                            <option value="gsd" >GAD</option>
-                                            <option value="gad" >GSD</option>
-                                            <option value="none" >None (social media)</option>
-                                        </select>
-                                    </label>
-                                </div>
-                                <label className="text-label">Username</label>
-                                <input type="text" style={{fontFamily:"sen", width: "-webkit-fill-available", minWidth: "300px"}} onChange={(event) => setUserFormUsername(event.target.value)} placeholder="username" />
-                                <label className="text-label">Password</label>
-                                <input type="password" style={{fontFamily:"sen", width: "-webkit-fill-available", minWidth: "300px"}} onChange={(event) => setUserFormPassword(event.target.value)} placeholder="********" />
-                                <div className="upload-button-wrapper">
-                                    <button className="btn" style={{fontFamily:"sen"}} onClick={() => handleAddUser()}>ADD USER</button>
-                                </div>
+                                <p className="wip-text">Work in progress... 🛠️🏗️🚧</p>
+                                {/* title / description / media */}
                             </div>
-
-                            {/* update/delete users */}
                         </div>
                     ) : null}
 
@@ -383,29 +544,11 @@ export default function AdminPage() {
                         <div className="form-wrapper">
                             <p className="form-title">Add a Game</p>
                             <div className="form-body">
-                                {/* add/update/delete games */}
                                 <p className="wip-text">Work in progress... 🛠️🏗️🚧</p>
-                                {/* game file / mentor or game jam / year */}
                             </div>
                         </div>
 
                         ) : null}
-
-                    </div>
-
-                    {/* Blog Form */}
-                    <div>
-
-                    {(user_type === "social media" || user_type === "admin" ) ? (
-                        <div className="form-wrapper">
-                            <p className="form-title">Add a Post<br />to the Blog</p>
-                            <div className="form-body">
-                                {/* add/update/delete posts */}
-                                <p className="wip-text">Work in progress... 🛠️🏗️🚧</p>
-                                {/* title / description / images / videos */}
-                            </div>
-                        </div>
-                    ) : null}
 
                     </div>
 
