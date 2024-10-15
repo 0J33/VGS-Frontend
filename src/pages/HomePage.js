@@ -168,7 +168,7 @@ export default function HomePage() {
             <div id="mentors" className="mentors-section">
                 <div className="mentors-wrapper">
                     <div className="mentors-inner-wrapper">
-                        <h1 style={{fontSize:62, color:"white", fontFamily:"sen", fontWeight:900, marginLeft:"25px"}}>MEET VGS' 2023 MENTORS</h1>
+                        <h1 style={{fontSize:62, color:"white", fontFamily:"sen", fontWeight:900, marginLeft:"25px"}}>MEET VGS' 2025 MENTORS</h1>
                         <div className="committee-selection-box">
                             <div className={selectedCommittee === 0 ? "selected-committee-button-wrapper": "committee-button-wrapper"}
                                 onClick={() => setSelectedCommittee(0)}
@@ -191,38 +191,30 @@ export default function HomePage() {
                                 <>
                                     <div className="mentor-images-wrapper">
                                         <div className="single-mentor-image-wrapper">
-                                            <h1 className="mentor-name">Youssef El Sharkawy</h1>
-                                            <img src="/mentors-images/gdd/YoussefElSharkawy.jpg" className="mentor-image" />
+                                            <h1 className="mentor-name">GDD Mentor 1</h1>
+                                            <img src="/images/placeholder.png" className="mentor-image" />
                                         </div>
                                         <div className="single-mentor-image-wrapper">
-                                            <h1 className="mentor-name">Farah Ahmed</h1>
-                                            <img src="/mentors-images/gdd/FarahAhmed.jpg" className="mentor-image" />
+                                            <h1 className="mentor-name">GDD Mentor 2</h1>
+                                            <img src="/images/placeholder.png" className="mentor-image" />
                                         </div>
                                         <div className="single-mentor-image-wrapper">
-                                            <h1 className="mentor-name">Youssef Korayem</h1>
-                                            <img src="/mentors-images/gdd/YoussefKorayem.jpg" className="mentor-image" />
-                                        </div>
-                                        <div className="single-mentor-image-wrapper">
-                                            <h1 className="mentor-name">Ziad Alaa</h1>
-                                            <img src="/mentors-images/gdd/ZiadAlaa.jpg" className="mentor-image" />
+                                            <h1 className="mentor-name">GDD Mentor 3</h1>
+                                            <img src="/images/placeholder.png" className="mentor-image" />
                                         </div>
                                     </div>
                                     <div className="mentor-images-wrapper-mobile">
                                         <div className="single-mentor-image-wrapper-mobile" style={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
-                                            <h1 className="mentor-name">Youssef El Sharkawy</h1>
-                                            <img src="/mentors-images/gdd/YoussefElSharkawy.jpg" className="mentor-image-mobile" />
+                                            <h1 className="mentor-name">GDD Mentor 1</h1>
+                                            <img src="/images/placeholder.png" className="mentor-image-mobile" />
                                         </div>
                                         <div className="single-mentor-image-wrapper-mobile">
-                                            <h1 className="mentor-name">Farah Ahmed</h1>
-                                            <img src="/mentors-images/gdd/FarahAhmed.jpg" className="mentor-image-mobile" />
+                                            <h1 className="mentor-name">GDD Mentor 2</h1>
+                                            <img src="/mimages/placeholder.png" className="mentor-image-mobile" />
                                         </div>
                                         <div className="single-mentor-image-wrapper-mobile" style={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
-                                            <h1 className="mentor-name">Youssef Korayem</h1>
-                                            <img src="/mentors-images/gdd/YoussefKorayem.jpg" className="mentor-image-mobile" />
-                                        </div>
-                                        <div className="single-mentor-image-wrapper-mobile">
-                                            <h1 className="mentor-name">Ziad Alaa</h1>
-                                            <img src="/mentors-images/gdd/ZiadAlaa.jpg" className="mentor-image-mobile" />
+                                            <h1 className="mentor-name">GDD Mentor 3</h1>
+                                            <img src="/images/placeholder.png" className="mentor-image-mobile" />
                                         </div>
                                     </div>
                                 </>
@@ -233,30 +225,30 @@ export default function HomePage() {
                                 <>
                                     <div className="mentor-images-wrapper">
                                         <div className="single-mentor-image-wrapper">
-                                            <h1 className="mentor-name">Mariam Tamer</h1>
-                                            <img src="/mentors-images/gad/MariamTamer.jpg" className="mentor-image" />
+                                            <h1 className="mentor-name">GAD Mentor 1</h1>
+                                            <img src="/images/placeholder.png" className="mentor-image" />
                                         </div>
                                         <div className="single-mentor-image-wrapper">
-                                            <h1 className="mentor-name">Nada Tamer</h1>
-                                            <img src="/mentors-images/gad/NadaTamer.jpg" className="mentor-image" />
+                                            <h1 className="mentor-name">GAD Mentor 2</h1>
+                                            <img src="/images/placeholder.png" className="mentor-image" />
                                         </div>
                                         <div className="single-mentor-image-wrapper">
-                                            <h1 className="mentor-name">Yara El Tantawy</h1>
-                                            <img src="/mentors-images/gad/YaraElTantawy.jpg" className="mentor-image" />
+                                            <h1 className="mentor-name">GAD Mentor 3</h1>
+                                            <img src="/images/placeholder.png" className="mentor-image" />
                                         </div>
                                     </div>
                                     <div className="mentor-images-wrapper-mobile">
                                         <div className="single-mentor-image-wrapper-mobile">
-                                            <h1 className="mentor-name">Mariam Tamer</h1>
-                                            <img src="/mentors-images/gad/MariamTamer.jpg" className="mentor-image-mobile" />
+                                            <h1 className="mentor-name">GAD Mentor 1</h1>
+                                            <img src="/images/placeholder.png" className="mentor-image-mobile" />
                                         </div>
                                         <div className="single-mentor-image-wrapper-mobile">
-                                            <h1 className="mentor-name">Nada Tamer</h1>
-                                            <img src="/mentors-images/gad/NadaTamer.jpg" className="mentor-image-mobile" />
+                                            <h1 className="mentor-name">GAD Mentor 2</h1>
+                                            <img src="/images/placeholder.png" className="mentor-image-mobile" />
                                         </div>
                                         <div className="single-mentor-image-wrapper-mobile" style={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
-                                            <h1 className="mentor-name">Yara El Tantawy</h1>
-                                            <img src="/mentors-images/gad/YaraElTantawy.jpg" className="mentor-image-mobile" />
+                                            <h1 className="mentor-name">GAD Mentor 3</h1>
+                                            <img src="/images/placeholder.png" className="mentor-image-mobile" />
                                         </div>
                                     </div>
                                 </>
@@ -267,30 +259,30 @@ export default function HomePage() {
                                 <>
                                     <div className="mentor-images-wrapper">
                                         <div className="single-mentor-image-wrapper">
-                                            <h1 className="mentor-name">Ibrahim Amr</h1>
-                                            <img src="/mentors-images/gsd/IbrahimAmr.jpg" className="mentor-image" />
+                                            <h1 className="mentor-name">GSD Mentor 1</h1>
+                                            <img src="/images/placeholder.png" className="mentor-image" />
                                         </div>
                                         <div className="single-mentor-image-wrapper">
-                                            <h1 className="mentor-name">Omar Yasser</h1>
-                                            <img src="/mentors-images/gsd/OmarYasser.jpg" className="mentor-image" />
+                                            <h1 className="mentor-name">GSD Mentor 2</h1>
+                                            <img src="/images/placeholder.png" className="mentor-image" />
                                         </div>
                                         <div className="single-mentor-image-wrapper">
-                                            <h1 className="mentor-name">Ziad El Gendi</h1>
-                                            <img src="/mentors-images/gsd/ZiadElGendi.jpg" className="mentor-image" />
+                                            <h1 className="mentor-name">GSD Mentor 3</h1>
+                                            <img src="/images/placeholder.png" className="mentor-image" />
                                         </div>
                                     </div>
                                     <div className="mentor-images-wrapper-mobile">
                                         <div className="single-mentor-image-wrapper-mobile">
-                                            <h1 className="mentor-name">Ibrahim Amr</h1>
-                                            <img src="/mentors-images/gsd/IbrahimAmr.jpg" className="mentor-image" />
+                                            <h1 className="mentor-name">GSD Mentor 1</h1>
+                                            <img src="/images/placeholder.png" className="mentor-image" />
                                         </div>
                                         <div className="single-mentor-image-wrapper-mobile">
-                                            <h1 className="mentor-name">Omar Yasser</h1>
-                                            <img src="/mentors-images/gsd/OmarYasser.jpg" className="mentor-image" />
+                                            <h1 className="mentor-name">GSD Mentor 2</h1>
+                                            <img src="/images/placeholder.png" className="mentor-image" />
                                         </div>
                                         <div className="single-mentor-image-wrapper-mobile">
-                                            <h1 className="mentor-name">Ziad El Gendi</h1>
-                                            <img src="/mentors-images/gsd/ZiadElGendi.jpg" className="mentor-image" />
+                                            <h1 className="mentor-name">GSD Mentor 3</h1>
+                                            <img src="/images/placeholder.png" className="mentor-image" />
                                         </div>
                                     </div>
                                 </>
