@@ -210,7 +210,7 @@ export default function HomePage() {
                                         </div>
                                         <div className="single-mentor-image-wrapper-mobile">
                                             <h1 className="mentor-name">Rahma Ahmed</h1>
-                                            <img src="/mimages/placeholder.png" className="mentor-image-mobile" />
+                                            <img src="/images/placeholder.png" className="mentor-image-mobile" />
                                         </div>
                                         <div className="single-mentor-image-wrapper-mobile" style={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
                                             <h1 className="mentor-name">Mohamed Zahran</h1>
