@@ -38,9 +38,6 @@ export default function Navbar() {
         case "/#games":
           window.scrollTo(0, gamesPos);
           break;
-        case "/#cms":
-          window.scrollTo(0, cmsPos);
-          break;
         default:
           window.scrollTo(0, 0);
           break;
@@ -55,7 +52,6 @@ export default function Navbar() {
       const aboutPos = document.getElementById("about").offsetTop;
       const mentorsPos = document.getElementById("mentors").offsetTop;
       const gamesPos = document.getElementById("games").offsetTop;
-      const cmsPos = document.getElementById("cms").offsetTop;
       const scrollPos = window.scrollY;
 
       const screenWidth = window.innerWidth;
@@ -66,10 +62,12 @@ export default function Navbar() {
             setActivePage(0);
           } else if (scrollPos < gamesPos - 100) {
             setActivePage(3);
-          } else if (scrollPos < cmsPos - 350) {
-            setActivePage(1);
           } else {
-            setActivePage(2);
+            if (pathname === "/blog") {
+              setActivePage(4);
+            } else if (pathname === "/cms") {
+              setActivePage(2);
+            }
           }
       } else {
         // Execute desktop-specific logic
@@ -77,10 +75,12 @@ export default function Navbar() {
           setActivePage(0);
         } else if (scrollPos < gamesPos - 100) {
           setActivePage(3);
-        } else if (scrollPos < cmsPos - 200) {
-          setActivePage(1);
         } else {
-          setActivePage(2);
+          if (pathname === "/blog") {
+            setActivePage(4);
+          } else if (pathname === "/cms") {
+            setActivePage(2);
+          }
         }
       }
     };
